@@ -9,428 +9,430 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ink:    #0b0f1a;
-  --ink2:   #1c2337;
-  --gold:   #f0c000;
-  --gold2:  #e6a800;
-  --amber:  #ff8c00;
-  --white:  #ffffff;
-  --offwhite: #f6f8fc;
-  --muted:  #6b7591;
-  --wa:     #25D366;
-  --wa2:    #128C7E;
-  --r: 12px;
+  /* Light theme palette */
+  --bg:       #f5f7fa;
+  --bg2:      #ffffff;
+  --ink:      #0f1623;
+  --ink2:     #3a4460;
+  --muted:    #6b7591;
+  --border:   #e2e6ef;
+  --gold:     #e6a800;
+  --gold-lt:  #fff8e0;
+  --gold-dk:  #b07e00;
+  --amber:    #ff8c00;
+  --wa:       #25D366;
+  --wa2:      #128C7E;
+  --white:    #ffffff;
+  --r:        10px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
   font-family:'DM Sans',sans-serif;
-  background:var(--ink);
-  color:var(--white);
+  background:var(--bg);
+  color:var(--ink);
   overflow-x:hidden;
-}
-body::before{
-  content:'';
-  position:fixed;inset:0;z-index:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events:none;opacity:.45;
+  font-size:15px;
 }
 
-/* NAV */
+/* ── NAV ────────────────────────────────── */
 nav{
   position:sticky;top:0;z-index:200;
   display:flex;align-items:center;justify-content:space-between;
-  padding:14px 20px;
-  background:rgba(11,15,26,.93);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(240,192,0,.12);
+  padding:11px 16px;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 1px 8px rgba(0,0,0,.06);
 }
-.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;}
 .nav-bolt{
-  width:36px;height:36px;border-radius:9px;
+  width:32px;height:32px;border-radius:8px;
   background:var(--gold);
   display:flex;align-items:center;justify-content:center;
-  font-size:19px;flex-shrink:0;
-  box-shadow:0 0 18px rgba(240,192,0,.4);
+  font-size:16px;flex-shrink:0;
 }
 .nav-name{
-  font-family:'Syne',sans-serif;font-weight:800;font-size:17px;
-  color:var(--white);letter-spacing:.3px;line-height:1.15;
+  font-family:'Syne',sans-serif;font-weight:800;font-size:15px;
+  color:var(--ink);letter-spacing:.2px;line-height:1.15;
 }
 .nav-name small{
   display:block;font-family:'DM Sans',sans-serif;
-  font-size:10px;font-weight:500;color:var(--gold);
-  letter-spacing:.6px;text-transform:uppercase;
+  font-size:9.5px;font-weight:500;color:var(--muted);
+  letter-spacing:.5px;text-transform:uppercase;
 }
-.nav-right{display:flex;gap:8px;align-items:center;}
+.nav-right{display:flex;gap:7px;align-items:center;}
 .nav-call{
-  display:flex;align-items:center;gap:6px;
-  color:var(--white);text-decoration:none;
-  font-size:13px;font-weight:700;
-  padding:8px 14px;border-radius:50px;
-  border:1.5px solid rgba(255,255,255,.2);
+  display:flex;align-items:center;gap:5px;
+  color:var(--ink);text-decoration:none;
+  font-size:12px;font-weight:700;
+  padding:7px 12px;border-radius:50px;
+  border:1.5px solid var(--border);
   transition:border-color .2s,background .2s;
 }
-.nav-call:hover{border-color:var(--gold);background:rgba(240,192,0,.08);}
+.nav-call:hover{border-color:var(--gold);background:var(--gold-lt);}
 .nav-wa{
-  display:flex;align-items:center;gap:6px;
+  display:flex;align-items:center;gap:5px;
   background:var(--wa);color:white;text-decoration:none;
-  padding:9px 16px;border-radius:50px;font-size:13px;font-weight:700;
+  padding:7px 13px;border-radius:50px;font-size:12px;font-weight:700;
   transition:background .2s;
 }
 .nav-wa:hover{background:var(--wa2);}
 
-/* HERO */
+/* ── HERO ───────────────────────────────── */
 .hero{
-  position:relative;min-height:96vh;
+  position:relative;min-height:88vh;
   display:flex;flex-direction:column;
   justify-content:flex-end;overflow:hidden;
 }
 .hero-bg{
   position:absolute;inset:0;
   background:
-    linear-gradient(175deg,rgba(11,15,26,.2) 0%,rgba(11,15,26,.75) 45%,rgba(11,15,26,.97) 100%),
+    linear-gradient(175deg,rgba(10,14,24,.15) 0%,rgba(10,14,24,.65) 45%,rgba(10,14,24,.93) 100%),
     url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80') center/cover no-repeat;
 }
-.hero-bg::after{
-  content:'';position:absolute;inset:0;
-  background:
-    linear-gradient(135deg,rgba(240,192,0,.07) 0%,transparent 55%),
-    radial-gradient(ellipse 60% 40% at 80% 20%,rgba(240,192,0,.1),transparent);
-}
 .hero-live{
-  position:absolute;top:72px;right:18px;z-index:2;
-  display:flex;align-items:center;gap:7px;
-  background:rgba(11,15,26,.85);
-  border:1px solid rgba(37,211,102,.4);
-  border-radius:50px;padding:7px 14px;
-  font-size:12px;font-weight:700;color:var(--wa);
+  position:absolute;top:14px;right:14px;z-index:2;
+  display:flex;align-items:center;gap:6px;
+  background:rgba(0,0,0,.55);
+  border:1px solid rgba(37,211,102,.45);
+  border-radius:50px;padding:5px 11px;
+  font-size:11px;font-weight:700;color:#25D366;
   backdrop-filter:blur(8px);
 }
 .live-dot{
-  width:8px;height:8px;border-radius:50%;
+  width:7px;height:7px;border-radius:50%;
   background:var(--wa);animation:blink 1.6s infinite;
 }
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:.2;}}
 .hero-inner{
   position:relative;z-index:2;
-  padding:0 22px 0;width:100%;max-width:700px;
-  animation:fadeUp .7s ease both;
+  padding:0 18px 0;
+  animation:fadeUp .6s ease both;
 }
 @keyframes fadeUp{
-  from{opacity:0;transform:translateY(28px);}
+  from{opacity:0;transform:translateY(22px);}
   to{opacity:1;transform:translateY(0);}
 }
 .hero-eyebrow{
-  display:inline-flex;align-items:center;gap:7px;
-  border:1px solid rgba(240,192,0,.35);
-  background:rgba(240,192,0,.08);
-  color:var(--gold);font-size:11px;font-weight:700;
+  display:inline-flex;align-items:center;gap:6px;
+  border:1px solid rgba(240,192,0,.5);
+  background:rgba(240,192,0,.12);
+  color:#f5d060;font-size:10px;font-weight:700;
   letter-spacing:1.2px;text-transform:uppercase;
-  padding:5px 13px;border-radius:50px;margin-bottom:18px;
+  padding:4px 11px;border-radius:50px;margin-bottom:14px;
 }
 .hero h1{
   font-family:'Syne',sans-serif;font-weight:800;
-  font-size:clamp(38px,10vw,66px);
-  line-height:1.0;letter-spacing:-1px;text-transform:uppercase;
-  margin-bottom:18px;color:var(--white);
+  font-size:clamp(32px,9vw,54px);
+  line-height:1.02;letter-spacing:-0.5px;text-transform:uppercase;
+  margin-bottom:12px;color:#fff;
 }
 .hero h1 .accent{color:var(--gold);}
-.hero h1 .stroke{-webkit-text-stroke:2px var(--white);color:transparent;}
+.hero h1 .stroke{-webkit-text-stroke:2px #fff;color:transparent;}
 .hero-sub{
-  font-size:16px;line-height:1.65;
-  color:rgba(255,255,255,.72);max-width:440px;margin-bottom:32px;
+  font-size:14px;line-height:1.6;
+  color:rgba(255,255,255,.75);max-width:400px;margin-bottom:22px;
 }
-.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;}
+.hero-ctas{display:flex;flex-direction:column;gap:10px;}
 .cta-primary{
-  display:inline-flex;align-items:center;gap:9px;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
   background:var(--wa);color:white;text-decoration:none;
-  padding:16px 28px;border-radius:50px;font-size:16px;font-weight:700;
-  box-shadow:0 6px 28px rgba(37,211,102,.45);
+  padding:13px 22px;border-radius:50px;font-size:14px;font-weight:700;
+  box-shadow:0 4px 20px rgba(37,211,102,.4);
   transition:transform .2s,box-shadow .2s;
 }
-.cta-primary:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(37,211,102,.55);}
+.cta-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.5);}
 .cta-secondary{
-  display:inline-flex;align-items:center;gap:9px;
-  color:var(--white);text-decoration:none;
-  padding:15px 24px;border-radius:50px;font-size:15px;font-weight:700;
-  border:2px solid rgba(255,255,255,.28);
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  color:#fff;text-decoration:none;
+  padding:12px 20px;border-radius:50px;font-size:14px;font-weight:700;
+  border:2px solid rgba(255,255,255,.35);
   transition:background .2s,border-color .2s;
 }
-.cta-secondary:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.6);}
-.hero-spacer{height:48px;}
+.cta-secondary:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.7);}
+.hero-spacer{height:18px;}
+
+/* stats strip */
 .hero-strip{
   position:relative;z-index:2;
   display:grid;grid-template-columns:repeat(4,1fr);
-  background:rgba(255,255,255,.04);
-  border-top:1px solid rgba(240,192,0,.15);
-  animation:fadeUp .7s .2s ease both;
+  background:rgba(0,0,0,.45);
+  border-top:1px solid rgba(240,192,0,.2);
+  backdrop-filter:blur(8px);
+  animation:fadeUp .6s .15s ease both;
 }
 .strip-item{
-  padding:18px 10px;text-align:center;
-  border-right:1px solid rgba(255,255,255,.07);
+  padding:13px 6px;text-align:center;
+  border-right:1px solid rgba(255,255,255,.08);
 }
 .strip-item:last-child{border-right:none;}
 .strip-num{
-  font-family:'Syne',sans-serif;font-size:26px;font-weight:800;
+  font-family:'Syne',sans-serif;font-size:20px;font-weight:800;
   color:var(--gold);line-height:1;
 }
-.strip-lbl{font-size:11px;color:rgba(255,255,255,.5);font-weight:500;margin-top:3px;}
+.strip-lbl{font-size:10px;color:rgba(255,255,255,.5);font-weight:500;margin-top:2px;}
 
-/* URGENCY BAR */
+/* ── URGENCY BAR ────────────────────────── */
 .urgency-bar{
   background:var(--gold);color:var(--ink);
-  padding:12px 20px;text-align:center;
-  font-size:13px;font-weight:700;letter-spacing:.3px;
+  padding:10px 16px;text-align:center;
+  font-size:12.5px;font-weight:700;letter-spacing:.2px;
 }
 .urgency-bar a{color:var(--ink);font-weight:800;text-decoration:underline;}
 
-/* SECTION BASE */
-section{padding:64px 22px;position:relative;}
+/* ── SECTIONS ───────────────────────────── */
+section{padding:44px 16px;position:relative;}
 .label{
   display:inline-block;
-  font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  color:var(--gold);background:rgba(240,192,0,.1);
-  border:1px solid rgba(240,192,0,.25);
-  padding:4px 12px;border-radius:50px;margin-bottom:12px;
+  font-size:9.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold-dk);background:var(--gold-lt);
+  border:1px solid rgba(230,168,0,.3);
+  padding:3px 10px;border-radius:50px;margin-bottom:10px;
 }
 h2.sec-title{
   font-family:'Syne',sans-serif;
-  font-size:clamp(28px,6vw,40px);
-  font-weight:800;line-height:1.1;letter-spacing:-.5px;
-  margin-bottom:8px;color:var(--white);text-transform:uppercase;
+  font-size:clamp(22px,5.5vw,32px);
+  font-weight:800;line-height:1.1;letter-spacing:-.4px;
+  margin-bottom:6px;color:var(--ink);text-transform:uppercase;
 }
-h2.sec-title em{font-style:normal;color:var(--gold);}
+h2.sec-title em{font-style:normal;color:var(--gold-dk);}
 .sec-sub{
-  font-size:15px;color:rgba(255,255,255,.55);
-  line-height:1.65;max-width:450px;margin-bottom:40px;
+  font-size:13.5px;color:var(--muted);
+  line-height:1.6;max-width:440px;margin-bottom:28px;
 }
-.bg-dark{background:var(--ink);}
-.bg-mid{background:var(--ink2);}
+.bg-white{background:var(--bg2);}
+.bg-light{background:var(--bg);}
 
-/* SERVICES */
-.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+/* ── SERVICES ───────────────────────────── */
+.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
 .svc-card{
-  background:var(--ink2);
-  border:1px solid rgba(255,255,255,.06);
-  border-radius:var(--r);padding:24px 18px;
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--r);padding:18px 14px;
   position:relative;overflow:hidden;
-  transition:transform .2s,border-color .2s;
+  transition:transform .2s,border-color .2s,box-shadow .2s;
 }
 .svc-card::before{
   content:'';position:absolute;top:0;left:0;right:0;height:2px;
   background:linear-gradient(90deg,var(--gold),var(--amber));
   transform:scaleX(0);transform-origin:left;transition:transform .3s;
 }
-.svc-card:hover{transform:translateY(-4px);border-color:rgba(240,192,0,.25);}
+.svc-card:hover{transform:translateY(-3px);border-color:rgba(230,168,0,.4);box-shadow:0 6px 18px rgba(0,0,0,.07);}
 .svc-card:hover::before{transform:scaleX(1);}
 .svc-ico{
-  width:50px;height:50px;border-radius:14px;
-  background:rgba(240,192,0,.12);
+  width:42px;height:42px;border-radius:11px;
+  background:var(--gold-lt);
   display:flex;align-items:center;justify-content:center;
-  font-size:24px;margin-bottom:14px;
+  font-size:20px;margin-bottom:11px;
 }
 .svc-card h3{
-  font-family:'Syne',sans-serif;font-size:15px;font-weight:800;
-  color:var(--white);margin-bottom:6px;text-transform:uppercase;
+  font-family:'Syne',sans-serif;font-size:13px;font-weight:800;
+  color:var(--ink);margin-bottom:5px;text-transform:uppercase;
 }
-.svc-card p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.55;}
+.svc-card p{font-size:12px;color:var(--muted);line-height:1.55;}
 .svc-cta{
-  display:inline-flex;align-items:center;gap:5px;
-  margin-top:14px;font-size:12px;font-weight:700;
-  color:var(--gold);text-decoration:none;
+  display:inline-flex;align-items:center;gap:4px;
+  margin-top:11px;font-size:11.5px;font-weight:700;
+  color:var(--gold-dk);text-decoration:none;
 }
 
-/* HOW IT WORKS */
+/* ── HOW IT WORKS ───────────────────────── */
 .steps{display:flex;flex-direction:column;gap:0;}
 .step{
-  display:flex;gap:18px;align-items:flex-start;
-  padding:20px 0;border-bottom:1px solid rgba(255,255,255,.06);
+  display:flex;gap:14px;align-items:flex-start;
+  padding:16px 0;border-bottom:1px solid var(--border);
 }
 .step:last-child{border-bottom:none;}
 .step-num{
-  width:44px;height:44px;border-radius:50%;
+  width:38px;height:38px;border-radius:50%;
   background:var(--gold);color:var(--ink);
   display:flex;align-items:center;justify-content:center;
-  font-family:'Syne',sans-serif;font-size:18px;font-weight:800;
+  font-family:'Syne',sans-serif;font-size:16px;font-weight:800;
   flex-shrink:0;
 }
 .step-body h4{
-  font-family:'Syne',sans-serif;font-size:16px;font-weight:800;
-  color:var(--white);margin-bottom:4px;text-transform:uppercase;
+  font-family:'Syne',sans-serif;font-size:14px;font-weight:800;
+  color:var(--ink);margin-bottom:3px;text-transform:uppercase;
 }
-.step-body p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.55;}
+.step-body p{font-size:12.5px;color:var(--muted);line-height:1.55;}
 
-/* PROJECTS */
-.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+/* ── PROJECTS ───────────────────────────── */
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .proj-card{
   border-radius:var(--r);overflow:hidden;
   position:relative;aspect-ratio:4/3;
-  background:var(--ink2);border:1px solid rgba(255,255,255,.06);
+  background:var(--bg2);border:1px solid var(--border);
 }
 .proj-card.wide{grid-column:span 2;aspect-ratio:16/7;}
 .proj-placeholder{
   width:100%;height:100%;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
-  background:linear-gradient(135deg,#111827 0%,#1c2a45 100%);
-  transition:transform .45s;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  background:linear-gradient(135deg,#e8edf5 0%,#d0d9e8 100%);
+  transition:transform .4s;
 }
 .proj-card:hover .proj-placeholder{transform:scale(1.03);}
-.ph-icon{font-size:32px;opacity:.4;}
+.ph-icon{font-size:26px;opacity:.45;}
 .ph-name{
-  font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.8px;
-  background:rgba(240,192,0,.1);border:1px dashed rgba(240,192,0,.3);
-  padding:4px 10px;border-radius:6px;
+  font-size:10px;font-weight:700;color:var(--gold-dk);letter-spacing:.7px;
+  background:rgba(230,168,0,.12);border:1px dashed rgba(230,168,0,.4);
+  padding:3px 9px;border-radius:6px;
   word-break:break-all;max-width:86%;text-align:center;
 }
 .proj-label{
   position:absolute;bottom:0;left:0;right:0;
-  background:linear-gradient(0deg,rgba(11,15,26,.95) 0%,transparent 100%);
-  padding:26px 12px 12px;
-  color:white;font-size:12px;font-weight:700;
+  background:linear-gradient(0deg,rgba(15,22,35,.9) 0%,transparent 100%);
+  padding:22px 10px 10px;
+  color:white;font-size:11px;font-weight:700;
 }
-.proj-loc{font-size:10px;color:var(--gold);font-weight:700;margin-bottom:3px;}
+.proj-loc{font-size:9.5px;color:var(--gold);font-weight:700;margin-bottom:2px;}
 
-/* WHY US */
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+/* ── WHY US ─────────────────────────────── */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
 .why-card{
-  background:rgba(240,192,0,.06);border:1px solid rgba(240,192,0,.15);
-  border-radius:var(--r);padding:22px 18px;transition:background .2s;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--r);padding:18px 14px;transition:box-shadow .2s,border-color .2s;
 }
-.why-card:hover{background:rgba(240,192,0,.1);}
-.why-ico{font-size:26px;margin-bottom:10px;display:block;}
+.why-card:hover{box-shadow:0 4px 14px rgba(0,0,0,.06);border-color:rgba(230,168,0,.35);}
+.why-ico{font-size:22px;margin-bottom:8px;display:block;}
 .why-card h3{
-  font-family:'Syne',sans-serif;font-size:14px;font-weight:800;
-  color:var(--gold);margin-bottom:6px;text-transform:uppercase;
+  font-family:'Syne',sans-serif;font-size:12.5px;font-weight:800;
+  color:var(--ink);margin-bottom:5px;text-transform:uppercase;
 }
-.why-card p{font-size:12px;color:rgba(255,255,255,.55);line-height:1.55;}
+.why-card p{font-size:12px;color:var(--muted);line-height:1.55;}
 
-/* TESTIMONIALS */
-.testi-grid{display:flex;flex-direction:column;gap:14px;}
+/* ── TESTIMONIALS ───────────────────────── */
+.testi-grid{display:flex;flex-direction:column;gap:12px;}
 .testi{
-  background:var(--ink2);border-radius:var(--r);
-  padding:22px 18px;border-left:3px solid var(--gold);position:relative;
+  background:var(--bg2);border-radius:var(--r);
+  padding:18px 15px;border-left:3px solid var(--gold);
+  position:relative;border:1px solid var(--border);
+  border-left:3px solid var(--gold);
 }
 .testi::before{
-  content:'\201C';font-size:72px;line-height:1;
-  color:rgba(240,192,0,.12);
-  position:absolute;top:-4px;right:14px;font-family:Georgia,serif;
+  content:'\201C';font-size:60px;line-height:1;
+  color:rgba(230,168,0,.15);
+  position:absolute;top:-2px;right:12px;font-family:Georgia,serif;
 }
-.stars{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:8px;}
+.stars{color:var(--gold);font-size:12px;letter-spacing:2px;margin-bottom:7px;}
 .testi blockquote{
-  font-size:14px;line-height:1.65;
-  color:rgba(255,255,255,.75);font-style:italic;margin-bottom:14px;
+  font-size:13px;line-height:1.65;
+  color:var(--ink2);font-style:italic;margin-bottom:12px;
 }
-.testi-meta{display:flex;align-items:center;gap:10px;}
+.testi-meta{display:flex;align-items:center;gap:9px;}
 .testi-av{
-  width:36px;height:36px;border-radius:50%;
+  width:32px;height:32px;border-radius:50%;
   background:linear-gradient(135deg,var(--gold),var(--amber));
   color:var(--ink);display:flex;align-items:center;justify-content:center;
-  font-family:'Syne',sans-serif;font-size:14px;font-weight:800;flex-shrink:0;
+  font-family:'Syne',sans-serif;font-size:13px;font-weight:800;flex-shrink:0;
 }
-.testi-name{font-weight:700;font-size:13px;color:var(--white);}
-.testi-loc{font-size:11px;color:var(--muted);}
+.testi-name{font-weight:700;font-size:12.5px;color:var(--ink);}
+.testi-loc{font-size:10.5px;color:var(--muted);}
 
-/* CTA BLOCK */
+/* ── CTA BLOCK ──────────────────────────── */
 .cta-block{
   background:linear-gradient(135deg,var(--gold) 0%,var(--amber) 100%);
-  border-radius:20px;padding:36px 24px;text-align:center;
-  position:relative;overflow:hidden;margin-bottom:40px;
+  border-radius:16px;padding:26px 18px;text-align:center;
+  position:relative;overflow:hidden;margin-bottom:28px;
 }
 .cta-block::before{
-  content:'⚡';position:absolute;right:-10px;bottom:-20px;
-  font-size:120px;opacity:.08;transform:rotate(-15deg);
+  content:'⚡';position:absolute;right:-8px;bottom:-18px;
+  font-size:90px;opacity:.1;transform:rotate(-15deg);
 }
 .cta-block h3{
   font-family:'Syne',sans-serif;
-  font-size:clamp(24px,6vw,34px);font-weight:800;color:var(--ink);
-  text-transform:uppercase;margin-bottom:10px;line-height:1.1;letter-spacing:-.5px;
+  font-size:clamp(18px,5vw,26px);font-weight:800;color:var(--ink);
+  text-transform:uppercase;margin-bottom:8px;line-height:1.1;letter-spacing:-.4px;
 }
-.cta-block p{font-size:14px;color:rgba(11,15,26,.7);margin-bottom:24px;line-height:1.55;}
-.cta-btns{display:flex;flex-direction:column;gap:10px;align-items:center;}
+.cta-block p{font-size:13px;color:rgba(11,15,26,.65);margin-bottom:18px;line-height:1.5;}
+.cta-btns{display:flex;flex-direction:column;gap:9px;align-items:center;}
 .cta-btn-wa{
-  display:flex;align-items:center;justify-content:center;gap:10px;
+  display:flex;align-items:center;justify-content:center;gap:9px;
   background:var(--ink);color:white;text-decoration:none;
-  padding:16px 30px;border-radius:50px;font-size:16px;font-weight:700;
-  width:100%;max-width:340px;
-  box-shadow:0 6px 24px rgba(11,15,26,.35);transition:background .2s,transform .2s;
+  padding:13px 24px;border-radius:50px;font-size:14px;font-weight:700;
+  width:100%;max-width:300px;
+  box-shadow:0 4px 18px rgba(11,15,26,.3);transition:background .2s,transform .2s;
 }
-.cta-btn-wa:hover{background:#111827;transform:translateY(-2px);}
+.cta-btn-wa:hover{background:#1c2337;transform:translateY(-2px);}
 .cta-btn-call{
-  display:flex;align-items:center;justify-content:center;gap:8px;
+  display:flex;align-items:center;justify-content:center;gap:7px;
   color:var(--ink);text-decoration:none;
-  padding:14px 30px;border-radius:50px;font-size:15px;font-weight:700;
-  border:2px solid rgba(11,15,26,.35);
-  width:100%;max-width:340px;transition:background .2s;
+  padding:12px 24px;border-radius:50px;font-size:14px;font-weight:700;
+  border:2px solid rgba(11,15,26,.3);
+  width:100%;max-width:300px;transition:background .2s;
 }
-.cta-btn-call:hover{background:rgba(11,15,26,.08);}
-.contact-details{display:flex;flex-direction:column;gap:12px;max-width:420px;margin:0 auto;}
+.cta-btn-call:hover{background:rgba(11,15,26,.07);}
+
+/* ── CONTACT ────────────────────────────── */
+.contact-details{display:flex;flex-direction:column;gap:10px;max-width:420px;margin:0 auto;}
 .contact-row{
-  display:flex;align-items:center;gap:14px;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:var(--r);padding:14px 16px;
+  display:flex;align-items:center;gap:12px;
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--r);padding:12px 14px;
 }
 .contact-ico{
-  width:42px;height:42px;border-radius:10px;
-  background:rgba(240,192,0,.12);
+  width:38px;height:38px;border-radius:9px;
+  background:var(--gold-lt);
   display:flex;align-items:center;justify-content:center;
-  font-size:20px;flex-shrink:0;
+  font-size:18px;flex-shrink:0;
 }
 .contact-text label{
-  display:block;font-size:10px;font-weight:700;letter-spacing:.8px;
-  color:rgba(255,255,255,.35);text-transform:uppercase;
+  display:block;font-size:9.5px;font-weight:700;letter-spacing:.7px;
+  color:var(--muted);text-transform:uppercase;
 }
 .contact-text a,.contact-text span{
-  color:var(--white);font-size:15px;font-weight:700;text-decoration:none;
+  color:var(--ink);font-size:14px;font-weight:700;text-decoration:none;
 }
-.contact-text a:hover{color:var(--gold);}
+.contact-text a:hover{color:var(--gold-dk);}
 
-/* FOOTER */
+/* ── FOOTER ─────────────────────────────── */
 footer{
-  background:#060b14;padding:22px 22px 100px;
-  text-align:center;color:rgba(255,255,255,.3);
-  font-size:12px;line-height:1.7;
-  border-top:1px solid rgba(255,255,255,.05);
+  background:var(--ink);padding:20px 18px 90px;
+  text-align:center;color:rgba(255,255,255,.35);
+  font-size:11.5px;line-height:1.7;
+  border-top:1px solid rgba(255,255,255,.06);
 }
-footer strong{color:rgba(255,255,255,.6);}
+footer strong{color:rgba(255,255,255,.65);}
 
-/* STICKY BAR */
+/* ── STICKY BAR (mobile) ────────────────── */
 .sticky-bar{
   position:fixed;bottom:0;left:0;right:0;z-index:300;
   display:grid;grid-template-columns:1fr 1fr;
-  background:var(--ink2);
-  border-top:1px solid rgba(255,255,255,.08);
-  box-shadow:0 -4px 24px rgba(0,0,0,.4);
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  box-shadow:0 -3px 16px rgba(0,0,0,.1);
 }
 .sticky-wa{
-  display:flex;align-items:center;justify-content:center;gap:8px;
+  display:flex;align-items:center;justify-content:center;gap:7px;
   background:var(--wa);color:white;text-decoration:none;
-  padding:16px 10px;font-size:14px;font-weight:700;transition:background .2s;
+  padding:14px 8px;font-size:13px;font-weight:700;transition:background .2s;
 }
 .sticky-wa:hover{background:var(--wa2);}
 .sticky-call{
-  display:flex;align-items:center;justify-content:center;gap:8px;
+  display:flex;align-items:center;justify-content:center;gap:7px;
   background:var(--gold);color:var(--ink);text-decoration:none;
-  padding:16px 10px;font-size:14px;font-weight:700;transition:background .2s;
+  padding:14px 8px;font-size:13px;font-weight:700;transition:background .2s;
 }
-.sticky-call:hover{background:var(--gold2);}
+.sticky-call:hover{background:#d49700;}
+
+/* ── FLOAT WA (desktop) ─────────────────── */
 .float-wa{
-  position:fixed;bottom:30px;right:22px;z-index:299;
-  width:58px;height:58px;border-radius:50%;background:var(--wa);
+  position:fixed;bottom:28px;right:20px;z-index:299;
+  width:52px;height:52px;border-radius:50%;background:var(--wa);
   display:none;align-items:center;justify-content:center;
-  box-shadow:0 4px 22px rgba(37,211,102,.5);text-decoration:none;
+  box-shadow:0 4px 18px rgba(37,211,102,.45);text-decoration:none;
   animation:pulse-wa 3s infinite;
 }
-.float-wa svg{width:28px;height:28px;fill:white;}
+.float-wa svg{width:26px;height:26px;fill:white;}
 @keyframes pulse-wa{
-  0%,100%{box-shadow:0 4px 22px rgba(37,211,102,.5);}
-  50%{box-shadow:0 4px 30px rgba(37,211,102,.8),0 0 0 10px rgba(37,211,102,.07);}
+  0%,100%{box-shadow:0 4px 18px rgba(37,211,102,.45);}
+  50%{box-shadow:0 4px 26px rgba(37,211,102,.7),0 0 0 9px rgba(37,211,102,.07);}
 }
 
-/* RESPONSIVE */
+/* ── RESPONSIVE ─────────────────────────── */
 @media(min-width:600px){
-  section{padding:80px 40px;}
+  section{padding:60px 32px;}
   .services-grid{grid-template-columns:repeat(4,1fr);}
   .why-grid{grid-template-columns:repeat(4,1fr);}
   .projects-grid{grid-template-columns:repeat(3,1fr);}
@@ -438,17 +440,18 @@ footer strong{color:rgba(255,255,255,.6);}
   .testi-grid{flex-direction:row;}
   .cta-btns{flex-direction:row;justify-content:center;}
   .cta-btn-wa,.cta-btn-call{width:auto;}
+  .hero-ctas{flex-direction:row;}
   .sticky-bar{display:none;}
   .float-wa{display:flex;}
 }
 @media(min-width:900px){
-  section{padding:90px 60px;max-width:1000px;margin:0 auto;}
-  .hero-inner{padding:0 60px 0;}
-  nav{padding:14px 40px;}
+  section{padding:72px 48px;max-width:960px;margin:0 auto;}
+  .hero-inner{padding:0 48px 0;}
+  nav{padding:12px 36px;}
 }
 
 /* Scroll reveal */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease;}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 </style>
 </head>
@@ -463,13 +466,13 @@ footer strong{color:rgba(255,255,255,.6);}
   <div class="nav-right">
     <a class="nav-call" href="tel:+2348106690594">📞 08106690594</a>
     <a class="nav-wa" href="https://wa.me/2348106690594?text=Hello%2C%20I%20need%20a%20quote." target="_blank">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
       WhatsApp
     </a>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO (stays dark – photo background) -->
 <section class="hero" style="padding:0;">
   <div class="hero-bg"></div>
   <div class="hero-live"><span class="live-dot"></span> Available Now — Responding Fast</div>
@@ -482,14 +485,14 @@ footer strong{color:rgba(255,255,255,.6);}
       <span class="stroke">Guaranteed.</span>
     </h1>
     <p class="hero-sub">
-      Solar installation, inverter setup, house wiring &amp; electrical repairs — done properly, priced honestly. Call Layosam today and get a free quote.
+      Solar installation, inverter setup, house wiring &amp; electrical repairs — done properly, priced honestly.
     </p>
     <div class="hero-ctas">
-      <a class="cta-primary" href="https://wa.me/2348106690594?text=Hello%2C%20I%20need%20a%20quote%20for%20your%20services." target="_blank">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      <a class="cta-primary" href="https://wa.me/2348106690594?text=Hello%2C%20I%20need%20a%20quote." target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
         Get a Free Quote
       </a>
-      <a class="cta-secondary" href="tel:+2348106690594">📞 Call Now — 08106690594</a>
+      <a class="cta-secondary" href="tel:+2348106690594">📞 Call — 08106690594</a>
     </div>
     <div class="hero-spacer"></div>
   </div>
@@ -508,7 +511,7 @@ footer strong{color:rgba(255,255,255,.6);}
 </div>
 
 <!-- SERVICES -->
-<section class="bg-dark reveal" id="services">
+<section class="bg-white reveal" id="services">
   <div class="label">What We Do</div>
   <h2 class="sec-title">Our <em>Services</em></h2>
   <p class="sec-sub">Solar, inverters, wiring and repairs — all handled by one experienced team.</p>
@@ -516,32 +519,32 @@ footer strong{color:rgba(255,255,255,.6);}
     <div class="svc-card">
       <div class="svc-ico">☀️</div>
       <h3>Solar Installation</h3>
-      <p>Full rooftop &amp; ground solar setup for homes and offices. We handle everything from panels to inverter to battery bank.</p>
+      <p>Full rooftop &amp; ground solar setup for homes and offices. Panels to inverter to battery bank.</p>
       <a class="svc-cta" href="https://wa.me/2348106690594?text=I+need+solar+installation" target="_blank">Get Quote →</a>
     </div>
     <div class="svc-card">
       <div class="svc-ico">🔋</div>
       <h3>Inverter &amp; Battery</h3>
-      <p>Inverter installation, battery bank setup and maintenance. Stop depending on NEPA — stay powered 24/7.</p>
+      <p>Inverter installation, battery bank setup and maintenance. Stay powered 24/7.</p>
       <a class="svc-cta" href="https://wa.me/2348106690594?text=I+need+inverter+setup" target="_blank">Get Quote →</a>
     </div>
     <div class="svc-card">
       <div class="svc-ico">🏠</div>
       <h3>House Wiring</h3>
-      <p>Complete electrical wiring for new builds, renovations and extensions. Neat, safe and done to standard.</p>
+      <p>Complete wiring for new builds, renovations and extensions. Neat, safe, to standard.</p>
       <a class="svc-cta" href="https://wa.me/2348106690594?text=I+need+house+wiring" target="_blank">Get Quote →</a>
     </div>
     <div class="svc-card">
       <div class="svc-ico">🔧</div>
       <h3>Electrical Repairs</h3>
-      <p>Tripped breakers, faults, sparking sockets, generator connections — fixed fast, same day where possible.</p>
+      <p>Tripped breakers, faults, sparking sockets — fixed fast, same day where possible.</p>
       <a class="svc-cta" href="https://wa.me/2348106690594?text=I+need+electrical+repair" target="_blank">Get Quote →</a>
     </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="bg-mid reveal">
+<section class="bg-light reveal">
   <div class="label">Simple Process</div>
   <h2 class="sec-title">How It <em>Works</em></h2>
   <p class="sec-sub">Getting started is easy. We keep it simple so you get results fast.</p>
@@ -550,38 +553,38 @@ footer strong{color:rgba(255,255,255,.6);}
       <div class="step-num">1</div>
       <div class="step-body">
         <h4>You Contact Us</h4>
-        <p>Send a WhatsApp message or call us on 08106690594. Tell us what you need — no long forms, no stress.</p>
+        <p>Send a WhatsApp message or call 08106690594. No long forms, no stress.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-body">
         <h4>Free Visit &amp; Quote</h4>
-        <p>We come to your location for a free inspection and give you a clear, honest price. No hidden charges.</p>
+        <p>We come to your location for a free inspection and give you a clear, honest price.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-body">
         <h4>We Do the Work</h4>
-        <p>Once you approve the quote, we get to work. Professional, clean installation — no mess left behind.</p>
+        <p>Professional, clean installation — no mess left behind.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-body">
         <h4>You Stay Powered</h4>
-        <p>We test everything before we leave and remain available for support. Your satisfaction is our guarantee.</p>
+        <p>We test everything before we leave and remain available for support.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section class="bg-dark reveal" id="projects">
+<section class="bg-white reveal" id="projects">
   <div class="label">Past Work</div>
   <h2 class="sec-title">Completed <em>Projects</em></h2>
-  <p class="sec-sub">Real jobs, real results. Rename your photos to match the filenames below and place them in the same folder as this HTML file.</p>
+  <p class="sec-sub">Real jobs, real results. Rename your photos to match the filenames below.</p>
   <div class="projects-grid">
 
     <div class="proj-card wide">
@@ -596,7 +599,7 @@ footer strong{color:rgba(255,255,255,.6);}
 
     <div class="proj-card">
       <div class="proj-placeholder"><div class="ph-icon">📸</div><div class="ph-name">project3.jpg</div></div>
-      <div class="proj-label"><div class="proj-loc">📍 Your Location</div>Inverter &amp; Battery Setup</div>
+      <div class="proj-label"><div class="proj-loc">📍 Your Location</div>Inverter &amp; Battery</div>
     </div>
 
     <div class="proj-card">
@@ -611,14 +614,14 @@ footer strong{color:rgba(255,255,255,.6);}
 
     <div class="proj-card">
       <div class="proj-placeholder"><div class="ph-icon">📸</div><div class="ph-name">project6.jpg</div></div>
-      <div class="proj-label"><div class="proj-loc">📍 Your Location</div>Solar &amp; Wiring Package</div>
+      <div class="proj-label"><div class="proj-loc">📍 Your Location</div>Solar &amp; Wiring</div>
     </div>
 
   </div>
 </section>
 
 <!-- WHY LAYOSAM -->
-<section class="bg-mid reveal">
+<section class="bg-light reveal">
   <div class="label">Why Us</div>
   <h2 class="sec-title">Why Choose <em>Layosam?</em></h2>
   <p class="sec-sub">We've built a reputation by doing exactly what we promise.</p>
@@ -626,28 +629,28 @@ footer strong{color:rgba(255,255,255,.6);}
     <div class="why-card">
       <span class="why-ico">🏆</span>
       <h3>5+ Years Experience</h3>
-      <p>Hundreds of completed jobs across homes and businesses. We've seen every problem and know how to fix it.</p>
+      <p>Hundreds of completed jobs across homes and businesses.</p>
     </div>
     <div class="why-card">
       <span class="why-ico">✨</span>
       <h3>Neat &amp; Professional</h3>
-      <p>Clean installations, properly routed cables, tidy panels. We take pride in our work even after we leave.</p>
+      <p>Clean installations, properly routed cables, tidy panels.</p>
     </div>
     <div class="why-card">
       <span class="why-ico">💰</span>
       <h3>Honest Pricing</h3>
-      <p>Clear quote upfront. No hidden charges added after the job. What we say is what you pay.</p>
+      <p>Clear quote upfront. No hidden charges after the job.</p>
     </div>
     <div class="why-card">
       <span class="why-ico">⚡</span>
       <h3>Fast &amp; Reliable</h3>
-      <p>We respond quickly and show up on time. Emergency repairs attended to as fast as possible.</p>
+      <p>We respond quickly, show up on time and handle emergencies fast.</p>
     </div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="bg-dark reveal">
+<section class="bg-white reveal">
   <div class="label">Reviews</div>
   <h2 class="sec-title">What <em>Customers Say</em></h2>
   <p class="sec-sub">Don't take our word for it — hear from people we've worked with.</p>
@@ -670,7 +673,7 @@ footer strong{color:rgba(255,255,255,.6);}
     </div>
     <div class="testi">
       <div class="stars">★★★★★</div>
-      <blockquote>My inverter was giving problems and he fixed it the same day I called. Fast, professional and affordable. I will always use this service.</blockquote>
+      <blockquote>My inverter was giving problems and he fixed it the same day I called. Fast, professional and affordable.</blockquote>
       <div class="testi-meta">
         <div class="testi-av">T</div>
         <div><div class="testi-name">Mr. Tunde Fashola</div><div class="testi-loc">📍 Verified Customer</div></div>
@@ -680,7 +683,7 @@ footer strong{color:rgba(255,255,255,.6);}
 </section>
 
 <!-- CONTACT -->
-<section class="bg-mid reveal" id="contact">
+<section class="bg-light reveal" id="contact">
   <div class="label">Get In Touch</div>
   <h2 class="sec-title">Ready to <em>Get Started?</em></h2>
   <p class="sec-sub">Contact us today. We respond fast and your first quote is completely free.</p>
@@ -690,7 +693,7 @@ footer strong{color:rgba(255,255,255,.6);}
     <p>No commitment needed. We visit, assess and give you a clear price before any work begins.</p>
     <div class="cta-btns">
       <a class="cta-btn-wa" href="https://wa.me/2348106690594?text=Hello%2C%20I%20need%20a%20free%20quote." target="_blank">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
         WhatsApp Us Now
       </a>
       <a class="cta-btn-call" href="tel:+2348106690594">📞 Call 08106690594</a>
@@ -727,7 +730,7 @@ footer strong{color:rgba(255,255,255,.6);}
 <!-- STICKY BAR (mobile) -->
 <div class="sticky-bar">
   <a class="sticky-wa" href="https://wa.me/2348106690594?text=Hello%2C%20I%20need%20a%20quote." target="_blank">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
     WhatsApp Us
   </a>
   <a class="sticky-call" href="tel:+2348106690594">📞 Call Now</a>
