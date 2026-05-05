@@ -388,13 +388,6 @@ h2.sec-title em{font-style:normal;color:var(--gold-dk);}
   will-change:transform;
 }
 .proj-card.wide{grid-column:span 2;aspect-ratio:16/8;}
-.proj-img{
-  position:absolute;inset:0;
-  width:100%;height:100%;
-  object-fit:cover;display:block;
-  transition:transform 0.35s ease;
-}
-.proj-card:hover .proj-img{transform:scale(1.07);}
 .proj-card:hover{
   transform:scale(1.04);
   box-shadow:0 14px 36px rgba(10,14,28,0.25);
@@ -735,33 +728,27 @@ footer strong{color:rgba(255,255,255,0.65);}
   <p class="sec-sub" id="projects-sub">Loading recent jobs…</p>
   <div class="projects-grid">
     <div class="proj-card wide">
-      <img class="proj-img" src="project/project1.jpg" alt="3kVA Solar Installation – Bodija, Ibadan" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-placeholder" style="display:none"><div class="ph-icon">📸</div><div class="ph-name">project1.jpg not found</div></div>
+      <div class="proj-placeholder"><div class="ph-icon">📸</div><div class="ph-name">project1.jpg</div></div>
       <div class="proj-label"><div class="proj-loc">📍 Bodija, Ibadan</div>3kVA Solar Installation</div>
     </div>
     <div class="proj-card">
-      <img class="proj-img" src="project/project2.jpg" alt="Full House Wiring – Akobo, Ibadan" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-placeholder" style="display:none"><div class="ph-icon">📸</div><div class="ph-name">project2.jpg not found</div></div>
+      <div class="proj-placeholder"><div class="ph-icon">📸</div><div class="ph-name">project2.jpg</div></div>
       <div class="proj-label"><div class="proj-loc">📍 Akobo, Ibadan</div>Full House Wiring</div>
     </div>
     <div class="proj-card">
-      <img class="proj-img" src="project/project3.jpg" alt="Inverter & Battery Setup – UI Area, Ibadan" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-placeholder" style="display:none"><div class="ph-icon">📸</div><div class="ph-name">project3.jpg not found</div></div>
+      <div class="proj-placeholder"><div class="ph-icon">📸</div><div class="ph-name">project3.jpg</div></div>
       <div class="proj-label"><div class="proj-loc">📍 UI Area, Ibadan</div>Inverter &amp; Battery Setup</div>
     </div>
     <div class="proj-card">
-      <img class="proj-img" src="project/project4.jpg" alt="5kVA Solar System – Oluyole, Ibadan" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-placeholder" style="display:none"><div class="ph-icon">📸</div><div class="ph-name">project4.jpg not found</div></div>
+      <div class="proj-placeholder"><div class="ph-icon">📸</div><div class="ph-name">project4.jpg</div></div>
       <div class="proj-label"><div class="proj-loc">📍 Oluyole, Ibadan</div>5kVA Solar System</div>
     </div>
     <div class="proj-card">
-      <img class="proj-img" src="project/project5.jpg" alt="Office Electrical Repair – Ring Road, Ibadan" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-placeholder" style="display:none"><div class="ph-icon">📸</div><div class="ph-name">project5.jpg not found</div></div>
+      <div class="proj-placeholder"><div class="ph-icon">📸</div><div class="ph-name">project5.jpg</div></div>
       <div class="proj-label"><div class="proj-loc">📍 Ring Road, Ibadan</div>Office Electrical Repair</div>
     </div>
     <div class="proj-card">
-      <img class="proj-img" src="project/project6.jpg" alt="Solar & Wiring Package – Agodi GRA, Ibadan" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-placeholder" style="display:none"><div class="ph-icon">📸</div><div class="ph-name">project6.jpg not found</div></div>
+      <div class="proj-placeholder"><div class="ph-icon">📸</div><div class="ph-name">project6.jpg</div></div>
       <div class="proj-label"><div class="proj-loc">📍 Agodi GRA, Ibadan</div>Solar &amp; Wiring Package</div>
     </div>
   </div>
@@ -966,12 +953,11 @@ footer strong{color:rgba(255,255,255,0.65);}
   const desc = document.getElementById('cnt-desc');
   if(desc) desc.innerHTML =
     '<strong>' + monthJobs + ' jobs</strong> completed so far in ' + MONTHS[mo] +
-    ' &nbsp;·&nbsp; <strong>' + weekJobs + '</strong> this week' +
-    ' &nbsp;·&nbsp; Resets automatically every month';
+    ' &nbsp;·&nbsp; <strong>' + weekJobs + '</strong> this week';
 
   const ps = document.getElementById('projects-sub');
   if(ps) ps.textContent =
-    monthJobs + ' jobs completed in ' + MONTHS[mo] + ' across Ibadan. Add your photos to replace the placeholders.';
+    monthJobs + ' jobs completed in ' + MONTHS[mo] + ' across Ibadan.';
 
   /* ── Fire counter animation when section scrolls into view ── */
   const counterSection = document.querySelector('.counter-section');
