@@ -3,613 +3,958 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Layosam Electrical & Solar – Call 08106690594</title>
-<meta name="description" content="Layosam – Expert solar installation, inverter setup and electrical engineering in Ibadan. Call 08106690594. Fast, honest, professional.">
+<title>Layosam – Solar Installation & Electrical Engineering in Ibadan | Call 08106690594</title>
+<meta name="description" content="Expert solar installation, inverter setup, house wiring and electrical engineering in Ibadan. Free inspection. Call 08106690594 or WhatsApp now.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&family=Outfit:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-/* ─── RESET & BASE ────────────────────────────────────────── */
+/* ══ RESET ══════════════════════════════════════════════ */
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-html{scroll-behavior:smooth;font-size:16px;}
-body{
-  font-family:'Plus Jakarta Sans',sans-serif;
-  background:var(--bg);
-  color:var(--ink);
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-  max-width:100vw;
-  transition:background 0.3s,color 0.3s;
-}
-img{max-width:100%;display:block;}
-a{-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:#09090f;color:#e8eaf0;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
 
-/* ─── CSS VARIABLES: LIGHT ─────────────────────────────────── */
+/* ══ VARIABLES ══════════════════════════════════════════ */
 :root{
-  --gold:#e6a800;
-  --gold-lt:#fff8e0;
-  --gold-dk:#a07600;
-  --amber:#ff8c00;
+  --volt:#d4ff00;
+  --volt2:#aacc00;
+  --volt-dim:rgba(212,255,0,0.12);
+  --dark:#09090f;
+  --dark2:#0f0f1a;
+  --dark3:#14141f;
+  --panel:#1a1a28;
+  --panel2:#1f1f30;
+  --line:rgba(212,255,0,0.15);
+  --text:#e8eaf0;
+  --muted:#7a7d94;
   --wa:#25D366;
-  --wa2:#128C7E;
-  --ink:#0f1623;
-  --ink2:#2a3450;
-  --muted:#6b7591;
-  --border:#e2e6ef;
-  --bg:#f5f7fa;
-  --bg2:#ffffff;
-  --r:12px;
-  --shadow:0 2px 16px rgba(15,22,35,0.09);
-  --card-shadow:0 2px 12px rgba(15,22,35,0.08);
-  --nav-bg:rgba(255,255,255,0.97);
-  --contact-bg:#ffffff;
-  --footer-bg:#0f1623;
+  --r:10px;
 }
 
-/* ─── CSS VARIABLES: DARK ──────────────────────────────────── */
-@media(prefers-color-scheme:dark){
-  :root{
-    --gold:#f5c400;
-    --gold-lt:rgba(245,196,0,0.12);
-    --gold-dk:#f5c400;
-    --ink:#e8edf5;
-    --ink2:#b0bad0;
-    --muted:#8a94aa;
-    --border:#2a3248;
-    --bg:#0d1120;
-    --bg2:#141928;
-    --shadow:0 2px 16px rgba(0,0,0,0.4);
-    --card-shadow:0 2px 12px rgba(0,0,0,0.3);
-    --nav-bg:rgba(13,17,32,0.97);
-    --contact-bg:#141928;
-    --footer-bg:#080c18;
-  }
+/* ══ NOISE OVERLAY ══════════════════════════════════════ */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:0.4;
 }
 
-/* ─── NAV ─────────────────────────────────────────────────── */
+/* ══ NAV ════════════════════════════════════════════════ */
 nav{
-  position:sticky;top:0;z-index:200;
+  position:sticky;top:0;z-index:500;
   display:flex;align-items:center;justify-content:space-between;
-  padding:10px 16px;
-  background:var(--nav-bg);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
-  box-shadow:0 1px 8px rgba(0,0,0,0.06);
-  min-height:56px;
+  padding:0 16px;height:56px;
+  background:rgba(9,9,15,0.92);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
 }
-.nav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;min-width:0;}
-
-/* ── Glowing bolt logo ── */
-.nav-bolt{
-  width:34px;height:34px;border-radius:9px;
-  background:var(--gold);
+.brand{display:flex;align-items:center;gap:10px;}
+.brand-icon{
+  width:36px;height:36px;background:var(--volt);border-radius:8px;
   display:flex;align-items:center;justify-content:center;
-  font-size:17px;flex-shrink:0;
-  animation:bolt-glow 2.4s ease-in-out infinite;
+  font-size:18px;flex-shrink:0;
+  animation:iconflash 3s ease-in-out infinite;
 }
-@keyframes bolt-glow{
-  0%,100%{
-    box-shadow:0 0 6px 1px rgba(230,168,0,0.55),
-               0 0 14px 2px rgba(230,168,0,0.2);
-  }
-  50%{
-    box-shadow:0 0 14px 5px rgba(255,210,0,0.95),
-               0 0 30px 10px rgba(255,200,0,0.35),
-               0 0 50px 16px rgba(255,180,0,0.12);
-  }
-}
-
-.nav-name{
-  font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;
-  color:var(--ink);letter-spacing:0.2px;line-height:1.2;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.nav-name small{
-  display:block;font-family:'Plus Jakarta Sans',sans-serif;
-  font-size:9px;font-weight:500;color:var(--muted);
-  letter-spacing:0.6px;text-transform:uppercase;
-}
-.nav-right{display:flex;gap:7px;align-items:center;}
-.nav-call{
-  display:none;
-  align-items:center;gap:5px;
-  color:var(--ink);text-decoration:none;
-  font-size:12px;font-weight:700;
-  padding:7px 12px;border-radius:50px;
-  border:1.5px solid var(--border);
-  white-space:nowrap;
-}
+@keyframes iconflash{0%,90%,100%{opacity:1}92%{opacity:0.3}94%{opacity:1}96%{opacity:0.2}98%{opacity:1}}
+.brand-name{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:#fff;}
+.brand-tag{font-family:'Space Mono',monospace;font-size:9px;color:var(--volt);letter-spacing:2px;display:block;margin-top:-3px;}
+.nav-ctas{display:flex;gap:8px;align-items:center;}
 .nav-wa{
-  display:flex;align-items:center;gap:5px;
-  background:var(--wa);color:white;text-decoration:none;
-  padding:8px 14px;border-radius:50px;font-size:12px;font-weight:700;
-  white-space:nowrap;flex-shrink:0;
+  display:flex;align-items:center;gap:6px;
+  background:var(--wa);color:#fff;
+  padding:7px 14px;border-radius:50px;
+  font-size:12px;font-weight:700;
+}
+.nav-call{
+  display:none;align-items:center;gap:5px;
+  border:1px solid var(--line);color:var(--text);
+  padding:7px 14px;border-radius:50px;
+  font-size:12px;font-weight:600;
 }
 
-/* ─── HERO ────────────────────────────────────────────────── */
-.hero{
-  position:relative;
-  min-height:100svh;
-  display:flex;flex-direction:column;
-  justify-content:flex-end;
-  overflow:hidden;
-  background:#0a0e18;
-}
-.hero-bg{
-  position:absolute;inset:0;
-  background:
-    linear-gradient(175deg,rgba(10,14,24,0.1) 0%,rgba(10,14,24,0.6) 40%,rgba(10,14,24,0.95) 100%),
-    url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=900&q=80') center/cover no-repeat;
-}
-.hero-live{
-  position:absolute;top:12px;right:12px;z-index:2;
+/* ══ LIVE BADGE ═════════════════════════════════════════ */
+.live-badge{
+  position:absolute;top:10px;right:10px;z-index:10;
   display:flex;align-items:center;gap:5px;
-  background:rgba(0,0,0,0.55);
-  border:1px solid rgba(37,211,102,0.4);
-  border-radius:50px;padding:5px 10px;
+  background:rgba(0,0,0,0.6);border:1px solid rgba(37,211,102,0.4);
+  border-radius:50px;padding:5px 11px;
   font-size:10px;font-weight:700;color:#25D366;
   backdrop-filter:blur(8px);
 }
-.live-dot{
-  width:6px;height:6px;border-radius:50%;
-  background:var(--wa);animation:blink 1.6s infinite;
-  flex-shrink:0;
-}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+.live-dot{width:6px;height:6px;border-radius:50%;background:#25D366;animation:blink 1.4s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.15}}
 
-.hero-inner{
-  position:relative;z-index:2;
-  padding:0 18px 20px;
+/* ══ HERO ═══════════════════════════════════════════════ */
+.hero{
+  position:relative;min-height:100svh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;background:var(--dark);
 }
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:6px;
-  border:1px solid rgba(240,192,0,0.45);
-  background:rgba(240,192,0,0.1);
-  color:#f5d060;font-size:10px;font-weight:700;
-  letter-spacing:1.2px;text-transform:uppercase;
-  padding:4px 11px;border-radius:50px;margin-bottom:12px;
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(212,255,0,0.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(212,255,0,0.05) 1px,transparent 1px);
+  background-size:40px 40px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 20%,black 30%,transparent 100%);
 }
-.hero h1{
-  font-family:'Outfit',sans-serif;font-weight:800;
-  font-size:clamp(34px,11vw,60px);
-  line-height:1.0;letter-spacing:-0.5px;
-  text-transform:uppercase;
-  margin-bottom:12px;color:#fff;
-}
-.hero h1 .accent{color:var(--gold);}
-.hero-sub{
-  font-size:14px;line-height:1.6;
-  color:rgba(255,255,255,0.75);
-  margin-bottom:20px;
-  max-width:340px;
-}
-.hero-ctas{display:flex;flex-direction:column;gap:10px;}
-
-/* ── Primary CTA: shimmer + glow pulse ── */
-.cta-primary{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  background:var(--wa);color:white;text-decoration:none;
-  padding:15px 22px;border-radius:50px;font-size:15px;font-weight:700;
-  border:none;width:100%;
-  position:relative;overflow:hidden;
-  animation:cta-pulse 2.6s ease-in-out infinite;
-}
-@keyframes cta-pulse{
-  0%,100%{
-    box-shadow:0 4px 18px rgba(37,211,102,0.5),
-               0 0 0 0 rgba(37,211,102,0.2);
-  }
-  50%{
-    box-shadow:0 6px 30px rgba(37,211,102,0.8),
-               0 0 0 10px rgba(37,211,102,0.06);
-  }
-}
-/* Shared shimmer overlay */
-.cta-primary::after,.cta-secondary::after,
-.cta-btn-wa::after,.cta-btn-call::after,
-.sticky-wa::after,.sticky-call::after{
-  content:'';
-  position:absolute;top:0;left:-75%;
-  width:55%;height:100%;
-  background:linear-gradient(110deg,transparent 0%,rgba(255,255,255,0.32) 50%,transparent 100%);
-  transform:skewX(-18deg);
-  animation:shimmer 2.4s ease-in-out infinite;
+.hero-glow{
+  position:absolute;top:-20%;left:50%;transform:translateX(-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,255,0,0.18) 0%,rgba(212,255,0,0.04) 40%,transparent 70%);
   pointer-events:none;
 }
-@keyframes shimmer{
-  0%{left:-75%;}
-  55%,100%{left:130%;}
+.hero-slash{
+  position:absolute;top:0;right:-60px;width:260px;height:100%;
+  background:linear-gradient(170deg,rgba(212,255,0,0.04) 0%,transparent 60%);
+  transform:skewX(-12deg);
+  border-left:1px solid rgba(212,255,0,0.1);
 }
-/* Stagger delays so each button's shimmer is offset */
-.cta-primary::after   {animation-delay:0s;}
-.cta-secondary::after {animation-delay:0.8s;}
-.cta-btn-wa::after    {animation-delay:0.3s;}
-.cta-btn-call::after  {animation-delay:1.1s;}
-.sticky-wa::after     {animation-delay:0.5s;}
-.sticky-call::after   {animation-delay:1.3s;}
 
-.cta-secondary{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  color:#fff;text-decoration:none;
-  padding:14px 22px;border-radius:50px;font-size:15px;font-weight:700;
-  border:2px solid rgba(255,255,255,0.3);
-  width:100%;
+/* Floating sparks */
+.spark{
+  position:absolute;z-index:1;pointer-events:none;
+  font-family:'Space Mono',monospace;
+  font-size:11px;color:rgba(212,255,0,0.4);
+  font-weight:700;letter-spacing:1px;
+  animation:float-spark 6s ease-in-out infinite;
+}
+.spark-1{top:18%;right:8%;animation-delay:0s;}
+.spark-2{top:42%;right:3%;animation-delay:2.1s;font-size:9px;opacity:0.5;}
+.spark-3{top:28%;left:5%;animation-delay:3.8s;font-size:8px;opacity:0.35;}
+@keyframes float-spark{
+  0%,100%{transform:translateY(0) rotate(-4deg);opacity:0.35;}
+  40%{transform:translateY(-14px) rotate(3deg);opacity:0.75;}
+  70%{transform:translateY(-7px) rotate(-2deg);opacity:0.5;}
+}
+
+.hero-content{
+  position:relative;z-index:2;
+  padding:0 18px 24px;
+}
+.hero-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  border:1px solid var(--line);
+  background:rgba(212,255,0,0.06);
+  color:var(--volt);font-size:10px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+  padding:5px 12px;border-radius:50px;margin-bottom:16px;
+  font-family:'Space Mono',monospace;
+}
+/* Scarcity slot inside chip */
+.hero-slot-dot{width:6px;height:6px;border-radius:50%;background:var(--volt);animation:blink 1.8s infinite;display:inline-block;margin-right:2px;}
+
+h1.hero-h{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(52px,18vw,90px);
+  line-height:0.92;letter-spacing:2px;
+  color:#fff;margin-bottom:6px;
+}
+h1.hero-h .volt{color:var(--volt);}
+h1.hero-h .hl{
+  display:block;
+  background:linear-gradient(92deg,var(--volt) 0%,#aacc00 60%,var(--volt) 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-size:200% auto;
+  animation:hgrad 3.5s linear infinite;
+}
+@keyframes hgrad{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
+
+.hero-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(22px,7vw,40px);
+  letter-spacing:3px;color:var(--muted);
+  margin-bottom:16px;text-transform:uppercase;
+}
+.hero-desc{
+  font-size:14px;line-height:1.7;
+  color:rgba(232,234,240,0.65);
+  max-width:360px;margin-bottom:16px;
+}
+.hero-desc strong{color:var(--text);}
+.hero-trust{
+  display:flex;flex-wrap:wrap;gap:10px;
+  margin-bottom:22px;
+}
+.hero-trust span{
+  font-family:'Space Mono',monospace;
+  font-size:10px;color:var(--muted);
+  display:flex;align-items:center;gap:4px;
+}
+.hero-trust span::before{content:'✔';color:var(--volt);font-size:9px;}
+
+.hero-ctas{display:flex;flex-direction:column;gap:10px;}
+
+.btn-wa{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  background:var(--wa);color:#fff;
+  padding:16px 24px;border-radius:var(--r);
+  font-size:15px;font-weight:700;width:100%;
   position:relative;overflow:hidden;
-  animation:sec-glow 3.2s 0.6s ease-in-out infinite;
+  animation:wa-pulse 2.4s ease-in-out infinite;
 }
-@keyframes sec-glow{
-  0%,100%{border-color:rgba(255,255,255,0.3);box-shadow:none;}
-  50%{border-color:rgba(255,255,255,0.75);box-shadow:0 0 14px rgba(255,255,255,0.18);}
+@keyframes wa-pulse{
+  0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4);}
+  50%{box-shadow:0 6px 36px rgba(37,211,102,0.75),0 0 0 8px rgba(37,211,102,0.06);}
 }
-.hero-gap{height:16px;}
+.btn-wa::after{
+  content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);
+  transform:skewX(-20deg);animation:shine 2.6s infinite;
+}
+@keyframes shine{0%{left:-80%}60%,100%{left:130%}}
 
-/* Stats strip */
-.hero-strip{
+.btn-call{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  background:var(--volt);color:#09090f;
+  padding:16px 24px;border-radius:var(--r);
+  font-size:15px;font-weight:800;width:100%;
+  position:relative;overflow:hidden;
+  animation:call-pulse 2.4s 0.6s ease-in-out infinite;
+}
+@keyframes call-pulse{
+  0%,100%{box-shadow:0 4px 20px rgba(212,255,0,0.35);}
+  50%{box-shadow:0 6px 36px rgba(212,255,0,0.7),0 0 0 8px rgba(212,255,0,0.06);}
+}
+.btn-call::after{
+  content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
+  transform:skewX(-20deg);animation:shine 2.6s 0.8s infinite;
+}
+
+/* ══ STATS STRIP ════════════════════════════════════════ */
+.stats-strip{
   position:relative;z-index:2;
   display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--line);
   background:rgba(0,0,0,0.5);
-  border-top:1px solid rgba(240,192,0,0.2);
   backdrop-filter:blur(8px);
 }
-.strip-item{
-  padding:13px 4px;text-align:center;
-  border-right:1px solid rgba(255,255,255,0.07);
-}
-.strip-item:last-child{border-right:none;}
-.strip-num{
-  font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;
-  color:var(--gold);line-height:1;
-}
-.strip-lbl{font-size:9px;color:rgba(255,255,255,0.5);font-weight:500;margin-top:3px;letter-spacing:0.3px;}
+.stat{padding:14px 4px;text-align:center;border-right:1px solid var(--line);}
+.stat:last-child{border-right:none;}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--volt);line-height:1;}
+.stat-lbl{font-size:9px;color:var(--muted);font-weight:500;margin-top:2px;letter-spacing:0.5px;text-transform:uppercase;}
 
-/* ─── URGENCY BAR ─────────────────────────────────────────── */
-.urgency-bar{
-  background:var(--gold);color:var(--ink);
+/* ══ AVAIL BAR ══════════════════════════════════════════ */
+.avail-bar{
+  background:linear-gradient(90deg,#061410,#082018,#061410);
+  border-bottom:1px solid rgba(37,211,102,0.18);
+  padding:10px 16px;
+  display:flex;align-items:center;justify-content:center;
+  gap:8px;flex-wrap:wrap;
+  font-size:11.5px;color:rgba(232,234,240,0.6);font-weight:500;
+  text-align:center;
+}
+.avail-dot{width:7px;height:7px;border-radius:50%;background:var(--wa);flex-shrink:0;animation:blink 1.5s ease-in-out infinite;}
+.avail-bar strong{color:var(--wa);}
+.avail-bar a{color:var(--volt);font-weight:700;text-decoration:underline;}
+
+/* ══ URGENCY BAR ════════════════════════════════════════ */
+.urgency{
+  background:var(--volt);color:#09090f;
   padding:11px 16px;text-align:center;
-  font-size:13px;font-weight:700;line-height:1.4;
+  font-size:13px;font-weight:700;line-height:1.5;
+  display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;
 }
-.urgency-bar a{color:var(--ink);font-weight:800;text-decoration:underline;}
+.urg-badge{
+  background:rgba(0,0,0,0.15);color:#09090f;
+  font-size:9.5px;font-weight:800;letter-spacing:0.8px;
+  text-transform:uppercase;padding:3px 9px;border-radius:50px;
+  white-space:nowrap;
+}
+.urgency a{color:#09090f;font-weight:800;text-decoration:underline;}
 
-/* ─── COUNTER SECTION ─────────────────────────────────────── */
-.counter-section{
-  background:var(--bg2);
-  padding:26px 16px 30px;
-  border-bottom:1px solid var(--border);
+/* ══ SOCIAL PROOF SCROLL BAR ════════════════════════════ */
+.proof-bar{
+  background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:18px 16px;
+  display:flex;gap:24px;overflow-x:auto;scrollbar-width:none;align-items:center;
 }
-.counter-inner{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:10px;max-width:480px;margin:0 auto;
+.proof-bar::-webkit-scrollbar{display:none;}
+.proof-item{
+  display:flex;align-items:center;gap:8px;flex-shrink:0;
+  font-size:12px;font-weight:600;color:var(--text);white-space:nowrap;
 }
-.counter-card{
-  background:var(--bg);border:1px solid var(--border);
-  border-radius:var(--r);padding:14px 8px;text-align:center;
-  box-shadow:var(--card-shadow);
-}
-.counter-num{
-  font-family:'Outfit',sans-serif;font-size:26px;font-weight:900;
-  color:var(--gold-dk);line-height:1;
-}
-.counter-lbl{
-  font-size:9px;font-weight:700;letter-spacing:0.8px;
-  color:var(--muted);text-transform:uppercase;margin-top:4px;
-}
-.counter-sub{
-  text-align:center;font-size:12px;color:var(--muted);
-  margin-top:14px;line-height:1.6;max-width:360px;margin-left:auto;margin-right:auto;
-}
-.counter-sub strong{color:var(--gold-dk);}
+.proof-item span{color:var(--volt);font-weight:800;}
+.proof-sep{color:var(--line);flex-shrink:0;}
 
-/* ─── SECTION BASE ────────────────────────────────────────── */
-section{padding:40px 16px;}
-.sec-label{
-  display:inline-block;
-  font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  color:var(--gold-dk);background:var(--gold-lt);
-  border:1px solid rgba(230,168,0,0.3);
-  padding:3px 10px;border-radius:50px;margin-bottom:10px;
+/* ══ COUNTER ════════════════════════════════════════════ */
+.counter-wrap{
+  background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:28px 16px;
 }
-h2.sec-title{
-  font-family:'Outfit',sans-serif;
-  font-size:clamp(24px,7vw,36px);
-  font-weight:800;line-height:1.1;letter-spacing:-0.4px;
-  margin-bottom:6px;color:var(--ink);text-transform:uppercase;
+.counter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:400px;margin:0 auto 14px;}
+.cnt{
+  background:var(--dark3);border:1px solid var(--line);border-radius:var(--r);
+  padding:16px 8px;text-align:center;
 }
-h2.sec-title em{font-style:normal;color:var(--gold-dk);}
-.sec-sub{font-size:13.5px;color:var(--muted);line-height:1.6;margin-bottom:24px;}
-.bg-white{background:var(--bg2);}
-.bg-light{background:var(--bg);}
+.cnt-n{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--volt);line-height:1;}
+.cnt-l{font-family:'Space Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px;}
+.cnt-desc{text-align:center;font-size:12px;color:var(--muted);line-height:1.7;}
+.cnt-desc strong{color:var(--volt);}
 
-/* ─── SERVICES ────────────────────────────────────────────── */
-.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.svc-card{
-  background:var(--bg2);
-  border:1px solid var(--border);
-  border-radius:var(--r);
-  padding:16px 13px;
+/* ══ SECTION BASE ═══════════════════════════════════════ */
+section{padding:44px 16px;}
+.sec-eyebrow{
+  font-family:'Space Mono',monospace;
+  font-size:9px;font-weight:700;letter-spacing:3px;
+  color:var(--volt);text-transform:uppercase;
+  margin-bottom:10px;display:block;
+}
+h2.st{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(32px,9vw,52px);
+  letter-spacing:1px;color:#fff;margin-bottom:6px;line-height:1;
+}
+h2.st span{color:var(--volt);}
+.sec-sub{font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:26px;}
+
+/* ══ SERVICES ═══════════════════════════════════════════ */
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.svc{
+  background:var(--panel);border:1px solid rgba(255,255,255,0.05);
+  border-radius:var(--r);padding:18px 14px;
   position:relative;overflow:hidden;
-  /* Expand/contract */
-  transition:transform 0.28s cubic-bezier(.34,1.56,.64,1),
-             box-shadow 0.25s ease,
-             border-color 0.2s;
-  cursor:default;
-  will-change:transform;
+  transition:transform 0.25s cubic-bezier(.34,1.56,.64,1),border-color 0.2s;
 }
-.svc-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2.5px;
-  background:linear-gradient(90deg,var(--gold),var(--amber));
+.svc::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--volt),transparent);
+  opacity:0;transition:opacity 0.2s;
 }
-.svc-card:hover{
-  transform:scale(1.05) translateY(-4px);
-  box-shadow:0 12px 32px rgba(15,22,35,0.16);
-  border-color:rgba(230,168,0,0.45);
-  z-index:2;
-}
-.svc-card:active{transform:scale(0.96);}
+.svc:hover{transform:translateY(-5px) scale(1.02);border-color:var(--line);}
+.svc:hover::before{opacity:1;}
+.svc:active{transform:scale(0.97);}
 .svc-ico{
-  width:40px;height:40px;border-radius:10px;
-  background:var(--gold-lt);
+  width:44px;height:44px;border-radius:11px;
+  background:var(--volt-dim);border:1px solid var(--line);
   display:flex;align-items:center;justify-content:center;
-  font-size:19px;margin-bottom:10px;
+  font-size:20px;margin-bottom:12px;
+  transition:transform 0.25s ease;
 }
-.svc-card h3{
-  font-family:'Outfit',sans-serif;font-size:12px;font-weight:800;
-  color:var(--ink);margin-bottom:5px;text-transform:uppercase;line-height:1.2;
+.svc:hover .svc-ico{transform:scale(1.1) rotate(-4deg);}
+.svc h3{
+  font-family:'Bebas Neue',sans-serif;font-size:16px;
+  letter-spacing:0.5px;color:#fff;margin-bottom:6px;
 }
-.svc-card p{font-size:11.5px;color:var(--muted);line-height:1.5;}
-.svc-cta{
-  display:inline-flex;align-items:center;gap:3px;
-  margin-top:10px;font-size:11px;font-weight:700;
-  color:var(--gold-dk);text-decoration:none;
+.svc p{font-size:12px;color:var(--muted);line-height:1.6;}
+.svc-link{
+  display:inline-flex;align-items:center;gap:4px;
+  margin-top:12px;font-size:11px;font-weight:700;
+  color:var(--volt);font-family:'Space Mono',monospace;
+  letter-spacing:0.5px;
+}
+.svc:hover .svc-link{gap:7px;}
+
+/* ══ PROBLEM SOLVER ════════════════════════════════════ */
+.prob-intro{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(24px,6vw,38px);
+  color:#fff;margin-bottom:20px;
+  letter-spacing:1px;line-height:1;
+}
+.prob-intro span{color:var(--volt);}
+.prob-list{display:flex;flex-direction:column;gap:0;}
+.prob-row{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.prob-row:last-child{border-bottom:none;}
+.prob-icon{font-size:20px;width:40px;text-align:center;flex-shrink:0;}
+.prob-text{flex:1;font-size:13.5px;color:var(--text);line-height:1.4;}
+.prob-text strong{color:#fff;display:block;font-weight:700;font-size:13px;}
+.prob-text span{font-size:12px;color:var(--muted);}
+.prob-fix{
+  font-family:'Space Mono',monospace;
+  font-size:10px;font-weight:700;
+  color:var(--volt);white-space:nowrap;
+  background:var(--volt-dim);border:1px solid var(--line);
+  padding:4px 9px;border-radius:50px;flex-shrink:0;
 }
 
-/* ─── HOW IT WORKS ────────────────────────────────────────── */
-.steps{display:flex;flex-direction:column;gap:0;}
-.step{display:flex;gap:14px;align-items:flex-start;padding:15px 0;border-bottom:1px solid var(--border);}
+/* ══ HOW IT WORKS ════════════════════════════════════════ */
+.steps{display:flex;flex-direction:column;gap:1px;}
+.step{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.04);
+}
 .step:last-child{border-bottom:none;}
-.step-num{
-  width:36px;height:36px;border-radius:50%;
-  background:var(--gold);color:var(--ink);
+.step-n{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--volt),#88aa00);
   display:flex;align-items:center;justify-content:center;
-  font-family:'Outfit',sans-serif;font-size:15px;font-weight:800;flex-shrink:0;
+  font-family:'Bebas Neue',sans-serif;font-size:20px;color:#09090f;
+  flex-shrink:0;box-shadow:0 3px 14px rgba(212,255,0,0.35);
 }
-.step-body h4{font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;color:var(--ink);margin-bottom:3px;text-transform:uppercase;}
-.step-body p{font-size:12.5px;color:var(--muted);line-height:1.55;}
+.step h4{font-family:'Bebas Neue',sans-serif;font-size:17px;color:#fff;letter-spacing:0.5px;margin-bottom:4px;}
+.step p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.step-badge{
+  display:inline-block;margin-top:7px;
+  font-family:'Space Mono',monospace;
+  font-size:10px;font-weight:700;
+  color:var(--wa);background:rgba(37,211,102,0.09);
+  border:1px solid rgba(37,211,102,0.22);
+  padding:3px 9px;border-radius:50px;
+}
 
-/* ─── PROJECTS ────────────────────────────────────────────── */
-.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+/* ══ WHY US ══════════════════════════════════════════════ */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.why{
+  background:var(--panel2);border:1px solid rgba(255,255,255,0.04);
+  border-radius:var(--r);padding:16px 14px;
+  transition:transform 0.22s ease,border-color 0.2s;
+}
+.why:hover{transform:translateY(-4px);border-color:var(--line);}
+.why-ico{font-size:22px;margin-bottom:8px;display:block;}
+.why h3{font-family:'Bebas Neue',sans-serif;font-size:15px;color:#fff;letter-spacing:0.3px;margin-bottom:5px;}
+.why p{font-size:12px;color:var(--muted);line-height:1.55;}
+
+/* ══ PROJECTS ════════════════════════════════════════════ */
+.proj-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:9px;
+}
 .proj-card{
   border-radius:var(--r);overflow:hidden;
   position:relative;aspect-ratio:4/3;
-  background:#d8dde8;
-  /* Expand/contract */
-  transition:transform 0.28s cubic-bezier(.34,1.56,.64,1),
-             box-shadow 0.25s ease;
+  background:var(--panel2);
+  transition:transform 0.28s cubic-bezier(.34,1.56,.64,1),box-shadow 0.25s ease;
   cursor:default;
-  will-change:transform;
 }
 .proj-card.wide{grid-column:span 2;aspect-ratio:16/8;}
-.proj-card:hover{
-  transform:scale(1.04);
-  box-shadow:0 14px 36px rgba(10,14,28,0.25);
-  z-index:2;
-}
+.proj-card:hover{transform:scale(1.03);box-shadow:0 14px 40px rgba(0,0,0,0.4);z-index:2;}
 .proj-card:active{transform:scale(0.97);}
-.proj-placeholder{
-  width:100%;height:100%;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
-  background:linear-gradient(135deg,#e4e9f2 0%,#cdd4e3 100%);
-  transition:transform 0.35s ease;
-}
-@media(prefers-color-scheme:dark){
-  .proj-placeholder{background:linear-gradient(135deg,#1a2035 0%,#0f1828 100%);}
-}
-.proj-card:hover .proj-placeholder{transform:scale(1.07);}
 .proj-img{
-  position:absolute;inset:0;
-  width:100%;height:100%;
+  position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;display:block;
   transition:transform 0.35s ease;
 }
 .proj-card:hover .proj-img{transform:scale(1.07);}
-.ph-icon{font-size:22px;opacity:0.4;}
-.ph-name{
-  font-size:9px;font-weight:700;color:var(--gold-dk);
-  letter-spacing:0.5px;background:rgba(230,168,0,0.12);
-  border:1px dashed rgba(230,168,0,0.4);
+.proj-ph{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:6px;
+  background:linear-gradient(135deg,var(--panel) 0%,var(--panel2) 100%);
+}
+.proj-ph-ico{font-size:22px;opacity:0.35;}
+.proj-ph-lbl{
+  font-family:'Space Mono',monospace;
+  font-size:9px;font-weight:700;color:var(--volt);
+  background:var(--volt-dim);border:1px dashed var(--line);
   padding:3px 8px;border-radius:5px;
-  max-width:88%;text-align:center;word-break:break-all;
+  max-width:88%;text-align:center;
 }
 .proj-label{
   position:absolute;bottom:0;left:0;right:0;
-  background:linear-gradient(0deg,rgba(10,14,28,0.92) 0%,transparent 100%);
-  padding:20px 10px 9px;
-  color:white;font-size:11px;font-weight:700;line-height:1.3;
+  background:linear-gradient(0deg,rgba(9,9,15,0.95) 0%,transparent 100%);
+  padding:22px 11px 10px;
 }
-.proj-loc{font-size:9px;color:var(--gold);font-weight:700;margin-bottom:2px;}
+.proj-loc{font-family:'Space Mono',monospace;font-size:9px;color:var(--volt);font-weight:700;margin-bottom:2px;display:block;}
+.proj-name{color:#fff;font-size:11.5px;font-weight:700;line-height:1.3;display:block;}
 
-/* ─── WHY US ──────────────────────────────────────────────── */
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.why-card{
-  background:var(--bg2);border:1px solid var(--border);
-  border-radius:var(--r);padding:16px 13px;
-  transition:transform 0.22s ease,box-shadow 0.22s ease;
-}
-.why-card:hover{transform:translateY(-4px);box-shadow:var(--card-shadow);}
-.why-ico{font-size:22px;margin-bottom:8px;display:block;}
-.why-card h3{font-family:'Outfit',sans-serif;font-size:12px;font-weight:800;color:var(--ink);margin-bottom:4px;text-transform:uppercase;line-height:1.2;}
-.why-card p{font-size:12px;color:var(--muted);line-height:1.5;}
-
-/* ─── TESTIMONIALS ────────────────────────────────────────── */
-.testi-grid{display:flex;flex-direction:column;gap:11px;}
+/* ══ TESTIMONIALS ════════════════════════════════════════ */
+.testi-grid{display:flex;flex-direction:column;gap:10px;}
 .testi{
-  background:var(--bg2);border-radius:var(--r);
-  padding:16px 15px;border:1px solid var(--border);
-  border-left:3px solid var(--gold);position:relative;
+  background:var(--panel);border:1px solid rgba(255,255,255,0.05);
+  border-radius:var(--r);padding:18px 16px;
+  border-left:2px solid var(--volt);
+  position:relative;
+  transition:transform 0.22s ease;
 }
-.testi::before{
-  content:'\201C';font-size:56px;line-height:1;
-  color:rgba(230,168,0,0.13);
-  position:absolute;top:-2px;right:11px;font-family:Georgia,serif;
+.testi:hover{transform:translateY(-3px);}
+.testi::after{
+  content:'"';position:absolute;top:8px;right:14px;
+  font-size:50px;color:var(--volt-dim);
+  font-family:'Bebas Neue',sans-serif;line-height:1;
 }
-.stars{color:var(--gold);font-size:12px;letter-spacing:2px;margin-bottom:7px;}
-.testi blockquote{font-size:13px;line-height:1.65;color:var(--ink2);font-style:italic;margin-bottom:11px;}
-.testi-meta{display:flex;align-items:center;gap:9px;}
-.testi-av{
-  width:32px;height:32px;border-radius:50%;
-  background:linear-gradient(135deg,var(--gold),var(--amber));
-  color:#0f1623;display:flex;align-items:center;justify-content:center;
-  font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;flex-shrink:0;
+.stars{color:var(--volt);font-size:13px;letter-spacing:2px;margin-bottom:8px;}
+.testi blockquote{font-size:13px;line-height:1.7;color:rgba(232,234,240,0.8);font-style:italic;margin-bottom:12px;}
+.testi-meta{display:flex;align-items:center;gap:10px;}
+.av{
+  width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,var(--volt),#88aa00);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:16px;color:#09090f;flex-shrink:0;
 }
-.testi-name{font-weight:700;font-size:12.5px;color:var(--ink);}
+.testi-name{font-weight:700;font-size:12.5px;color:#fff;}
 .testi-loc{font-size:10px;color:var(--muted);}
+.testi-svc{
+  margin-left:auto;
+  font-family:'Space Mono',monospace;
+  font-size:9.5px;font-weight:700;
+  color:var(--volt);
+  background:var(--volt-dim);border:1px solid var(--line);
+  padding:3px 8px;border-radius:50px;
+  white-space:nowrap;flex-shrink:0;
+}
 
-/* ─── CTA BLOCK ───────────────────────────────────────────── */
+/* ══ GUARANTEE ═══════════════════════════════════════════ */
+.guarantee{
+  background:linear-gradient(135deg,#061410,#082018,#061410);
+  border-top:1px solid rgba(37,211,102,0.15);
+  border-bottom:1px solid rgba(37,211,102,0.15);
+  padding:28px 16px;
+  text-align:center;position:relative;z-index:1;
+}
+.guar-icon{font-size:36px;margin-bottom:10px;display:block;}
+.guar-h{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(26px,7vw,38px);
+  color:#fff;margin-bottom:8px;letter-spacing:1px;
+}
+.guar-h span{color:var(--wa);}
+.guar-p{font-size:13.5px;color:var(--muted);line-height:1.7;max-width:380px;margin:0 auto;}
+.guar-items{
+  display:flex;flex-wrap:wrap;gap:9px;
+  justify-content:center;margin-top:18px;
+}
+.guar-badge{
+  display:flex;align-items:center;gap:5px;
+  background:rgba(37,211,102,0.08);
+  border:1px solid rgba(37,211,102,0.2);
+  border-radius:50px;
+  padding:6px 13px;
+  font-size:11.5px;font-weight:700;color:var(--wa);
+}
+
+/* ══ COVERAGE ════════════════════════════════════════════ */
+.area-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px;}
+.area-chip{
+  font-size:12px;font-weight:600;
+  color:var(--muted);
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:50px;
+  padding:6px 13px;
+}
+.area-chip.hot{
+  color:var(--volt);
+  background:var(--volt-dim);
+  border-color:var(--line);
+  font-weight:700;
+}
+
+/* ══ CTA BLOCK ═══════════════════════════════════════════ */
 .cta-block{
-  background:linear-gradient(135deg,var(--gold) 0%,var(--amber) 100%);
-  border-radius:14px;padding:24px 16px;text-align:center;
+  background:linear-gradient(135deg,#1a2400 0%,#0f1a00 100%);
+  border:1px solid var(--line);border-radius:14px;
+  padding:26px 18px;text-align:center;
   position:relative;overflow:hidden;margin-bottom:24px;
 }
 .cta-block::before{
-  content:'⚡';position:absolute;right:-6px;bottom:-16px;
-  font-size:80px;opacity:0.1;transform:rotate(-15deg);
+  content:'⚡';position:absolute;right:-10px;bottom:-20px;
+  font-size:100px;opacity:0.06;transform:rotate(-15deg);
 }
 .cta-block h3{
-  font-family:'Outfit',sans-serif;
-  font-size:clamp(19px,5.5vw,26px);
-  font-weight:800;color:#0f1623;
-  text-transform:uppercase;margin-bottom:7px;line-height:1.1;
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,7vw,38px);
+  color:var(--volt);letter-spacing:1px;margin-bottom:8px;line-height:1;
 }
-.cta-block p{font-size:13px;color:rgba(11,15,26,0.62);margin-bottom:16px;line-height:1.5;}
-.cta-btns{display:flex;flex-direction:column;gap:9px;align-items:stretch;}
+.cta-block p{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.6;}
+.cta-row{display:flex;flex-direction:column;gap:10px;}
 
-.cta-btn-wa{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  background:var(--ink);color:white;text-decoration:none;
-  padding:14px 20px;border-radius:50px;font-size:14px;font-weight:700;
-  position:relative;overflow:hidden;
-  animation:wa-btn-glow 2.6s ease-in-out infinite;
-}
-@keyframes wa-btn-glow{
-  0%,100%{box-shadow:0 4px 16px rgba(11,15,26,0.3);}
-  50%{box-shadow:0 6px 24px rgba(11,15,26,0.6),0 0 14px rgba(0,0,0,0.18);}
-}
-.cta-btn-call{
-  display:flex;align-items:center;justify-content:center;gap:7px;
-  color:#0f1623;text-decoration:none;
-  padding:13px 20px;border-radius:50px;font-size:14px;font-weight:700;
-  border:2px solid rgba(11,15,26,0.25);
-  position:relative;overflow:hidden;
-  animation:call-btn-glow 2.6s 0.5s ease-in-out infinite;
-}
-@keyframes call-btn-glow{
-  0%,100%{border-color:rgba(11,15,26,0.25);box-shadow:none;}
-  50%{border-color:rgba(11,15,26,0.65);box-shadow:0 0 12px rgba(0,0,0,0.15);}
-}
-
-/* ─── CONTACT ─────────────────────────────────────────────── */
-.contact-details{display:flex;flex-direction:column;gap:9px;}
-.contact-row{
+/* ══ CONTACT ROWS ════════════════════════════════════════ */
+.contact-list{display:flex;flex-direction:column;gap:8px;}
+.c-row{
   display:flex;align-items:center;gap:12px;
-  background:var(--contact-bg);
-  border:1px solid var(--border);
-  border-radius:var(--r);padding:12px 13px;
+  background:var(--panel);border:1px solid rgba(255,255,255,0.05);
+  border-radius:var(--r);padding:13px 14px;
 }
-.contact-ico{
-  width:38px;height:38px;border-radius:9px;
-  background:var(--gold-lt);
+.c-ico{
+  width:38px;height:38px;border-radius:8px;
+  background:var(--volt-dim);border:1px solid var(--line);
   display:flex;align-items:center;justify-content:center;
-  font-size:17px;flex-shrink:0;
+  font-size:16px;flex-shrink:0;
 }
-.contact-text label{display:block;font-size:9px;font-weight:700;letter-spacing:0.7px;color:var(--muted);text-transform:uppercase;margin-bottom:1px;}
-.contact-text a,.contact-text span{color:var(--ink);font-size:14px;font-weight:700;text-decoration:none;}
-.contact-text a:hover{color:var(--gold-dk);}
+.c-body label{display:block;font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:2px;}
+.c-body a,.c-body span{color:#fff;font-size:14px;font-weight:700;}
+.c-body a:hover{color:var(--volt);}
 
-/* ─── FOOTER ──────────────────────────────────────────────── */
+/* ══ FOOTER ══════════════════════════════════════════════ */
 footer{
-  background:var(--footer-bg);
-  padding:22px 18px 80px;
-  text-align:center;color:rgba(255,255,255,0.35);
-  font-size:11.5px;line-height:1.7;
-  border-top:1px solid rgba(255,255,255,0.06);
+  background:#040408;padding:24px 18px 84px;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,0.04);
+  color:var(--muted);font-size:11.5px;line-height:1.8;
 }
-footer strong{color:rgba(255,255,255,0.65);}
+footer strong{color:#fff;}
 
-/* ─── STICKY BOTTOM BAR ───────────────────────────────────── */
-.sticky-bar{
-  position:fixed;bottom:0;left:0;right:0;z-index:300;
+/* ══ STICKY BAR ══════════════════════════════════════════ */
+.sticky{
+  position:fixed;bottom:0;left:0;right:0;z-index:400;
   display:grid;grid-template-columns:1fr 1fr;
-  box-shadow:0 -2px 16px rgba(0,0,0,0.12);
   padding-bottom:env(safe-area-inset-bottom);
+  box-shadow:0 -2px 20px rgba(0,0,0,0.4);
 }
 .sticky-wa{
   display:flex;align-items:center;justify-content:center;gap:7px;
-  background:var(--wa);color:white;text-decoration:none;
-  padding:15px 8px;font-size:13px;font-weight:700;
+  background:var(--wa);color:#fff;padding:16px 8px;
+  font-size:13px;font-weight:700;
   position:relative;overflow:hidden;
-  animation:sticky-wa-glow 2.8s ease-in-out infinite;
-}
-@keyframes sticky-wa-glow{
-  0%,100%{box-shadow:none;}
-  50%{box-shadow:0 -5px 20px rgba(37,211,102,0.5);}
+  animation:wa-pulse 2.8s ease-in-out infinite;
 }
 .sticky-call{
   display:flex;align-items:center;justify-content:center;gap:7px;
-  background:var(--gold);color:var(--ink);text-decoration:none;
-  padding:15px 8px;font-size:13px;font-weight:700;
+  background:var(--volt);color:#09090f;padding:16px 8px;
+  font-size:13px;font-weight:800;
   position:relative;overflow:hidden;
-  animation:sticky-call-glow 2.8s 0.7s ease-in-out infinite;
+  animation:call-pulse 2.4s 0.8s ease-in-out infinite;
 }
-@keyframes sticky-call-glow{
-  0%,100%{box-shadow:none;}
-  50%{box-shadow:0 -5px 20px rgba(230,168,0,0.55);}
+.sticky-wa::after,.sticky-call::after{
+  content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
+  transform:skewX(-20deg);animation:shine 2.6s infinite;
 }
+.sticky-call::after{animation-delay:0.8s;}
 
-/* ─── DESKTOP ─────────────────────────────────────────────── */
-@media(min-width:480px){
-  .hero h1{font-size:clamp(38px,10vw,60px);}
-}
+/* ══ BG VARIANTS ═════════════════════════════════════════ */
+.bg-dark{background:var(--dark);}
+.bg-panel{background:var(--dark2);}
+
+/* ══ REVEAL ══════════════════════════════════════════════ */
+.rev{opacity:0;transform:translateY(18px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.rev.in{opacity:1;transform:none;}
+
+/* ══ DESKTOP ══════════════════════════════════════════════ */
 @media(min-width:600px){
-  nav{padding:12px 28px;}
+  nav{padding:0 28px;}
   .nav-call{display:flex;}
-  section{padding:56px 32px;}
-  .counter-section{padding:40px 32px;}
-  .services-grid{grid-template-columns:repeat(4,1fr);}
+  section{padding:60px 32px;}
+  .svc-grid{grid-template-columns:repeat(3,1fr);}
   .why-grid{grid-template-columns:repeat(4,1fr);}
-  .projects-grid{grid-template-columns:repeat(3,1fr);}
-  .proj-card.wide{grid-column:span 1;aspect-ratio:4/3;}
   .testi-grid{flex-direction:row;}
-  .cta-btns{flex-direction:row;justify-content:center;}
-  .cta-btn-wa,.cta-btn-call{width:auto;}
   .hero-ctas{flex-direction:row;}
-  .cta-primary,.cta-secondary{width:auto;}
-  .sticky-bar{display:none;}
+  .btn-wa,.btn-call{width:auto;}
+  .cta-row{flex-direction:row;justify-content:center;}
+  .sticky{display:none;}
   footer{padding-bottom:32px;}
+  .proj-grid{grid-template-columns:repeat(3,1fr);}
+  .proj-card.wide{grid-column:span 1;aspect-ratio:4/3;}
 }
 @media(min-width:900px){
-  section{padding:70px 48px;max-width:960px;margin-left:auto;margin-right:auto;}
-  .counter-section{padding:48px;max-width:960px;margin-left:auto;margin-right:auto;}
-  nav{padding:12px 48px;}
-  .hero-inner{padding:0 48px 24px;}
+  section,.counter-wrap,.proof-bar,.urgency,.avail-bar,.guarantee{max-width:100%;}
+  section{max-width:960px;margin-left:auto;margin-right:auto;width:100%;}
+  nav{padding:0 48px;}
 }
 
-/* ─── SCROLL REVEAL ───────────────────────────────────────── */
-.reveal{opacity:0;transform:translateY(16px);transition:opacity 0.5s ease,transform 0.5s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
+/* ══ LIGHT THEME — prefers-color-scheme: light ══════════════
+   Warm cream/ivory base · deep charcoal ink · amber-gold accent
+   Premium solar brochure — sunlight on paper
+═══════════════════════════════════════════════════════════════ */
+@media(prefers-color-scheme:light){
+
+  :root{
+    --volt:#c47f00;
+    --volt2:#a06800;
+    --volt-dim:rgba(196,127,0,0.10);
+    --dark:#f5f0e8;
+    --dark2:#ede8dc;
+    --dark3:#e8e2d4;
+    --panel:#faf7f0;
+    --panel2:#f2edde;
+    --line:rgba(196,127,0,0.20);
+    --text:#1c1a14;
+    --muted:#6b6350;
+    --wa:#1a9e4f;
+    --r:10px;
+  }
+
+  body{background:#f5f0e8;color:#1c1a14;}
+
+  /* Noise overlay — lighter in light mode */
+  body::before{opacity:0.15;}
+
+  /* ── NAV ── */
+  nav{
+    background:rgba(245,240,232,0.94);
+    border-bottom:1px solid rgba(196,127,0,0.18);
+  }
+  .brand-name{color:#1c1a14;}
+  .brand-tag{color:var(--volt);}
+  .brand-icon{background:var(--volt);}
+  .nav-call{
+    border-color:rgba(196,127,0,0.25);
+    color:var(--text);
+  }
+  .nav-call:hover{border-color:var(--volt);color:var(--volt);}
+
+  /* ── HERO ── */
+  .hero{background:#f5f0e8;}
+  .hero-grid{
+    background-image:
+      linear-gradient(rgba(196,127,0,0.07) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(196,127,0,0.07) 1px,transparent 1px);
+  }
+  .hero-glow{
+    background:radial-gradient(circle,rgba(196,127,0,0.14) 0%,rgba(196,127,0,0.03) 40%,transparent 70%);
+  }
+  .hero-slash{
+    background:linear-gradient(170deg,rgba(196,127,0,0.05) 0%,transparent 60%);
+    border-left:1px solid rgba(196,127,0,0.12);
+  }
+  h1.hero-h{color:#1c1a14;}
+  h1.hero-h .hl{
+    background:linear-gradient(92deg,#c47f00 0%,#e8a000 60%,#c47f00 100%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-size:200% auto;
+  }
+  .hero-name{color:#8a7d60;}
+  .hero-desc{color:rgba(28,26,20,0.65);}
+  .hero-desc strong{color:#1c1a14;}
+  .spark{color:rgba(196,127,0,0.45);}
+  .hero-chip{
+    border-color:rgba(196,127,0,0.25);
+    background:rgba(196,127,0,0.07);
+    color:var(--volt);
+  }
+  .hero-slot-dot{background:var(--volt);}
+  .hero-trust span{color:#8a7d60;}
+  .hero-trust span::before{color:var(--volt);}
+
+  /* Live badge */
+  .live-badge{
+    background:rgba(245,240,232,0.85);
+    border:1px solid rgba(26,158,79,0.3);
+    color:#1a9e4f;
+  }
+
+  /* ── STATS STRIP ── */
+  .stats-strip{
+    background:rgba(232,225,210,0.75);
+    border-top:1px solid rgba(196,127,0,0.18);
+    backdrop-filter:blur(8px);
+  }
+  .stat{border-right-color:rgba(196,127,0,0.15);}
+  .stat-num{color:var(--volt);}
+  .stat-lbl{color:#8a7d60;}
+
+  /* ── AVAIL BAR ── */
+  .avail-bar{
+    background:linear-gradient(90deg,#edf5ec,#f0f7ee,#edf5ec);
+    border-bottom:1px solid rgba(26,158,79,0.18);
+    color:rgba(28,26,20,0.65);
+  }
+  .avail-bar strong{color:#1a9e4f;}
+  .avail-bar a{color:var(--volt);}
+
+  /* ── URGENCY BAR ── */
+  .urgency{background:var(--volt);color:#fff;}
+  .urg-badge{background:rgba(0,0,0,0.12);color:#fff;}
+  .urgency a{color:#fff;}
+
+  /* ── PROOF BAR ── */
+  .proof-bar{
+    background:#faf7f0;
+    border-top:1px solid rgba(196,127,0,0.15);
+    border-bottom:1px solid rgba(196,127,0,0.15);
+  }
+  .proof-item{color:#1c1a14;}
+  .proof-item span{color:var(--volt);}
+  .proof-sep{color:rgba(196,127,0,0.3);}
+
+  /* ── COUNTER ── */
+  .counter-wrap{
+    background:#faf7f0;
+    border-top:1px solid rgba(196,127,0,0.15);
+    border-bottom:1px solid rgba(196,127,0,0.15);
+  }
+  .cnt{
+    background:#f0ead8;
+    border:1px solid rgba(196,127,0,0.18);
+  }
+  .cnt-n{color:var(--volt);}
+  .cnt-l{color:#8a7d60;}
+  .cnt-desc{color:#8a7d60;}
+  .cnt-desc strong{color:var(--volt);}
+
+  /* ── SECTION BASE ── */
+  h2.st{color:#1c1a14;}
+  h2.st span{color:var(--volt);}
+  .sec-eyebrow{color:var(--volt);}
+  .sec-sub{color:#6b6350;}
+
+  /* ── BG VARIANTS ── */
+  .bg-dark{background:#f5f0e8;}
+  .bg-panel{background:#ede8dc;}
+
+  /* ── SERVICES ── */
+  .svc{
+    background:#faf7f0;
+    border:1px solid rgba(196,127,0,0.12);
+    box-shadow:0 1px 6px rgba(0,0,0,0.04);
+  }
+  .svc::before{
+    background:linear-gradient(90deg,var(--volt),transparent);
+  }
+  .svc:hover{border-color:rgba(196,127,0,0.35);box-shadow:0 6px 24px rgba(0,0,0,0.08);}
+  .svc-ico{
+    background:rgba(196,127,0,0.08);
+    border:1px solid rgba(196,127,0,0.18);
+  }
+  .svc h3{color:#1c1a14;}
+  .svc p{color:#6b6350;}
+  .svc-link{color:var(--volt);}
+
+  /* ── PROBLEM SOLVER ── */
+  .prob-intro{color:#1c1a14;}
+  .prob-intro span{color:var(--volt);}
+  .prob-row{border-bottom:1px solid rgba(0,0,0,0.06);}
+  .prob-text{color:#1c1a14;}
+  .prob-text strong{color:#1c1a14;}
+  .prob-text span{color:#8a7d60;}
+  .prob-fix{
+    color:var(--volt);
+    background:rgba(196,127,0,0.08);
+    border:1px solid rgba(196,127,0,0.20);
+  }
+
+  /* ── HOW IT WORKS ── */
+  .step{border-bottom:1px solid rgba(0,0,0,0.06);}
+  .step-n{
+    background:linear-gradient(135deg,var(--volt),#a06800);
+    color:#fff;
+    box-shadow:0 3px 14px rgba(196,127,0,0.3);
+  }
+  .step h4{color:#1c1a14;}
+  .step p{color:#6b6350;}
+  .step-badge{
+    color:#1a9e4f;
+    background:rgba(26,158,79,0.08);
+    border:1px solid rgba(26,158,79,0.20);
+  }
+
+  /* ── WHY US ── */
+  .why{
+    background:#faf7f0;
+    border:1px solid rgba(196,127,0,0.10);
+    box-shadow:0 1px 6px rgba(0,0,0,0.03);
+  }
+  .why:hover{border-color:rgba(196,127,0,0.28);box-shadow:0 4px 18px rgba(0,0,0,0.07);}
+  .why h3{color:#1c1a14;}
+  .why p{color:#6b6350;}
+
+  /* ── PROJECTS ── */
+  .proj-card{background:#e8e2d4;}
+  .proj-card:hover{box-shadow:0 14px 40px rgba(0,0,0,0.15);}
+  .proj-ph{background:linear-gradient(135deg,#e8e2d4 0%,#ddd8c8 100%);}
+  .proj-ph-ico{opacity:0.25;}
+  .proj-ph-lbl{
+    color:var(--volt);
+    background:rgba(196,127,0,0.08);
+    border:1px dashed rgba(196,127,0,0.25);
+  }
+  .proj-label{background:linear-gradient(0deg,rgba(245,240,232,0.96) 0%,transparent 100%);}
+  .proj-loc{color:var(--volt);}
+  .proj-name{color:#1c1a14;}
+
+  /* ── TESTIMONIALS ── */
+  .testi{
+    background:#faf7f0;
+    border:1px solid rgba(196,127,0,0.12);
+    border-left:2px solid var(--volt);
+    box-shadow:0 1px 8px rgba(0,0,0,0.04);
+  }
+  .testi:hover{box-shadow:0 4px 20px rgba(0,0,0,0.08);}
+  .testi::after{color:rgba(196,127,0,0.12);}
+  .stars{color:#d4a017;}
+  .testi blockquote{color:rgba(28,26,20,0.78);}
+  .av{background:linear-gradient(135deg,var(--volt),#a06800);color:#fff;}
+  .testi-name{color:#1c1a14;}
+  .testi-loc{color:#8a7d60;}
+  .testi-svc{
+    color:var(--volt);
+    background:rgba(196,127,0,0.08);
+    border:1px solid rgba(196,127,0,0.18);
+  }
+
+  /* ── GUARANTEE ── */
+  .guarantee{
+    background:linear-gradient(135deg,#edf5ec,#f0f7ee,#edf5ec);
+    border-top:1px solid rgba(26,158,79,0.15);
+    border-bottom:1px solid rgba(26,158,79,0.15);
+  }
+  .guar-h{color:#1c1a14;}
+  .guar-h span{color:#1a9e4f;}
+  .guar-p{color:#6b6350;}
+  .guar-badge{
+    background:rgba(26,158,79,0.07);
+    border:1px solid rgba(26,158,79,0.20);
+    color:#1a9e4f;
+  }
+
+  /* ── COVERAGE ── */
+  .area-chip{
+    color:#8a7d60;
+    background:rgba(0,0,0,0.03);
+    border:1px solid rgba(0,0,0,0.08);
+  }
+  .area-chip.hot{
+    color:var(--volt);
+    background:rgba(196,127,0,0.08);
+    border-color:rgba(196,127,0,0.22);
+  }
+
+  /* ── CTA BLOCK ── */
+  .cta-block{
+    background:linear-gradient(135deg,#fdf7e8 0%,#f5edd4 100%);
+    border:1px solid rgba(196,127,0,0.25);
+  }
+  .cta-block h3{color:var(--volt);}
+  .cta-block p{color:#6b6350;}
+
+  /* ── CONTACT ROWS ── */
+  .c-row{
+    background:#faf7f0;
+    border:1px solid rgba(196,127,0,0.10);
+    box-shadow:0 1px 4px rgba(0,0,0,0.03);
+  }
+  .c-ico{
+    background:rgba(196,127,0,0.08);
+    border:1px solid rgba(196,127,0,0.18);
+  }
+  .c-body label{color:#8a7d60;}
+  .c-body a,.c-body span{color:#1c1a14;}
+  .c-body a:hover{color:var(--volt);}
+
+  /* ── FOOTER ── */
+  footer{
+    background:#e8e2d4;
+    border-top:1px solid rgba(196,127,0,0.15);
+    color:#8a7d60;
+  }
+  footer strong{color:#1c1a14;}
+
+  /* ── STICKY BAR ── */
+  .sticky{box-shadow:0 -2px 20px rgba(0,0,0,0.12);}
+
+  /* ── BUTTONS — call pulse adapts to amber glow ── */
+  @keyframes call-pulse-light{
+    0%,100%{box-shadow:0 4px 20px rgba(196,127,0,0.30);}
+    50%{box-shadow:0 6px 36px rgba(196,127,0,0.60),0 0 0 8px rgba(196,127,0,0.05);}
+  }
+  .btn-call,.sticky-call{
+    background:var(--volt);
+    color:#fff;
+    animation:call-pulse-light 2.4s 0.6s ease-in-out infinite;
+  }
+  .sticky-call{animation:call-pulse-light 2.4s 0.8s ease-in-out infinite;}
+}
 </style>
-<!-- Umami Analytics -->
-<script defer src="https://cloud.umami.is/script.js" data-website-id="23168a8d-b7fe-4041-a68d-8d6ec63a5022"></script>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a class="nav-brand" href="#">
-    <div class="nav-bolt">⚡</div>
-    <div class="nav-name">LAYOSAM<small>Electrical &amp; Solar</small></div>
-  </a>
-  <div class="nav-right">
-    <a class="nav-call" href="tel:+2348106690594" data-umami-event="nav_call_click">📞 08106690594</a>
-    <a class="nav-wa" href="https://wa.me/2348106690594?text=Hello%2C%20I%20need%20a%20quote." target="_blank" data-umami-event="nav_whatsapp_click">
+  <div class="brand">
+    <div class="brand-icon">⚡</div>
+    <div>
+      <div class="brand-name">LAYOSAM</div>
+      <span class="brand-tag">ELECTRICAL &amp; SOLAR INSTALLATION</span>
+    </div>
+  </div>
+  <div class="nav-ctas">
+    <a class="nav-call" href="tel:+2348106690594" style="display:flex;">📞 08106690594</a>
+    <a class="nav-wa" href="https://wa.me/2348106690594?text=Hello%2C%20I%20need%20an%20electrician." target="_blank">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
       WhatsApp
     </a>
@@ -618,425 +963,513 @@ footer strong{color:rgba(255,255,255,0.65);}
 
 <!-- HERO -->
 <section class="hero" style="padding:0;">
-  <div class="hero-bg"></div>
-  <div class="hero-live"><span class="live-dot"></span> Available Now</div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-slash"></div>
+  <span class="spark spark-1">⚡ 240V</span>
+  <span class="spark spark-2">SOLAR</span>
+  <span class="spark spark-3">⚡ AC</span>
+  <div class="live-badge"><span class="live-dot"></span> Available Now</div>
 
-  <div class="hero-inner">
-    <div class="hero-eyebrow">⚡ Solar &amp; Electrical Experts</div>
-    <h1>
-      No Light?<br>
-      <span class="accent">We Fix That.</span>
+  <div class="hero-content">
+    <div class="hero-chip">
+      <span class="hero-slot-dot"></span>
+      <span id="slot-badge">3 inspection slots available today</span>
+    </div>
+    <h1 class="hero-h">
+      NO LIGHT?<br>
+      <span class="hl">WE FIX THAT.</span>
     </h1>
-    <p class="hero-sub">
-      Solar installation, inverter setup, house wiring &amp; electrical repairs — done properly, priced honestly.
-    </p>
+    <div class="hero-name">by LAYOSAM — IBADAN</div>
+    <p class="hero-desc">Solar installation, inverter setup, house wiring &amp; electrical repairs. <strong>Same-day response, honest pricing.</strong></p>
+    <div class="hero-trust">
+      <span>Free inspection</span>
+      <span>No hidden charges</span>
+      <span>Same-day response</span>
+      <span id="trust-jobs">200+ jobs done</span>
+    </div>
     <div class="hero-ctas">
-      <a class="cta-primary" href="https://wa.me/2348106690594?text=Hello%2C%20I%20need%20a%20quote." target="_blank" data-umami-event="hero_whatsapp_click">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      <a class="btn-wa" href="https://wa.me/2348106690594?text=Hello%2C%20I%20need%20an%20electrician." target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
         Get a Free Quote
       </a>
-      <a class="cta-secondary" href="tel:+2348106690594" data-umami-event="hero_call_click">📞 Call 08106690594</a>
+      <a class="btn-call" href="tel:+2348106690594">📞 Call 08106690594</a>
     </div>
-    <div class="hero-gap"></div>
   </div>
 
-  <div class="hero-strip">
-    <div class="strip-item"><div class="strip-num" id="stat-jobs">200+</div><div class="strip-lbl">Jobs Done</div></div>
-    <div class="strip-item"><div class="strip-num">5★</div><div class="strip-lbl">Rated</div></div>
-    <div class="strip-item"><div class="strip-num">5 yrs</div><div class="strip-lbl">Experience</div></div>
-    <div class="strip-item"><div class="strip-num">24/7</div><div class="strip-lbl">Available</div></div>
+  <div class="stats-strip">
+    <div class="stat"><div class="stat-num" id="hero-total">200+</div><div class="stat-lbl">Jobs Done</div></div>
+    <div class="stat"><div class="stat-num">5★</div><div class="stat-lbl">Rated</div></div>
+    <div class="stat"><div class="stat-num">10 Yrs+</div><div class="stat-lbl">Experience</div></div>
+    <div class="stat"><div class="stat-num">24/7</div><div class="stat-lbl">Available</div></div>
   </div>
 </section>
 
-<!-- URGENCY -->
-<div class="urgency-bar">
-  📲 Free inspection &amp; quote — <a href="https://wa.me/2348106690594?text=I+want+a+free+quote" target="_blank" data-umami-event="urgency_whatsapp_click">WhatsApp now</a> or call <a href="tel:+2348106690594" data-umami-event="urgency_call_click">08106690594</a>
+<!-- AVAIL BAR -->
+<div class="avail-bar">
+  <span class="avail-dot"></span>
+  <span><strong>Electrical &amp; solar team available now</strong> &nbsp;·&nbsp; <a href="tel:+2348106690594">08106690594</a> &nbsp;·&nbsp; Free inspection for all new customers</span>
 </div>
 
-<!-- ANIMATED COUNTER SECTION -->
-<div class="counter-section reveal">
-  <div class="counter-inner">
-    <div class="counter-card">
-      <div class="counter-num" id="cnt-total">—</div>
-      <div class="counter-lbl">Total Jobs</div>
-    </div>
-    <div class="counter-card">
-      <div class="counter-num" id="cnt-month">—</div>
-      <div class="counter-lbl" id="cnt-month-lbl">This Month</div>
-    </div>
-    <div class="counter-card">
-      <div class="counter-num" id="cnt-week">—</div>
-      <div class="counter-lbl">This Week</div>
-    </div>
+<!-- URGENCY -->
+<div class="urgency">
+  <span class="urg-badge">⚡ Limited Slots</span>
+  <span><span id="urg-text">Only 3 inspection slots left today</span> — <a href="https://wa.me/2348106690594?text=I+want+a+free+inspection" target="_blank">WhatsApp now</a> or call <a href="tel:+2348106690594">08106690594</a></span>
+</div>
+
+<!-- SOCIAL PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-item"><span>✅</span> Free inspection</div>
+  <div class="proof-sep">·</div>
+  <div class="proof-item"><span>☀️</span> Solar specialists</div>
+  <div class="proof-sep">·</div>
+  <div class="proof-item"><span>🏆</span> 5+ years licensed</div>
+  <div class="proof-sep">·</div>
+  <div class="proof-item"><span>📍</span> Serving all Ibadan</div>
+  <div class="proof-sep">·</div>
+  <div class="proof-item"><span>⚡</span> Same-day emergency</div>
+  <div class="proof-sep">·</div>
+  <div class="proof-item"><span>💯</span> No hidden charges</div>
+</div>
+
+<!-- LIVE COUNTER -->
+<div class="counter-wrap rev">
+  <div class="counter-grid">
+    <div class="cnt"><div class="cnt-n" id="cnt-total">—</div><div class="cnt-l">Total Jobs</div></div>
+    <div class="cnt"><div class="cnt-n" id="cnt-month">—</div><div class="cnt-l" id="cnt-mo-lbl">This Month</div></div>
+    <div class="cnt"><div class="cnt-n" id="cnt-week">—</div><div class="cnt-l">This Week</div></div>
   </div>
-  <p class="counter-sub" id="cnt-desc">Calculating live job stats…</p>
+  <p class="cnt-desc" id="cnt-desc">Calculating live stats…</p>
 </div>
 
 <!-- SERVICES -->
-<section class="bg-white reveal" id="services">
-  <div class="sec-label">What We Do</div>
-  <h2 class="sec-title">Our <em>Services</em></h2>
-  <p class="sec-sub">Solar, inverters, wiring and repairs — handled by one experienced team.</p>
-  <div class="services-grid">
-    <div class="svc-card">
+<section class="bg-panel rev" id="services">
+  <span class="sec-eyebrow">// WHAT WE DO</span>
+  <h2 class="st">Solar &amp; Electrical <span>Services</span></h2>
+  <p class="sec-sub">Solar installation is our core specialty. We also handle inverters, house wiring and all electrical engineering work.</p>
+  <div class="svc-grid">
+    <div class="svc">
       <div class="svc-ico">☀️</div>
       <h3>Solar Installation</h3>
-      <p>Full rooftop &amp; ground solar for homes and offices.</p>
-      <a class="svc-cta" href="https://wa.me/2348106690594?text=I+need+solar+installation" target="_blank" data-umami-event="service_quote_click" data-umami-event-service="solar">Quote →</a>
+      <p>Full rooftop and ground solar panel systems for homes, offices and businesses. Properly sized and neatly mounted.</p>
+      <a class="svc-link" href="https://wa.me/2348106690594?text=I+need+solar+installation" target="_blank">Get Quote →</a>
     </div>
-    <div class="svc-card">
+    <div class="svc">
       <div class="svc-ico">🔋</div>
       <h3>Inverter &amp; Battery</h3>
-      <p>Inverter installation, battery bank setup &amp; maintenance.</p>
-      <a class="svc-cta" href="https://wa.me/2348106690594?text=I+need+inverter+setup" target="_blank" data-umami-event="service_quote_click" data-umami-event-service="inverter">Quote →</a>
+      <p>Inverter installation, battery bank setup, sizing and maintenance. Keep power on when NEPA goes off.</p>
+      <a class="svc-link" href="https://wa.me/2348106690594?text=I+need+inverter+setup" target="_blank">Get Quote →</a>
     </div>
-    <div class="svc-card">
+    <div class="svc">
       <div class="svc-ico">🏠</div>
       <h3>House Wiring</h3>
-      <p>New builds, renovations and extensions. Neat and safe.</p>
-      <a class="svc-cta" href="https://wa.me/2348106690594?text=I+need+house+wiring" target="_blank" data-umami-event="service_quote_click" data-umami-event-service="wiring">Quote →</a>
+      <p>New builds, renovations and extensions. Cables routed neatly, conduits fitted properly.</p>
+      <a class="svc-link" href="https://wa.me/2348106690594?text=I+need+house+wiring" target="_blank">Get Quote →</a>
     </div>
-    <div class="svc-card">
-      <div class="svc-ico">🔧</div>
+    <div class="svc">
+      <div class="svc-ico">🔌</div>
+      <h3>DB Board &amp; Breakers</h3>
+      <p>Distribution board installation, replacement, upgrade and full breaker panel setup.</p>
+      <a class="svc-link" href="https://wa.me/2348106690594?text=I+need+DB+board+work" target="_blank">Get Quote →</a>
+    </div>
+    <div class="svc">
+      <div class="svc-ico">⚡</div>
       <h3>Electrical Repairs</h3>
-      <p>Faults, sparking sockets, tripped breakers — fixed fast.</p>
-      <a class="svc-cta" href="https://wa.me/2348106690594?text=I+need+electrical+repair" target="_blank" data-umami-event="service_quote_click" data-umami-event-service="repairs">Quote →</a>
+      <p>Faults, sparking sockets, tripped breakers and power outages — fixed fast, same day.</p>
+      <a class="svc-link" href="https://wa.me/2348106690594?text=I+have+an+electrical+fault" target="_blank">Call Now →</a>
+    </div>
+    <div class="svc">
+      <div class="svc-ico">🔧</div>
+      <h3>Solar Maintenance</h3>
+      <p>Panel cleaning, inverter servicing, battery health checks and system performance audits.</p>
+      <a class="svc-link" href="https://wa.me/2348106690594?text=I+need+solar+maintenance" target="_blank">Get Quote →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM SOLVER -->
+<section class="bg-dark rev">
+  <span class="sec-eyebrow">// RECOGNISE YOUR SITUATION?</span>
+  <p class="prob-intro">We Handle <span>All Of These.</span></p>
+  <div class="prob-list">
+    <div class="prob-row">
+      <div class="prob-icon">☀️</div>
+      <div class="prob-text">
+        <strong>Tired of NEPA taking light every day</strong>
+        <span>Want consistent power without a generator burning fuel</span>
+      </div>
+      <span class="prob-fix">Solar solution</span>
+    </div>
+    <div class="prob-row">
+      <div class="prob-icon">🔋</div>
+      <div class="prob-text">
+        <strong>Inverter not holding charge or tripping</strong>
+        <span>Battery drains fast, inverter beeps constantly or shuts down</span>
+      </div>
+      <span class="prob-fix">Same-day fix</span>
+    </div>
+    <div class="prob-row">
+      <div class="prob-icon">🔴</div>
+      <div class="prob-text">
+        <strong>Whole house tripped, no power</strong>
+        <span>Main breaker keeps tripping or won't reset</span>
+      </div>
+      <span class="prob-fix">Fixed fast</span>
+    </div>
+    <div class="prob-row">
+      <div class="prob-icon">⚠️</div>
+      <div class="prob-text">
+        <strong>Socket sparking or smoking</strong>
+        <span>Burning smell, discoloured plates, hot socket</span>
+      </div>
+      <span class="prob-fix">Emergency repair</span>
+    </div>
+    <div class="prob-row">
+      <div class="prob-icon">🏗️</div>
+      <div class="prob-text">
+        <strong>Building a new house or renovating</strong>
+        <span>Need full wiring and solar system done properly from scratch</span>
+      </div>
+      <span class="prob-fix">Full package</span>
+    </div>
+    <div class="prob-row">
+      <div class="prob-icon">📊</div>
+      <div class="prob-text">
+        <strong>High generator fuel cost every month</strong>
+        <span>Want to cut running costs with solar power</span>
+      </div>
+      <span class="prob-fix">Solar audit free</span>
     </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="bg-light reveal">
-  <div class="sec-label">Simple Process</div>
-  <h2 class="sec-title">How It <em>Works</em></h2>
-  <p class="sec-sub">Getting started is easy. No forms, no stress.</p>
+<section class="bg-panel rev">
+  <span class="sec-eyebrow">// THE PROCESS</span>
+  <h2 class="st">How It <span>Works</span></h2>
+  <p class="sec-sub">Getting started is fast and completely free. No forms, no waiting, no stress.</p>
   <div class="steps">
     <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-body"><h4>You Contact Us</h4><p>WhatsApp or call 08106690594. We reply fast.</p></div>
+      <div class="step-n">1</div>
+      <div>
+        <h4>You Contact Us</h4>
+        <p>WhatsApp us or call 08106690594. Describe your problem — we reply within minutes and confirm a time.</p>
+        <span class="step-badge">✔ Reply within minutes</span>
+      </div>
     </div>
     <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-body"><h4>Free Visit &amp; Quote</h4><p>We come to your location, inspect and give you a clear price — no commitment.</p></div>
+      <div class="step-n">2</div>
+      <div>
+        <h4>Free Inspection &amp; Quote</h4>
+        <p>Our electrician visits your location, fully inspects the problem and gives you a clear, honest price — no commitment required and no charge for the visit.</p>
+        <span class="step-badge">✔ 100% free — no obligation</span>
+      </div>
     </div>
     <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-body"><h4>We Do the Work</h4><p>Professional, clean installation. No mess left behind.</p></div>
+      <div class="step-n">3</div>
+      <div>
+        <h4>We Do the Work</h4>
+        <p>Once you approve, we carry out the full job using quality materials. Cables routed neatly, fixings done properly, panels left tidy.</p>
+        <span class="step-badge">✔ Clean, professional finish</span>
+      </div>
     </div>
     <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-body"><h4>You Stay Powered</h4><p>We test everything before leaving and stay available for support.</p></div>
+      <div class="step-n">4</div>
+      <div>
+        <h4>Tested &amp; Confirmed</h4>
+        <p>We test every circuit, socket and switch before leaving. You get our number for any follow-up — we don't disappear after the job.</p>
+        <span class="step-badge">✔ After-job support included</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section class="bg-white reveal" id="projects">
-  <div class="sec-label">Past Work</div>
-  <h2 class="sec-title">Completed <em>Projects</em></h2>
-  <p class="sec-sub" id="projects-sub">Loading recent jobs…</p>
-  <div class="projects-grid">
-    <div class="proj-card wide">
-      <img class="proj-img" src="project/project1.jpg" alt="3kVA Solar Installation – Bodija" loading="lazy"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-placeholder" style="display:none"><div class="ph-icon">🖼️</div><div class="ph-name">Photo not found</div></div>
-      <div class="proj-label"><div class="proj-loc">📍 Bodija, Ibadan</div>3kVA Solar Installation</div>
-    </div>
-    <div class="proj-card">
-      <img class="proj-img" src="project/project2.jpg" alt="Full House Wiring – Akobo" loading="lazy"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-placeholder" style="display:none"><div class="ph-icon">🖼️</div><div class="ph-name">Photo not found</div></div>
-      <div class="proj-label"><div class="proj-loc">📍 Akobo, Ibadan</div>Full House Wiring</div>
-    </div>
-    <div class="proj-card">
-      <img class="proj-img" src="project/project3.jpg" alt="Inverter & Battery Setup – UI Area" loading="lazy"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-placeholder" style="display:none"><div class="ph-icon">🖼️</div><div class="ph-name">Photo not found</div></div>
-      <div class="proj-label"><div class="proj-loc">📍 UI Area, Ibadan</div>Inverter &amp; Battery Setup</div>
-    </div>
-    <div class="proj-card">
-      <img class="proj-img" src="project/project4.jpg" alt="5kVA Solar System – Oluyole" loading="lazy"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-placeholder" style="display:none"><div class="ph-icon">🖼️</div><div class="ph-name">Photo not found</div></div>
-      <div class="proj-label"><div class="proj-loc">📍 Oluyole, Ibadan</div>5kVA Solar System</div>
-    </div>
-    <div class="proj-card">
-      <img class="proj-img" src="project/project5.jpg" alt="Office Electrical Repair – Ring Road" loading="lazy"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-placeholder" style="display:none"><div class="ph-icon">🖼️</div><div class="ph-name">Photo not found</div></div>
-      <div class="proj-label"><div class="proj-loc">📍 Ring Road, Ibadan</div>Office Electrical Repair</div>
-    </div>
-    <div class="proj-card">
-      <img class="proj-img" src="project/project6.jpg" alt="Solar & Wiring Package – Agodi GRA" loading="lazy"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-placeholder" style="display:none"><div class="ph-icon">🖼️</div><div class="ph-name">Photo not found</div></div>
-      <div class="proj-label"><div class="proj-loc">📍 Agodi GRA, Ibadan</div>Solar &amp; Wiring Package</div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY LAYOSAM -->
-<section class="bg-light reveal">
-  <div class="sec-label">Why Us</div>
-  <h2 class="sec-title">Why Choose <em>Layosam?</em></h2>
-  <p class="sec-sub">We've built our reputation by doing exactly what we promise.</p>
+<!-- WHY US -->
+<section class="bg-dark rev">
+  <span class="sec-eyebrow">// WHY LAYOSAM</span>
+  <h2 class="st">Built on <span>Trust</span></h2>
+  <p class="sec-sub">We've built our reputation one job at a time — by showing up, being honest and doing work that lasts.</p>
   <div class="why-grid">
-    <div class="why-card"><span class="why-ico">🏆</span><h3>5+ Years Experience</h3><p>Hundreds of completed jobs across homes and businesses.</p></div>
-    <div class="why-card"><span class="why-ico">✨</span><h3>Neat &amp; Professional</h3><p>Clean work, properly routed cables, tidy panels every time.</p></div>
-    <div class="why-card"><span class="why-ico">💰</span><h3>Honest Pricing</h3><p>Clear quote upfront. No hidden charges after the job.</p></div>
-    <div class="why-card"><span class="why-ico">⚡</span><h3>Fast &amp; Reliable</h3><p>We respond fast, show up on time and handle emergencies same day.</p></div>
+    <div class="why"><span class="why-ico">🏆</span><h3>5+ Years Experience</h3><p>Hundreds of completed electrical jobs across Ibadan homes and businesses.</p></div>
+    <div class="why"><span class="why-ico">💰</span><h3>Honest Pricing</h3><p>Clear quote before we start. What we say is exactly what you pay. No stories, no surprises.</p></div>
+    <div class="why"><span class="why-ico">⚡</span><h3>Fast Response</h3><p>We pick up, we reply, we show up. Electrical emergencies handled same day.</p></div>
+    <div class="why"><span class="why-ico">✨</span><h3>Neat &amp; Safe Work</h3><p>Cables run properly, conduits used, panels left clean. Safety is not optional.</p></div>
+  </div>
+</section>
+
+<!-- COMPLETED PROJECTS -->
+<section class="bg-panel rev" id="projects">
+  <span class="sec-eyebrow">// PAST WORK</span>
+  <h2 class="st">Completed <span>Projects</span></h2>
+  <p class="sec-sub" id="projects-sub">Recent solar and electrical jobs completed across Ibadan.</p>
+  <div class="proj-grid">
+    <div class="proj-card wide">
+      <img class="proj-img" src="project/project1.jpg" alt="3kVA Solar Installation – Bodija"
+           loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="proj-ph" style="display:none"><span class="proj-ph-ico">📸</span><span class="proj-ph-lbl">project1.jpg</span></div>
+      <div class="proj-label">
+        <span class="proj-loc">📍 Bodija, Ibadan</span>
+        <span class="proj-name">3kVA Solar Installation</span>
+      </div>
+    </div>
+    <div class="proj-card">
+      <img class="proj-img" src="project/project2.jpg" alt="Full House Wiring – Akobo"
+           loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="proj-ph" style="display:none"><span class="proj-ph-ico">📸</span><span class="proj-ph-lbl">project2.jpg</span></div>
+      <div class="proj-label">
+        <span class="proj-loc">📍 Akobo, Ibadan</span>
+        <span class="proj-name">Full House Wiring</span>
+      </div>
+    </div>
+    <div class="proj-card">
+      <img class="proj-img" src="project/project3.jpg" alt="Inverter & Battery Setup – UI Area"
+           loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="proj-ph" style="display:none"><span class="proj-ph-ico">📸</span><span class="proj-ph-lbl">project3.jpg</span></div>
+      <div class="proj-label">
+        <span class="proj-loc">📍 UI Area, Ibadan</span>
+        <span class="proj-name">Inverter &amp; Battery Setup</span>
+      </div>
+    </div>
+    <div class="proj-card">
+      <img class="proj-img" src="project/project4.jpg" alt="5kVA Solar System – Oluyole"
+           loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="proj-ph" style="display:none"><span class="proj-ph-ico">📸</span><span class="proj-ph-lbl">project4.jpg</span></div>
+      <div class="proj-label">
+        <span class="proj-loc">📍 Oluyole, Ibadan</span>
+        <span class="proj-name">5kVA Solar System</span>
+      </div>
+    </div>
+    <div class="proj-card">
+      <img class="proj-img" src="project/project5.jpg" alt="Office Electrical Repair – Ring Road"
+           loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="proj-ph" style="display:none"><span class="proj-ph-ico">📸</span><span class="proj-ph-lbl">project5.jpg</span></div>
+      <div class="proj-label">
+        <span class="proj-loc">📍 Ring Road, Ibadan</span>
+        <span class="proj-name">Office Electrical Repair</span>
+      </div>
+    </div>
+    <div class="proj-card">
+      <img class="proj-img" src="project/project6.jpg" alt="Solar & Wiring Package – Agodi GRA"
+           loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="proj-ph" style="display:none"><span class="proj-ph-ico">📸</span><span class="proj-ph-lbl">project6.jpg</span></div>
+      <div class="proj-label">
+        <span class="proj-loc">📍 Agodi GRA, Ibadan</span>
+        <span class="proj-name">Solar &amp; Wiring Package</span>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="bg-white reveal">
-  <div class="sec-label">Reviews</div>
-  <h2 class="sec-title">What <em>Customers Say</em></h2>
-  <p class="sec-sub">Real feedback from people we've worked with.</p>
+<section class="bg-dark rev">
+  <span class="sec-eyebrow">// WHAT CLIENTS SAY</span>
+  <h2 class="st">Real <span>Reviews</span></h2>
+  <p class="sec-sub">Ibadan homeowners and business owners who have used our services.</p>
   <div class="testi-grid">
     <div class="testi">
       <div class="stars">★★★★★</div>
-      <blockquote>Very reliable and neat job. My solar has been working perfectly. I have already referred him to my neighbour in the same street.</blockquote>
+      <blockquote>Very reliable and neat job. My solar has been working perfectly since installation. I have already referred him to my neighbour in the same street.</blockquote>
       <div class="testi-meta">
-        <div class="testi-av">A</div>
-        <div><div class="testi-name">Mr. Adebayo Olusanya</div><div class="testi-loc">📍 3-bedroom flat, Bodija</div></div>
+        <div class="av">A</div>
+        <div><div class="testi-name">Mr. Adebayo Olusanya</div><div class="testi-loc">📍 Bodija, 3-bedroom flat</div></div>
+        <span class="testi-svc">☀️ Solar Setup</span>
       </div>
     </div>
     <div class="testi">
       <div class="stars">★★★★★</div>
-      <blockquote>Explained everything clearly and delivered on time. The wiring in my new house is very neat. Honest pricing — no stories at all.</blockquote>
+      <blockquote>Explained everything clearly before starting and delivered exactly what was quoted. The wiring in my new house is very neat. Honest pricing, no hidden charges at all.</blockquote>
       <div class="testi-meta">
-        <div class="testi-av">K</div>
+        <div class="av">K</div>
         <div><div class="testi-name">Mrs. Kemi Adewale</div><div class="testi-loc">📍 New build, Akobo</div></div>
+        <span class="testi-svc">🏠 House Wiring</span>
       </div>
     </div>
     <div class="testi">
       <div class="stars">★★★★★</div>
-      <blockquote>My inverter was giving problem and he fixed it same day I called. Very fast, professional and the price was fair.</blockquote>
+      <blockquote>My inverter was giving problem and he fixed it same day I called. Very fast, professional and the price was fair. No more generator stress since he set up the solar.</blockquote>
       <div class="testi-meta">
-        <div class="testi-av">T</div>
-        <div><div class="testi-name">Mr. Tunde Fashola</div><div class="testi-loc">📍 Suya spot, Ring Road</div></div>
+        <div class="av">T</div>
+        <div><div class="testi-name">Mr. Tunde Fashola</div><div class="testi-loc">📍 Ring Road, Ibadan</div></div>
+        <span class="testi-svc">🔋 Inverter Repair</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<div class="guarantee rev">
+  <span class="guar-icon">🛡️</span>
+  <div class="guar-h">Our <span>Promise</span> to You</div>
+  <p class="guar-p">We stand behind every job. If something doesn't work correctly after we leave, we come back and fix it — no argument, no extra charge.</p>
+  <div class="guar-items">
+    <span class="guar-badge">✔ Free inspection</span>
+    <span class="guar-badge">✔ No hidden charges</span>
+    <span class="guar-badge">✔ Work tested before leaving</span>
+    <span class="guar-badge">✔ After-job support</span>
+    <span class="guar-badge">✔ Honest pricing always</span>
+  </div>
+</div>
+
+<!-- COVERAGE -->
+<section class="bg-panel rev">
+  <span class="sec-eyebrow">// WHERE WE WORK</span>
+  <h2 class="st">We Cover <span>All Ibadan</span></h2>
+  <p class="sec-sub">Our electricians are based in Ibadan and serve all major areas. Not sure if we cover your area? Just call — we'll confirm immediately.</p>
+  <div class="area-chips">
+    <span class="area-chip hot">Bodija</span>
+    <span class="area-chip hot">Akobo</span>
+    <span class="area-chip hot">UI Area</span>
+    <span class="area-chip hot">Oluyole</span>
+    <span class="area-chip hot">Agodi GRA</span>
+    <span class="area-chip hot">Ring Road</span>
+    <span class="area-chip">Iwo Road</span>
+    <span class="area-chip">Ojoo</span>
+    <span class="area-chip">Apata</span>
+    <span class="area-chip">Molete</span>
+    <span class="area-chip">Dugbe</span>
+    <span class="area-chip">Challenge</span>
+    <span class="area-chip">Iyaganku</span>
+    <span class="area-chip">Sango</span>
+    <span class="area-chip">Alakia</span>
+    <span class="area-chip">Eleyele</span>
+    <span class="area-chip">Yemetu</span>
+    <span class="area-chip">Oke-Ado</span>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="bg-light reveal" id="contact">
-  <div class="sec-label">Get In Touch</div>
-  <h2 class="sec-title">Ready to <em>Get Started?</em></h2>
-  <p class="sec-sub">Contact us today. We respond fast and your first quote is completely free.</p>
+<section class="bg-dark rev" id="contact">
+  <span class="sec-eyebrow">// GET STARTED</span>
+  <h2 class="st">Ready to <span>Fix It?</span></h2>
+  <p class="sec-sub">Free inspection, honest quote, clean job. One call away.</p>
   <div class="cta-block">
     <h3>Get Your Free Quote Today</h3>
-    <p>We visit, assess and give you a clear price before any work begins.</p>
-    <div class="cta-btns">
-      <a class="cta-btn-wa" href="https://wa.me/2348106690594?text=Hello%2C%20I%20need%20a%20free%20quote." target="_blank" data-umami-event="contact_whatsapp_click">
+    <p>We visit, assess and give you a clear price before any work begins. No obligation.</p>
+    <div class="cta-row">
+      <a class="btn-wa" href="https://wa.me/2348106690594?text=Hello%2C%20I%20need%20a%20free%20quote." target="_blank" style="width:auto;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
         WhatsApp Us Now
       </a>
-      <a class="cta-btn-call" href="tel:+2348106690594" data-umami-event="contact_call_click">📞 Call 08106690594</a>
+      <a class="btn-call" href="tel:+2348106690594" style="width:auto;">📞 Call 08106690594</a>
     </div>
   </div>
-  <div class="contact-details">
-    <div class="contact-row">
-      <div class="contact-ico">📞</div>
-      <div class="contact-text"><label>Main Line</label><a href="tel:+2348106690594" data-umami-event="contact_main_call_click">08106690594</a></div>
-    </div>
-    <div class="contact-row">
-      <div class="contact-ico">📱</div>
-      <div class="contact-text"><label>Other Line</label><a href="tel:+2347076240267" data-umami-event="contact_other_call_click">07076240267</a></div>
-    </div>
-    <div class="contact-row">
-      <div class="contact-ico">💬</div>
-      <div class="contact-text"><label>WhatsApp</label><a href="https://wa.me/2348106690594?text=Hello" target="_blank" data-umami-event="contact_chat_click">Chat on WhatsApp</a></div>
-    </div>
-    <div class="contact-row">
-      <div class="contact-ico">🕐</div>
-      <div class="contact-text"><label>Working Hours</label><span>Mon – Sat: 7am – 7pm</span></div>
-    </div>
-    <div class="contact-row">
-      <div class="contact-ico">📍</div>
-      <div class="contact-text"><label>Service Areas</label><span>Bodija · Akobo · UI · Oluyole · Agodi · Ring Road · Iwo Road · Ojoo · Apata · Molete &amp; all of Ibadan</span></div>
-    </div>
+  <div class="contact-list">
+    <div class="c-row"><div class="c-ico">📞</div><div class="c-body"><label>Main Line</label><a href="tel:+2348106690594">08106690594</a></div></div>
+    <div class="c-row"><div class="c-ico">📱</div><div class="c-body"><label>Other Line</label><a href="tel:+2347076240267">07076240267</a></div></div>
+    <div class="c-row"><div class="c-ico">💬</div><div class="c-body"><label>WhatsApp</label><a href="https://wa.me/2348106690594?text=Hello" target="_blank">Chat with us on WhatsApp</a></div></div>
+    <div class="c-row"><div class="c-ico">🕐</div><div class="c-body"><label>Working Hours</label><span>Monday – Saturday · 7am to 7pm</span></div></div>
+    <div class="c-row"><div class="c-ico">📍</div><div class="c-body"><label>Service Area</label><span>All of Ibadan, Oyo State</span></div></div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <strong>LAYOSAM Electrical Engineering &amp; Solar Installation</strong><br>
+  Ibadan, Oyo State, Nigeria<br>
   📞 08106690594 &nbsp;·&nbsp; 07076240267<br><br>
   © 2025 Layosam. All Rights Reserved.
 </footer>
 
-<!-- STICKY BOTTOM BAR (mobile only) -->
-<div class="sticky-bar">
-  <a class="sticky-wa" href="https://wa.me/2348106690594?text=Hello%2C%20I%20need%20a%20quote." target="_blank" data-umami-event="sticky_whatsapp_click">
+<!-- STICKY BAR (mobile) -->
+<div class="sticky">
+  <a class="sticky-wa" href="https://wa.me/2348106690594?text=Hello%2C%20I%20need%20an%20electrician." target="_blank">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
     WhatsApp Us
   </a>
-  <a class="sticky-call" href="tel:+2348106690594" data-umami-event="sticky_call_click">📞 Call Now</a>
+  <a class="sticky-call" href="tel:+2348106690594">⚡ Call Now</a>
 </div>
 
-<script>
-/* ═══════════════════════════════════════════════════
-   SMART JOB COUNTER
-   All values are deterministic from today's date, so
-   they are always consistent on the same day/reload,
-   but naturally update as time moves forward and
-   reset to 0 at the start of every new month/week.
-═══════════════════════════════════════════════════ */
-(function(){
-  const MONTHS = ['January','February','March','April','May','June',
-                  'July','August','September','October','November','December'];
+<!-- Umami Analytics -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="23168a8d-b7fe-4041-a68d-8d6ec63a5022"></script>
 
-  // Seeded PRNG — same seed → same sequence every time
+<script>
+/* ════════════════════════════════════════════
+   SMART JOB COUNTER — deterministic by date
+════════════════════════════════════════════ */
+(function(){
+  const MONTHS=['January','February','March','April','May','June',
+                'July','August','September','October','November','December'];
+
   function seededRng(seed){
-    let s = (seed ^ 0xdeadbeef) >>> 0;
+    let s=(seed^0xdeadbeef)>>>0;
     return function(){
-      s = Math.imul(s ^ (s >>> 15), 1 | s);
-      s ^= s + Math.imul(s ^ (s >>> 7), 61 | s);
-      return ((s ^ (s >>> 14)) >>> 0) / 4294967295;
+      s=Math.imul(s^(s>>>15),1|s);
+      s^=s+Math.imul(s^(s>>>7),61|s);
+      return((s^(s>>>14))>>>0)/4294967295;
     };
   }
 
-  const now   = new Date();
-  const yr    = now.getFullYear();
-  const mo    = now.getMonth();    // 0-11
-  const day   = now.getDate();     // 1-31
-  const dow   = now.getDay();      // 0=Sun … 6=Sat
+  const now=new Date(),yr=now.getFullYear(),mo=now.getMonth(),day=now.getDate(),dow=now.getDay();
 
-  /* ── Monthly jobs (resets 1st of each month) ── */
-  // Realistic: a small team does ~15–22 jobs/month
-  // Each day has a probabilistic chance of 0, 1 or 2 jobs
-  const moSeed = yr * 1000 + mo;
-  const moRng  = seededRng(moSeed);
-  let monthJobs = 0;
-  for(let d = 1; d <= day; d++){
-    const r = moRng();
-    monthJobs += r < 0.38 ? 0 : r < 0.76 ? 1 : 2;
+  // Monthly jobs
+  const moRng=seededRng(yr*1000+mo);
+  let monthJobs=0;
+  for(let d=1;d<=day;d++){const r=moRng();monthJobs+=r<0.38?0:r<0.76?1:2;}
+  monthJobs=Math.min(monthJobs,22);
+
+  // Weekly jobs
+  const dW=dow===0?0:dow,wkS=day-dW;
+  const wkRng=seededRng(yr*100000+mo*1000+wkS);
+  let weekJobs=0;
+  for(let d=0;d<dW;d++){const r=wkRng();weekJobs+=r<0.30?0:r<0.72?1:2;}
+  weekJobs=Math.min(weekJobs,9);
+
+  // Total
+  const BASE=200,BYR=2024,BMO=0;
+  let total=BASE;
+  const mEl=(yr-BYR)*12+(mo-BMO);
+  for(let m=0;m<mEl;m++){
+    const aM=BMO+m,mRng=seededRng((BYR+Math.floor(aM/12))*1000+(aM%12));
+    let mJ=0;
+    const dim=new Date(BYR+Math.floor(aM/12),(aM%12)+1,0).getDate();
+    for(let d=1;d<=dim;d++){const r=mRng();mJ+=r<0.38?0:r<0.76?1:2;}
+    total+=Math.min(mJ,22);
   }
-  monthJobs = Math.min(monthJobs, 22); // cap: realistic max
+  total+=monthJobs;
 
-  /* ── Weekly jobs (resets each Monday) ── */
-  // daysCompletedThisWeek: Mon=1 … Sat=6, Sun counts as day 0 of next week
-  const daysInWeek = dow === 0 ? 0 : dow; // Sun→0 so week just started
-  const wkStartDay = day - daysInWeek;
-  const wkSeed = yr * 100000 + mo * 1000 + wkStartDay;
-  const wkRng  = seededRng(wkSeed);
-  let weekJobs = 0;
-  for(let d = 0; d < daysInWeek; d++){
-    const r = wkRng();
-    weekJobs += r < 0.30 ? 0 : r < 0.72 ? 1 : 2;
-  }
-  weekJobs = Math.min(weekJobs, 9);
+  // Scarcity slots — deterministic from hour
+  const hr=now.getHours();
+  const slots=hr<9?5:hr<12?4:hr<15?3:hr<18?2:1;
+  const sEl=document.getElementById('slot-badge');
+  if(sEl)sEl.textContent=slots+' inspection slot'+(slots===1?'':'s')+' available today';
+  const uEl=document.getElementById('urg-text');
+  if(uEl)uEl.textContent='Only '+slots+' inspection slot'+(slots===1?'':'s')+' left today';
 
-  /* ── Total jobs (200 base from Jan 2024, grows each month) ── */
-  const BASE = 200, BASE_YR = 2024, BASE_MO = 0;
-  const totalMonthsElapsed = (yr - BASE_YR) * 12 + (mo - BASE_MO);
-  let total = BASE;
-  for(let m = 0; m < totalMonthsElapsed; m++){
-    const absMo = BASE_MO + m;
-    const mSeed = (BASE_YR + Math.floor(absMo / 12)) * 1000 + (absMo % 12);
-    const mRng  = seededRng(mSeed);
-    let mJobs = 0;
-    const daysInM = new Date(BASE_YR + Math.floor(absMo / 12), (absMo % 12) + 1, 0).getDate();
-    for(let d = 1; d <= daysInM; d++){
-      const r = mRng();
-      mJobs += r < 0.38 ? 0 : r < 0.76 ? 1 : 2;
-    }
-    total += Math.min(mJobs, 22);
-  }
-  total += monthJobs;
+  // Set hero & trust
+  const hEl=document.getElementById('hero-total');if(hEl)hEl.textContent=total+'+';
+  const tEl=document.getElementById('trust-jobs');if(tEl)tEl.textContent=total+'+ jobs done';
+  const mLbl=document.getElementById('cnt-mo-lbl');if(mLbl)mLbl.textContent=MONTHS[mo];
+  const pSub=document.getElementById('projects-sub');
+  if(pSub)pSub.textContent=monthJobs+' jobs completed in '+MONTHS[mo]+' across Ibadan.';
+  const desc=document.getElementById('cnt-desc');
+  if(desc)desc.innerHTML='<strong>'+monthJobs+' electrical jobs</strong> completed in '+MONTHS[mo]+' &nbsp;·&nbsp; <strong>'+weekJobs+'</strong> this week';
 
-  /* ── Animate counting up ── */
-  function animCount(elId, target, duration, suffix){
-    const el = document.getElementById(elId);
-    if(!el) return;
-    const t0 = performance.now();
-    function step(ts){
-      const p = Math.min((ts - t0) / duration, 1);
-      const e = 1 - Math.pow(1 - p, 3); // ease-out cubic
-      el.textContent = Math.round(e * target) + (suffix || '');
-      if(p < 1) requestAnimationFrame(step);
-      else el.textContent = target + (suffix || '');
-    }
-    requestAnimationFrame(step);
+  function anim(id,target,dur,sfx){
+    const el=document.getElementById(id);if(!el)return;
+    const t0=performance.now();
+    function s(ts){const p=Math.min((ts-t0)/dur,1),e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(e*target)+(sfx||'');
+      if(p<1)requestAnimationFrame(s);else el.textContent=target+(sfx||'');}
+    requestAnimationFrame(s);
   }
 
-  /* ── Set static hero stat immediately (no wait) ── */
-  const heroEl = document.getElementById('stat-jobs');
-  if(heroEl) heroEl.textContent = total + '+';
-
-  /* ── Set text labels ── */
-  const mLbl = document.getElementById('cnt-month-lbl');
-  if(mLbl) mLbl.textContent = MONTHS[mo];
-
-  const desc = document.getElementById('cnt-desc');
-  if(desc) desc.innerHTML =
-    '<strong>' + monthJobs + ' jobs</strong> completed so far in ' + MONTHS[mo] +
-    ' &nbsp;·&nbsp; <strong>' + weekJobs + '</strong> this week';
-
-  const ps = document.getElementById('projects-sub');
-  if(ps) ps.textContent =
-    monthJobs + ' jobs completed in ' + MONTHS[mo] + ' across Ibadan.';
-
-  /* ── Fire counter animation when section scrolls into view ── */
-  const counterSection = document.querySelector('.counter-section');
-  let fired = false;
-  const cObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if(e.isIntersecting && !fired){
-        fired = true;
-        animCount('cnt-total', total,      1800, '+');
-        animCount('cnt-month', monthJobs,  1200);
-        animCount('cnt-week',  weekJobs,    900);
-        cObs.unobserve(e.target);
-      }
-    });
+  const cW=document.querySelector('.counter-wrap');let fired=false;
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting&&!fired){fired=true;
+      anim('cnt-total',total,1800,'+');anim('cnt-month',monthJobs,1200,'');anim('cnt-week',weekJobs,900,'');
+      obs.unobserve(e.target);}});
   },{threshold:0.2});
-  if(counterSection) cObs.observe(counterSection);
-  else {
-    // fallback: set immediately
-    animCount('cnt-total', total, 1800, '+');
-    animCount('cnt-month', monthJobs, 1200);
-    animCount('cnt-week',  weekJobs, 900);
-  }
+  if(cW)obs.observe(cW);else{anim('cnt-total',total,1800,'+');anim('cnt-month',monthJobs,1200,'');anim('cnt-week',weekJobs,900,'');}
 })();
 
-/* ═══════════════════════════════════════════════════
+/* ════════════════════════════════════════════
    SCROLL REVEAL
-═══════════════════════════════════════════════════ */
+════════════════════════════════════════════ */
 (function(){
-  const els = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
-    });
+  const els=document.querySelectorAll('.rev');
+  const obs=new IntersectionObserver(e=>{
+    e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target);}});
   },{threshold:0.08});
-  els.forEach(el => obs.observe(el));
-})();
-
-/* ═══════════════════════════════════════════════════
-   SCROLL DEPTH TRACKING FOR UMAMI
-═══════════════════════════════════════════════════ */
-(function(){
-  const thresholds=[25,50,75,100];
-  const fired=new Set();
-  function depth(){
-    const el=document.documentElement;
-    const scrolled=el.scrollTop||document.body.scrollTop;
-    const total=el.scrollHeight-el.clientHeight;
-    return total>0?Math.round((scrolled/total)*100):0;
-  }
-  window.addEventListener('scroll',function(){
-    const d=depth();
-    thresholds.forEach(function(t){
-      if(d>=t&&!fired.has(t)){
-        fired.add(t);
-        if(window.umami)umami.track('scroll_depth',{depth:t+'%'});
-      }
-    });
-  },{passive:true});
+  els.forEach(el=>obs.observe(el));
 })();
 </script>
 </body>
