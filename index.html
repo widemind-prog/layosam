@@ -1346,5 +1346,112 @@ footer strong{color:#fff;}
   els.forEach(el=>obs.observe(el));
 })();
 </script>
+<script>
+/* ════════════════════════════════════════════
+   UMAMI EVENT TRACKING — Layosam
+   Tracks every meaningful conversion action
+   so the Events tab in Umami fills with data.
+════════════════════════════════════════════ */
+(function(){
+
+  // Wait for umami to be ready — it loads async via defer
+  function track(eventName, data){
+    if(typeof umami !== 'undefined'){
+      umami.track(eventName, data || {});
+    }
+  }
+
+  // Helper: attach click tracker to all matching elements
+  function on(selector, eventName, dataFn){
+    document.querySelectorAll(selector).forEach(function(el){
+      el.addEventListener('click', function(){
+        track(eventName, dataFn ? dataFn(el) : {});
+      });
+    });
+  }
+
+  // ── WHATSAPP CLICKS ──────────────────────────
+  // Hero WA button
+  on('.hero-ctas .btn-wa',          'whatsapp_click', function(){ return {location:'hero'}; });
+  // Nav WA button
+  on('.nav-wa',                      'whatsapp_click', function(){ return {location:'nav'}; });
+  // Urgency bar WA link
+  on('.urgency a[href*="wa.me"]',    'whatsapp_click', function(){ return {location:'urgency_bar'}; });
+  // CTA block WA button
+  on('.cta-block .btn-wa',           'whatsapp_click', function(){ return {location:'cta_block'}; });
+  // Contact section WA row
+  on('.contact-list a[href*="wa.me"]','whatsapp_click', function(){ return {location:'contact_section'}; });
+  // Sticky bar WA button
+  on('.sticky-wa',                   'whatsapp_click', function(){ return {location:'sticky_bar'}; });
+  // Service card WA links
+  on('.svc-link[href*="wa.me"]',     'whatsapp_click', function(el){
+    var h3 = el.closest('.svc') && el.closest('.svc').querySelector('h3');
+    return {location:'service_card', service: h3 ? h3.textContent.trim() : 'unknown'};
+  });
+
+  // ── PHONE CALL CLICKS ────────────────────────
+  on('.btn-call',          'call_click', function(el){ return {location: el.closest('.hero-ctas') ? 'hero' : el.closest('.cta-block') ? 'cta_block' : 'page'}; });
+  on('.nav-call',          'call_click', function(){ return {location:'nav'}; });
+  on('.sticky-call',       'call_click', function(){ return {location:'sticky_bar'}; });
+  on('.avail-bar a[href*="tel"]', 'call_click', function(){ return {location:'avail_bar'}; });
+  on('.urgency a[href*="tel"]',   'call_click', function(){ return {location:'urgency_bar'}; });
+  on('.contact-list a[href*="tel"]','call_click', function(el){
+    var label = el.closest('.c-row') && el.closest('.c-row').querySelector('label');
+    return {location:'contact_section', line: label ? label.textContent.trim() : 'unknown'};
+  });
+
+  // ── SERVICE CARD INTERACTIONS ─────────────────
+  on('.svc', 'service_card_view', function(el){
+    var h3 = el.querySelector('h3');
+    return {service: h3 ? h3.textContent.trim() : 'unknown'};
+  });
+
+  // ── SCROLL DEPTH ──────────────────────────────
+  // Fire once when key sections enter the viewport
+  var sectionEvents = {
+    '#services':  'scrolled_to_services',
+    '#projects':  'scrolled_to_projects',
+    '#contact':   'scrolled_to_contact',
+    '.guarantee': 'scrolled_to_guarantee',
+    '.testi-grid':'scrolled_to_testimonials',
+    '.counter-wrap':'scrolled_to_counter',
+  };
+
+  var firedSections = {};
+  var scrollObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var key = entry.target.dataset.trackId;
+        if(key && !firedSections[key]){
+          firedSections[key] = true;
+          track(key);
+          scrollObs.unobserve(entry.target);
+        }
+      }
+    });
+  }, {threshold: 0.2});
+
+  Object.keys(sectionEvents).forEach(function(sel){
+    var el = document.querySelector(sel);
+    if(el){
+      el.dataset.trackId = sectionEvents[sel];
+      scrollObs.observe(el);
+    }
+  });
+
+  // ── TIME ON PAGE ──────────────────────────────
+  // Fire at 30s and 90s — signals genuine engagement, not a bounce
+  setTimeout(function(){ track('engaged_30s'); }, 30000);
+  setTimeout(function(){ track('engaged_90s'); }, 90000);
+
+  // ── EXIT INTENT (desktop) ─────────────────────
+  document.addEventListener('mouseleave', function(e){
+    if(e.clientY < 10){
+      track('exit_intent');
+    }
+  });
+
+})();
+</script>
 </body>
 </html>
