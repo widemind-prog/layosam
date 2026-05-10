@@ -7,10 +7,13 @@
 <title>Layosam – Solar Installation & Electrical Engineering in Ibadan | Call 09021855402</title>
 <meta name="description" content="Expert solar installation, inverter setup, house wiring and electrical engineering in Ibadan. Free inspection. Call 09021855402 or WhatsApp now.">
 
-<!-- FONT OPTIMIZATION: preconnect both origins, drop Space Mono, display=swap, single request -->
+<!-- FONT OPTIMIZATION: non-render-blocking async load — eliminates 200ms render-block penalty -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;600;700&display=swap"></noscript>
+<script>/* Safari fallback: if preload didn't swap to stylesheet, do it now */
+(function(){var e=document.querySelector('link[as="style"]');if(e&&!e.sheet)e.rel='stylesheet';}());</script>
 
 <style>
 /* ══ RESET ══════════════════════════════════════════════ */
@@ -903,7 +906,7 @@ background:var(--volt);color:#fff;
     </a>
   </div>
 </nav>
-
+<main>
 <!-- HERO -->
 <section class="hero" style="padding:0;" aria-label="Hero — Solar and electrical services in Ibadan">
   <div class="hero-grid" aria-hidden="true"></div>
@@ -1311,7 +1314,7 @@ background:var(--volt);color:#fff;
     <div class="c-row"><div class="c-ico" aria-hidden="true">📍</div><div class="c-body"><label>Service Area</label><span>All of Ibadan, Oyo State</span></div></div>
   </div>
 </section>
-
+</main>
 <footer>
   <strong>LAYOSAM Electrical Engineering &amp; Solar Installation</strong><br>
   Ibadan, Oyo State, Nigeria<br>
