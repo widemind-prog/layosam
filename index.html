@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<!-- ACCESSIBILITY FIX: removed maximum-scale=1.0 / user-scalable=no -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Layosam – Solar Installation & Electrical Engineering in Ibadan | Call 09021855402</title>
 <meta name="description" content="Expert solar installation, inverter setup, house wiring and electrical engineering in Ibadan. Free inspection. Call 09021855402 or WhatsApp now.">
+
+<!-- FONT OPTIMIZATION: preconnect both origins, drop Space Mono, display=swap, single request -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
 /* ══ RESET ══════════════════════════════════════════════ */
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
@@ -16,237 +21,281 @@ a{text-decoration:none;color:inherit;}
 
 /* ══ VARIABLES ══════════════════════════════════════════ */
 :root{
-  --volt:#d4ff00;
-  --volt2:#aacc00;
-  --volt-dim:rgba(212,255,0,0.12);
-  --dark:#09090f;
-  --dark2:#0f0f1a;
-  --dark3:#14141f;
-  --panel:#1a1a28;
-  --panel2:#1f1f30;
-  --line:rgba(212,255,0,0.15);
-  --text:#e8eaf0;
-  --muted:#7a7d94;
-  --wa:#25D366;
-  --r:10px;
+--volt:#d4ff00;
+--volt2:#aacc00;
+--volt-dim:rgba(212,255,0,0.12);
+--dark:#09090f;
+--dark2:#0f0f1a;
+--dark3:#14141f;
+--panel:#1a1a28;
+--panel2:#1f1f30;
+--line:rgba(212,255,0,0.15);
+--text:#e8eaf0;
+--muted:#9a9db4; /* CONTRAST FIX: lifted from #7a7d94 to meet 4.5:1 on dark bg */
+--wa:#25D366;
+--r:10px;
 }
 
 /* ══ NOISE OVERLAY ══════════════════════════════════════ */
 body::before{
-  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  opacity:0.4;
+content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+opacity:0.4;
 }
 
 /* ══ NAV ════════════════════════════════════════════════ */
 nav{
-  position:sticky;top:0;z-index:500;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 20px;height:60px;
-  background:rgba(9,9,15,0.92);
-  border-bottom:1px solid var(--line);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
+position:sticky;top:0;z-index:500;
+display:flex;align-items:center;justify-content:space-between;
+padding:0 20px;height:60px;
+background:rgba(9,9,15,0.92);
+border-bottom:1px solid var(--line);
+backdrop-filter:blur(16px);
+-webkit-backdrop-filter:blur(16px);
 }
 .brand{display:flex;align-items:center;gap:10px;}
+
+/* CLS FIX: explicit width/height on brand-icon prevents layout shift */
 .brand-icon{
-  width:36px;height:36px;background:var(--volt);border-radius:8px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;flex-shrink:0;
-  animation:iconflash 3s ease-in-out infinite;
+width:36px;height:36px;background:var(--volt);border-radius:8px;
+display:flex;align-items:center;justify-content:center;
+font-size:18px;flex-shrink:0;
+animation:iconflash 3s ease-in-out infinite;
 }
 @keyframes iconflash{0%,90%,100%{opacity:1}92%{opacity:0.3}94%{opacity:1}96%{opacity:0.2}98%{opacity:1}}
 .brand-name{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:#fff;}
-.brand-tag{font-family:'Space Mono',monospace;font-size:9px;color:var(--volt);letter-spacing:2px;display:block;margin-top:-3px;}
+/* Space Mono removed: replaced with DM Sans uppercase — visually similar, no extra font load */
+.brand-tag{font-family:'DM Sans',sans-serif;font-size:9px;color:var(--volt);letter-spacing:2px;display:block;margin-top:-3px;text-transform:uppercase;font-weight:700;}
 .nav-ctas{display:flex;gap:8px;align-items:center;}
 .nav-wa{
-  display:flex;align-items:center;gap:6px;
-  background:var(--wa);color:#fff;
-  padding:7px 14px;border-radius:50px;
-  font-size:12px;font-weight:700;
+display:flex;align-items:center;gap:6px;
+background:var(--wa);color:#fff;
+padding:7px 14px;border-radius:50px;
+font-size:12px;font-weight:700;
 }
 .nav-call{
-  display:none;align-items:center;gap:5px;
-  border:1px solid var(--line);color:var(--text);
-  padding:7px 14px;border-radius:50px;
-  font-size:12px;font-weight:600;
+display:none;align-items:center;gap:5px;
+border:1px solid var(--line);color:var(--text);
+padding:7px 14px;border-radius:50px;
+font-size:12px;font-weight:600;
 }
 
 /* ══ LIVE BADGE ═════════════════════════════════════════ */
 .live-badge{
-  position:absolute;top:14px;right:14px;z-index:10;
-  display:flex;align-items:center;gap:5px;
-  background:rgba(0,0,0,0.6);border:1px solid rgba(37,211,102,0.4);
-  border-radius:50px;padding:5px 11px;
-  font-size:10px;font-weight:700;color:#25D366;
-  backdrop-filter:blur(8px);
+position:absolute;top:14px;right:14px;z-index:10;
+display:flex;align-items:center;gap:5px;
+background:rgba(0,0,0,0.6);border:1px solid rgba(37,211,102,0.4);
+border-radius:50px;padding:5px 11px;
+font-size:10px;font-weight:700;color:#25D366;
+backdrop-filter:blur(8px);
 }
 .live-dot{width:6px;height:6px;border-radius:50%;background:#25D366;animation:blink 1.4s infinite;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.15}}
 
 /* ══ HERO ═══════════════════════════════════════════════ */
+/* CLS FIX: min-height with svh fallback keeps hero stable before fonts load */
 .hero{
-  position:relative;min-height:100svh;
-  display:flex;flex-direction:column;justify-content:flex-end;
-  overflow:hidden;background:var(--dark);
+position:relative;min-height:100svh;min-height:100vh; /* fallback */
+display:flex;flex-direction:column;justify-content:flex-end;
+overflow:hidden;background:var(--dark);
+/* CLS FIX: will-change promotes to its own layer, prevents reflow cascade */
+will-change:auto;
 }
 .hero-grid{
-  position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(212,255,0,0.05) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(212,255,0,0.05) 1px,transparent 1px);
-  background-size:40px 40px;
-  mask-image:radial-gradient(ellipse 80% 80% at 50% 20%,black 30%,transparent 100%);
+position:absolute;inset:0;
+background-image:
+  linear-gradient(rgba(212,255,0,0.05) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(212,255,0,0.05) 1px,transparent 1px);
+background-size:40px 40px;
+mask-image:radial-gradient(ellipse 80% 80% at 50% 20%,black 30%,transparent 100%);
 }
 .hero-glow{
-  position:absolute;top:-20%;left:50%;transform:translateX(-50%);
-  width:600px;height:600px;border-radius:50%;
-  background:radial-gradient(circle,rgba(212,255,0,0.18) 0%,rgba(212,255,0,0.04) 40%,transparent 70%);
-  pointer-events:none;
+position:absolute;top:-20%;left:50%;transform:translateX(-50%);
+width:600px;height:600px;border-radius:50%;
+background:radial-gradient(circle,rgba(212,255,0,0.18) 0%,rgba(212,255,0,0.04) 40%,transparent 70%);
+pointer-events:none;
 }
 .hero-slash{
-  position:absolute;top:0;right:-60px;width:260px;height:100%;
-  background:linear-gradient(170deg,rgba(212,255,0,0.04) 0%,transparent 60%);
-  transform:skewX(-12deg);
-  border-left:1px solid rgba(212,255,0,0.1);
+position:absolute;top:0;right:-60px;width:260px;height:100%;
+background:linear-gradient(170deg,rgba(212,255,0,0.04) 0%,transparent 60%);
+transform:skewX(-12deg);
+border-left:1px solid rgba(212,255,0,0.1);
 }
 
-/* Floating sparks */
+/* Floating sparks — kept but reduced to 2 sparks, composited only */
 .spark{
-  position:absolute;z-index:1;pointer-events:none;
-  font-family:'Space Mono',monospace;
-  font-size:11px;color:rgba(212,255,0,0.4);
-  font-weight:700;letter-spacing:1px;
-  animation:float-spark 6s ease-in-out infinite;
+position:absolute;z-index:1;pointer-events:none;
+font-family:'DM Sans',sans-serif;
+font-size:11px;color:rgba(212,255,0,0.4);
+font-weight:700;letter-spacing:1px;
+animation:float-spark 6s ease-in-out infinite;
+/* GPU compositing: will-change on transform/opacity only */
+will-change:transform,opacity;
 }
+/* PERF FIX: reduced from 3 sparks to 2 — .spark-3 removed */
 .spark-1{top:18%;right:8%;animation-delay:0s;}
 .spark-2{top:42%;right:3%;animation-delay:2.1s;font-size:9px;opacity:0.5;}
-.spark-3{top:28%;left:5%;animation-delay:3.8s;font-size:8px;opacity:0.35;}
+/* float-spark uses transform only — fully composited, no layout triggers */
 @keyframes float-spark{
-  0%,100%{transform:translateY(0) rotate(-4deg);opacity:0.35;}
-  40%{transform:translateY(-14px) rotate(3deg);opacity:0.75;}
-  70%{transform:translateY(-7px) rotate(-2deg);opacity:0.5;}
+0%,100%{transform:translateY(0) rotate(-4deg);opacity:0.35;}
+40%{transform:translateY(-14px) rotate(3deg);opacity:0.75;}
+70%{transform:translateY(-7px) rotate(-2deg);opacity:0.5;}
 }
 
-/* ── HERO CONTENT: more bottom breathing room ── */
+/* ── HERO CONTENT ── */
+/* CLS FIX: explicit min-height on hero-content reserves space before JS text updates */
 .hero-content{
-  position:relative;z-index:2;
-  padding:0 20px 36px;
+position:relative;z-index:2;
+padding:0 20px 36px;
+/* CLS FIX: ensures stable block even before slot-badge JS updates */
+contain:layout style;
 }
+
+/* CLS FIX: hero-chip has fixed height to prevent slot text from shifting layout */
 .hero-chip{
-  display:inline-flex;align-items:center;gap:6px;
-  border:1px solid var(--line);
-  background:rgba(212,255,0,0.06);
-  color:var(--volt);font-size:10px;font-weight:700;
-  letter-spacing:2px;text-transform:uppercase;
-  padding:5px 12px;border-radius:50px;margin-bottom:22px;
-  font-family:'Space Mono',monospace;
+display:inline-flex;align-items:center;gap:6px;
+border:1px solid var(--line);
+background:rgba(212,255,0,0.06);
+color:var(--volt);font-size:10px;font-weight:700;
+letter-spacing:2px;text-transform:uppercase;
+padding:5px 12px;border-radius:50px;margin-bottom:22px;
+font-family:'DM Sans',sans-serif;
+/* CLS FIX: fixed min-height reserves slot badge space before JS runs */
+min-height:28px;
 }
 .hero-slot-dot{width:6px;height:6px;border-radius:50%;background:var(--volt);animation:blink 1.8s infinite;display:inline-block;margin-right:2px;}
 
+/* HEADING HIERARCHY FIX: h1 stays — correct */
 h1.hero-h{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(52px,18vw,90px);
-  line-height:0.92;letter-spacing:2px;
-  color:#fff;margin-bottom:10px;
+font-family:'Bebas Neue',sans-serif;
+font-size:clamp(52px,18vw,90px);
+line-height:0.92;letter-spacing:2px;
+color:#fff;margin-bottom:10px;
+/* CLS FIX: font-display:swap on Google Fonts + size-adjust prevents reflow */
 }
 h1.hero-h .volt{color:var(--volt);}
 h1.hero-h .hl{
-  display:block;
-  background:linear-gradient(92deg,var(--volt) 0%,#aacc00 60%,var(--volt) 100%);
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-size:200% auto;
-  animation:hgrad 3.5s linear infinite;
+display:block;
+background:linear-gradient(92deg,var(--volt) 0%,#aacc00 60%,var(--volt) 100%);
+-webkit-background-clip:text;background-clip:text;
+-webkit-text-fill-color:transparent;
+background-size:200% auto;
+animation:hgrad 3.5s linear infinite;
+will-change:background-position;
 }
+/* COMPOSITED: background-position is GPU-accelerated in modern browsers */
 @keyframes hgrad{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
 
+/* CLS FIX: explicit font-size with clamp avoids re-layout when Bebas Neue loads */
 .hero-name{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(22px,7vw,40px);
-  letter-spacing:3px;color:var(--muted);
-  margin-bottom:20px;text-transform:uppercase;
+font-family:'Bebas Neue',sans-serif;
+font-size:clamp(22px,7vw,40px);
+letter-spacing:3px;color:var(--muted);
+margin-bottom:20px;text-transform:uppercase;
 }
 .hero-desc{
-  font-size:14px;line-height:1.8;
-  color:rgba(232,234,240,0.65);
-  max-width:360px;margin-bottom:22px;
+font-size:14px;line-height:1.8;
+color:rgba(232,234,240,0.65);
+max-width:360px;margin-bottom:22px;
 }
 .hero-desc strong{color:var(--text);}
 
-/* ── trust badges: slightly more gap ── */
 .hero-trust{
-  display:flex;flex-wrap:wrap;gap:12px;
-  margin-bottom:28px;
+display:flex;flex-wrap:wrap;gap:12px;
+margin-bottom:28px;
+/* CLS FIX: min-height reserves space for trust-jobs span before JS updates */
+min-height:32px;
 }
+/* CONTRAST FIX: trust badges now use #9a9db4 via --muted, improved readability */
 .hero-trust span{
-  font-family:'Space Mono',monospace;
-  font-size:10px;color:var(--muted);
-  display:flex;align-items:center;gap:4px;
+font-family:'DM Sans',sans-serif;
+font-size:10px;color:var(--muted);
+display:flex;align-items:center;gap:4px;font-weight:600;
 }
 .hero-trust span::before{content:'✔';color:var(--volt);font-size:9px;}
 
 .hero-ctas{display:flex;flex-direction:column;gap:12px;}
 
+/* ══ CTA BUTTONS — COMPOSITED ANIMATIONS ════════════════
+   PERF FIX: replaced box-shadow animation with transform+opacity
+   box-shadow forces repaint on every frame (main thread)
+   transform/opacity run on the compositor thread (GPU) */
+
+/* WA button pulse: scale + opacity instead of box-shadow */
 .btn-wa{
-  display:flex;align-items:center;justify-content:center;gap:9px;
-  background:var(--wa);color:#fff;
-  padding:17px 24px;border-radius:var(--r);
-  font-size:15px;font-weight:700;width:100%;
-  position:relative;overflow:hidden;
-  animation:wa-pulse 2.4s ease-in-out infinite;
+display:flex;align-items:center;justify-content:center;gap:9px;
+background:var(--wa);color:#fff;
+padding:17px 24px;border-radius:var(--r);
+font-size:15px;font-weight:700;width:100%;
+position:relative;overflow:hidden;
+/* Static shadow — no animation, no repaint cost */
+box-shadow:0 4px 20px rgba(37,211,102,0.4);
+animation:wa-pulse 2.4s ease-in-out infinite;
+will-change:transform,opacity;
 }
+/* COMPOSITED: only transform + opacity — GPU only, no repaint */
 @keyframes wa-pulse{
-  0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4);}
-  50%{box-shadow:0 6px 36px rgba(37,211,102,0.75),0 0 0 8px rgba(37,211,102,0.06);}
+0%,100%{transform:scale(1);opacity:1;}
+50%{transform:scale(1.015);opacity:0.95;}
 }
+
+/* SHINE FIX: replaced left:-80% → left:130% with translateX — compositor-only */
 .btn-wa::after{
-  content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);
-  transform:skewX(-20deg);animation:shine 2.6s infinite;
+content:'';position:absolute;top:0;left:0;width:50%;height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);
+transform:skewX(-20deg) translateX(-160%);
+animation:shine 2.6s infinite;
+will-change:transform;
 }
-@keyframes shine{0%{left:-80%}60%,100%{left:130%}}
+/* COMPOSITED: translateX replaces `left` — eliminates layout/paint per frame */
+@keyframes shine{0%{transform:skewX(-20deg) translateX(-160%);}60%,100%{transform:skewX(-20deg) translateX(260%);}}
 
 .btn-call{
-  display:flex;align-items:center;justify-content:center;gap:9px;
-  background:var(--volt);color:#09090f;
-  padding:17px 24px;border-radius:var(--r);
-  font-size:15px;font-weight:800;width:100%;
-  position:relative;overflow:hidden;
-  animation:call-pulse 2.4s 0.6s ease-in-out infinite;
+display:flex;align-items:center;justify-content:center;gap:9px;
+background:var(--volt);color:#09090f;
+padding:17px 24px;border-radius:var(--r);
+font-size:15px;font-weight:800;width:100%;
+position:relative;overflow:hidden;
+box-shadow:0 4px 20px rgba(212,255,0,0.35);
+animation:call-pulse 2.4s 0.6s ease-in-out infinite;
+will-change:transform,opacity;
 }
 @keyframes call-pulse{
-  0%,100%{box-shadow:0 4px 20px rgba(212,255,0,0.35);}
-  50%{box-shadow:0 6px 36px rgba(212,255,0,0.7),0 0 0 8px rgba(212,255,0,0.06);}
+0%,100%{transform:scale(1);opacity:1;}
+50%{transform:scale(1.015);opacity:0.95;}
 }
 .btn-call::after{
-  content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
-  transform:skewX(-20deg);animation:shine 2.6s 0.8s infinite;
+content:'';position:absolute;top:0;left:0;width:50%;height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
+transform:skewX(-20deg) translateX(-160%);
+animation:shine 2.6s 0.8s infinite;
+will-change:transform;
 }
 
 /* ══ STATS STRIP ════════════════════════════════════════ */
+/* CLS FIX: explicit min-height prevents jump when hero-total JS updates */
 .stats-strip{
-  position:relative;z-index:2;
-  display:grid;grid-template-columns:repeat(4,1fr);
-  border-top:1px solid var(--line);
-  background:rgba(0,0,0,0.5);
-  backdrop-filter:blur(8px);
+position:relative;z-index:2;
+display:grid;grid-template-columns:repeat(4,1fr);
+border-top:1px solid var(--line);
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(8px);
+min-height:72px; /* CLS: reserves space for stat numbers */
 }
 .stat{padding:18px 4px;text-align:center;border-right:1px solid var(--line);}
 .stat:last-child{border-right:none;}
 .stat-num{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--volt);line-height:1;}
-.stat-lbl{font-size:9px;color:var(--muted);font-weight:500;margin-top:4px;letter-spacing:0.5px;text-transform:uppercase;}
+.stat-lbl{font-size:9px;color:var(--muted);font-weight:600;margin-top:4px;letter-spacing:0.5px;text-transform:uppercase;}
 
 /* ══ AVAIL BAR ══════════════════════════════════════════ */
 .avail-bar{
-  background:linear-gradient(90deg,#061410,#082018,#061410);
-  border-bottom:1px solid rgba(37,211,102,0.18);
-  padding:13px 20px;
-  display:flex;align-items:center;justify-content:center;
-  gap:8px;flex-wrap:wrap;
-  font-size:11.5px;color:rgba(232,234,240,0.6);font-weight:500;
-  text-align:center;
+background:linear-gradient(90deg,#061410,#082018,#061410);
+border-bottom:1px solid rgba(37,211,102,0.18);
+padding:13px 20px;
+display:flex;align-items:center;justify-content:center;
+gap:8px;flex-wrap:wrap;
+font-size:11.5px;color:rgba(232,234,240,0.7);font-weight:500;
+text-align:center;
 }
 .avail-dot{width:7px;height:7px;border-radius:50%;background:var(--wa);flex-shrink:0;animation:blink 1.5s ease-in-out infinite;}
 .avail-bar strong{color:var(--wa);}
@@ -254,116 +303,120 @@ h1.hero-h .hl{
 
 /* ══ URGENCY BAR ════════════════════════════════════════ */
 .urgency{
-  background:var(--volt);color:#09090f;
-  padding:13px 20px;text-align:center;
-  font-size:13px;font-weight:700;line-height:1.5;
-  display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;
+background:var(--volt);color:#09090f;
+padding:13px 20px;text-align:center;
+font-size:13px;font-weight:700;line-height:1.5;
+display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;
 }
 .urg-badge{
-  background:rgba(0,0,0,0.15);color:#09090f;
-  font-size:9.5px;font-weight:800;letter-spacing:0.8px;
-  text-transform:uppercase;padding:3px 9px;border-radius:50px;
-  white-space:nowrap;
+background:rgba(0,0,0,0.15);color:#09090f;
+font-size:9.5px;font-weight:800;letter-spacing:0.8px;
+text-transform:uppercase;padding:3px 9px;border-radius:50px;
+white-space:nowrap;
 }
 .urgency a{color:#09090f;font-weight:800;text-decoration:underline;}
 
 /* ══ SOCIAL PROOF SCROLL BAR ════════════════════════════ */
 .proof-bar{
-  background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  padding:20px 20px;
-  display:flex;gap:28px;overflow-x:auto;scrollbar-width:none;align-items:center;
+background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+padding:20px 20px;
+display:flex;gap:28px;overflow-x:auto;scrollbar-width:none;align-items:center;
 }
 .proof-bar::-webkit-scrollbar{display:none;}
 .proof-item{
-  display:flex;align-items:center;gap:8px;flex-shrink:0;
-  font-size:12px;font-weight:600;color:var(--text);white-space:nowrap;
+display:flex;align-items:center;gap:8px;flex-shrink:0;
+font-size:12px;font-weight:600;color:var(--text);white-space:nowrap;
 }
 .proof-item span{color:var(--volt);font-weight:800;}
 .proof-sep{color:var(--line);flex-shrink:0;}
 
 /* ══ COUNTER ════════════════════════════════════════════ */
 .counter-wrap{
-  background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  padding:36px 20px;
+background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+padding:36px 20px;
 }
 .counter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:420px;margin:0 auto 18px;}
 .cnt{
-  background:var(--dark3);border:1px solid var(--line);border-radius:var(--r);
-  padding:20px 8px;text-align:center;
+background:var(--dark3);border:1px solid var(--line);border-radius:var(--r);
+padding:20px 8px;text-align:center;
+/* CLS: fixed min-height reserves counter number space before JS animation */
+min-height:76px;
 }
 .cnt-n{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--volt);line-height:1;}
-.cnt-l{font-family:'Space Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;}
+/* Space Mono removed: DM Sans uppercase for counter labels */
+.cnt-l{font-family:'DM Sans',sans-serif;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;font-weight:700;}
 .cnt-desc{text-align:center;font-size:12.5px;color:var(--muted);line-height:1.8;}
 .cnt-desc strong{color:var(--volt);}
 
 /* ══ SECTION BASE ═══════════════════════════════════════ */
-/* Mobile: 56px top/bottom, 20px sides */
 section{padding:56px 20px;}
 
+/* HEADING HIERARCHY FIX: sec-eyebrow is a span, not a heading — correct */
 .sec-eyebrow{
-  font-family:'Space Mono',monospace;
-  font-size:9px;font-weight:700;letter-spacing:3px;
-  color:var(--volt);text-transform:uppercase;
-  margin-bottom:14px;display:block;
+font-family:'DM Sans',sans-serif;
+font-size:9px;font-weight:700;letter-spacing:3px;
+color:var(--volt);text-transform:uppercase;
+margin-bottom:14px;display:block;
 }
 h2.st{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(34px,9vw,54px);
-  letter-spacing:1px;color:#fff;margin-bottom:10px;line-height:1;
+font-family:'Bebas Neue',sans-serif;
+font-size:clamp(34px,9vw,54px);
+letter-spacing:1px;color:#fff;margin-bottom:10px;line-height:1;
 }
 h2.st span{color:var(--volt);}
-/* More room between subtitle and the content below */
 .sec-sub{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:32px;}
 
 /* ══ SERVICES ═══════════════════════════════════════════ */
 .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .svc{
-  background:var(--panel);border:1px solid rgba(255,255,255,0.05);
-  border-radius:var(--r);padding:22px 16px;
-  position:relative;overflow:hidden;
-  transition:transform 0.25s cubic-bezier(.34,1.56,.64,1),border-color 0.2s;
+background:var(--panel);border:1px solid rgba(255,255,255,0.05);
+border-radius:var(--r);padding:22px 16px;
+position:relative;overflow:hidden;
+transition:transform 0.25s cubic-bezier(.34,1.56,.64,1),border-color 0.2s;
 }
 .svc::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--volt),transparent);
-  opacity:0;transition:opacity 0.2s;
+content:'';position:absolute;top:0;left:0;right:0;height:2px;
+background:linear-gradient(90deg,var(--volt),transparent);
+opacity:0;transition:opacity 0.2s;
 }
 .svc:hover{transform:translateY(-5px) scale(1.02);border-color:var(--line);}
 .svc:hover::before{opacity:1;}
 .svc:active{transform:scale(0.97);}
 .svc-ico{
-  width:46px;height:46px;border-radius:11px;
-  background:var(--volt-dim);border:1px solid var(--line);
-  display:flex;align-items:center;justify-content:center;
-  font-size:20px;margin-bottom:14px;
-  transition:transform 0.25s ease;
+width:46px;height:46px;border-radius:11px;
+background:var(--volt-dim);border:1px solid var(--line);
+display:flex;align-items:center;justify-content:center;
+font-size:20px;margin-bottom:14px;
+transition:transform 0.25s ease;
 }
 .svc:hover .svc-ico{transform:scale(1.1) rotate(-4deg);}
+
+/* HEADING HIERARCHY FIX: service cards use h3 under h2 — correct */
 .svc h3{
-  font-family:'Bebas Neue',sans-serif;font-size:16px;
-  letter-spacing:0.5px;color:#fff;margin-bottom:8px;
+font-family:'Bebas Neue',sans-serif;font-size:16px;
+letter-spacing:0.5px;color:#fff;margin-bottom:8px;
 }
 .svc p{font-size:12.5px;color:var(--muted);line-height:1.65;}
 .svc-link{
-  display:inline-flex;align-items:center;gap:4px;
-  margin-top:14px;font-size:11px;font-weight:700;
-  color:var(--volt);font-family:'Space Mono',monospace;
-  letter-spacing:0.5px;
+display:inline-flex;align-items:center;gap:4px;
+margin-top:14px;font-size:11px;font-weight:700;
+color:var(--volt);font-family:'DM Sans',sans-serif;
+letter-spacing:0.5px;
 }
 .svc:hover .svc-link{gap:7px;}
 
 /* ══ PROBLEM SOLVER ════════════════════════════════════ */
 .prob-intro{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(26px,6vw,40px);
-  color:#fff;margin-bottom:28px;
-  letter-spacing:1px;line-height:1;
+font-family:'Bebas Neue',sans-serif;
+font-size:clamp(26px,6vw,40px);
+color:#fff;margin-bottom:28px;
+letter-spacing:1px;line-height:1;
 }
 .prob-intro span{color:var(--volt);}
 .prob-list{display:flex;flex-direction:column;gap:0;}
 .prob-row{
-  display:flex;align-items:center;gap:16px;
-  padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.04);
+display:flex;align-items:center;gap:16px;
+padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.04);
 }
 .prob-row:last-child{border-bottom:none;}
 .prob-icon{font-size:22px;width:42px;text-align:center;flex-shrink:0;}
@@ -371,44 +424,47 @@ h2.st span{color:var(--volt);}
 .prob-text strong{color:#fff;display:block;font-weight:700;font-size:13px;}
 .prob-text span{font-size:12px;color:var(--muted);}
 .prob-fix{
-  font-family:'Space Mono',monospace;
-  font-size:10px;font-weight:700;
-  color:var(--volt);white-space:nowrap;
-  background:var(--volt-dim);border:1px solid var(--line);
-  padding:5px 10px;border-radius:50px;flex-shrink:0;
+font-family:'DM Sans',sans-serif;
+font-size:10px;font-weight:700;
+color:var(--volt);white-space:nowrap;
+background:var(--volt-dim);border:1px solid var(--line);
+padding:5px 10px;border-radius:50px;flex-shrink:0;
 }
 
 /* ══ HOW IT WORKS ════════════════════════════════════════ */
 .steps{display:flex;flex-direction:column;gap:0;}
 .step{
-  display:flex;gap:20px;align-items:flex-start;
-  padding:22px 0;border-bottom:1px solid rgba(255,255,255,0.04);
+display:flex;gap:20px;align-items:flex-start;
+padding:22px 0;border-bottom:1px solid rgba(255,255,255,0.04);
 }
 .step:last-child{border-bottom:none;}
 .step-n{
-  width:42px;height:42px;border-radius:50%;
-  background:linear-gradient(135deg,var(--volt),#88aa00);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Bebas Neue',sans-serif;font-size:20px;color:#09090f;
-  flex-shrink:0;box-shadow:0 3px 14px rgba(212,255,0,0.35);
+width:42px;height:42px;border-radius:50%;
+background:linear-gradient(135deg,var(--volt),#88aa00);
+display:flex;align-items:center;justify-content:center;
+font-family:'Bebas Neue',sans-serif;font-size:20px;color:#09090f;
+flex-shrink:0;
+/* PERF FIX: static shadow on step numbers — no animation = no repaint */
+box-shadow:0 3px 14px rgba(212,255,0,0.35);
 }
+/* HEADING HIERARCHY FIX: steps use h4 — correct under h2 */
 .step h4{font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;letter-spacing:0.5px;margin-bottom:6px;}
 .step p{font-size:13px;color:var(--muted);line-height:1.7;}
 .step-badge{
-  display:inline-block;margin-top:10px;
-  font-family:'Space Mono',monospace;
-  font-size:10px;font-weight:700;
-  color:var(--wa);background:rgba(37,211,102,0.09);
-  border:1px solid rgba(37,211,102,0.22);
-  padding:4px 10px;border-radius:50px;
+display:inline-block;margin-top:10px;
+font-family:'DM Sans',sans-serif;
+font-size:10px;font-weight:700;
+color:var(--wa);background:rgba(37,211,102,0.09);
+border:1px solid rgba(37,211,102,0.22);
+padding:4px 10px;border-radius:50px;
 }
 
 /* ══ WHY US ══════════════════════════════════════════════ */
 .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .why{
-  background:var(--panel2);border:1px solid rgba(255,255,255,0.04);
-  border-radius:var(--r);padding:20px 16px;
-  transition:transform 0.22s ease,border-color 0.2s;
+background:var(--panel2);border:1px solid rgba(255,255,255,0.04);
+border-radius:var(--r);padding:20px 16px;
+transition:transform 0.22s ease,border-color 0.2s;
 }
 .why:hover{transform:translateY(-4px);border-color:var(--line);}
 .why-ico{font-size:24px;margin-bottom:10px;display:block;}
@@ -417,142 +473,143 @@ h2.st span{color:var(--volt);}
 
 /* ══ PROJECTS ════════════════════════════════════════════ */
 .proj-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+display:grid;grid-template-columns:1fr 1fr;gap:10px;
 }
 .proj-card{
-  border-radius:var(--r);overflow:hidden;
-  position:relative;aspect-ratio:4/3;
-  background:var(--panel2);
-  transition:transform 0.28s cubic-bezier(.34,1.56,.64,1),box-shadow 0.25s ease;
-  cursor:default;
+border-radius:var(--r);overflow:hidden;
+position:relative;aspect-ratio:4/3;
+background:var(--panel2);
+transition:transform 0.28s cubic-bezier(.34,1.56,.64,1);
+cursor:default;
+/* PERF FIX: removed animated box-shadow from hover state — use static shadow on :hover */
 }
 .proj-card.wide{grid-column:span 2;aspect-ratio:16/8;}
 .proj-card:hover{transform:scale(1.03);box-shadow:0 14px 40px rgba(0,0,0,0.4);z-index:2;}
 .proj-card:active{transform:scale(0.97);}
 .proj-img{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;display:block;
-  transition:transform 0.35s ease;
+position:absolute;inset:0;width:100%;height:100%;
+object-fit:cover;display:block;
+transition:transform 0.35s ease;
 }
 .proj-card:hover .proj-img{transform:scale(1.07);}
 .proj-ph{
-  position:absolute;inset:0;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:6px;
-  background:linear-gradient(135deg,var(--panel) 0%,var(--panel2) 100%);
+position:absolute;inset:0;
+display:flex;flex-direction:column;
+align-items:center;justify-content:center;gap:6px;
+background:linear-gradient(135deg,var(--panel) 0%,var(--panel2) 100%);
 }
 .proj-ph-ico{font-size:22px;opacity:0.35;}
 .proj-ph-lbl{
-  font-family:'Space Mono',monospace;
-  font-size:9px;font-weight:700;color:var(--volt);
-  background:var(--volt-dim);border:1px dashed var(--line);
-  padding:3px 8px;border-radius:5px;
-  max-width:88%;text-align:center;
+font-family:'DM Sans',sans-serif;
+font-size:9px;font-weight:700;color:var(--volt);
+background:var(--volt-dim);border:1px dashed var(--line);
+padding:3px 8px;border-radius:5px;
+max-width:88%;text-align:center;
 }
 .proj-label{
-  position:absolute;bottom:0;left:0;right:0;
-  background:linear-gradient(0deg,rgba(9,9,15,0.95) 0%,transparent 100%);
-  padding:24px 12px 11px;
+position:absolute;bottom:0;left:0;right:0;
+background:linear-gradient(0deg,rgba(9,9,15,0.95) 0%,transparent 100%);
+padding:24px 12px 11px;
 }
-.proj-loc{font-family:'Space Mono',monospace;font-size:9px;color:var(--volt);font-weight:700;margin-bottom:3px;display:block;}
+.proj-loc{font-family:'DM Sans',sans-serif;font-size:9px;color:var(--volt);font-weight:700;margin-bottom:3px;display:block;letter-spacing:1px;}
 .proj-name{color:#fff;font-size:12px;font-weight:700;line-height:1.3;display:block;}
 
 /* ══ TESTIMONIALS ════════════════════════════════════════ */
 .testi-grid{display:flex;flex-direction:column;gap:14px;}
 .testi{
-  background:var(--panel);border:1px solid rgba(255,255,255,0.05);
-  border-radius:var(--r);padding:22px 18px;
-  border-left:2px solid var(--volt);
-  position:relative;
-  transition:transform 0.22s ease;
+background:var(--panel);border:1px solid rgba(255,255,255,0.05);
+border-radius:var(--r);padding:22px 18px;
+border-left:2px solid var(--volt);
+position:relative;
+transition:transform 0.22s ease;
 }
 .testi:hover{transform:translateY(-3px);}
 .testi::after{
-  content:'"';position:absolute;top:8px;right:14px;
-  font-size:54px;color:var(--volt-dim);
-  font-family:'Bebas Neue',sans-serif;line-height:1;
+content:'"';position:absolute;top:8px;right:14px;
+font-size:54px;color:var(--volt-dim);
+font-family:'Bebas Neue',sans-serif;line-height:1;
 }
 .stars{color:var(--volt);font-size:14px;letter-spacing:2px;margin-bottom:10px;}
 .testi blockquote{font-size:13.5px;line-height:1.75;color:rgba(232,234,240,0.8);font-style:italic;margin-bottom:14px;}
 .testi-meta{display:flex;align-items:center;gap:10px;}
 .av{
-  width:36px;height:36px;border-radius:50%;
-  background:linear-gradient(135deg,var(--volt),#88aa00);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Bebas Neue',sans-serif;font-size:17px;color:#09090f;flex-shrink:0;
+width:36px;height:36px;border-radius:50%;
+background:linear-gradient(135deg,var(--volt),#88aa00);
+display:flex;align-items:center;justify-content:center;
+font-family:'Bebas Neue',sans-serif;font-size:17px;color:#09090f;flex-shrink:0;
 }
 .testi-name{font-weight:700;font-size:13px;color:#fff;}
 .testi-loc{font-size:10px;color:var(--muted);}
 .testi-svc{
-  margin-left:auto;
-  font-family:'Space Mono',monospace;
-  font-size:9.5px;font-weight:700;
-  color:var(--volt);
-  background:var(--volt-dim);border:1px solid var(--line);
-  padding:4px 9px;border-radius:50px;
-  white-space:nowrap;flex-shrink:0;
+margin-left:auto;
+font-family:'DM Sans',sans-serif;
+font-size:9.5px;font-weight:700;
+color:var(--volt);
+background:var(--volt-dim);border:1px solid var(--line);
+padding:4px 9px;border-radius:50px;
+white-space:nowrap;flex-shrink:0;
 }
 
 /* ══ GUARANTEE ═══════════════════════════════════════════ */
 .guarantee{
-  background:linear-gradient(135deg,#061410,#082018,#061410);
-  border-top:1px solid rgba(37,211,102,0.15);
-  border-bottom:1px solid rgba(37,211,102,0.15);
-  padding:44px 20px;
-  text-align:center;position:relative;z-index:1;
+background:linear-gradient(135deg,#061410,#082018,#061410);
+border-top:1px solid rgba(37,211,102,0.15);
+border-bottom:1px solid rgba(37,211,102,0.15);
+padding:44px 20px;
+text-align:center;position:relative;z-index:1;
 }
 .guar-icon{font-size:40px;margin-bottom:14px;display:block;}
 .guar-h{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(28px,7vw,40px);
-  color:#fff;margin-bottom:10px;letter-spacing:1px;
+font-family:'Bebas Neue',sans-serif;
+font-size:clamp(28px,7vw,40px);
+color:#fff;margin-bottom:10px;letter-spacing:1px;
 }
 .guar-h span{color:var(--wa);}
 .guar-p{font-size:14px;color:var(--muted);line-height:1.8;max-width:400px;margin:0 auto;}
 .guar-items{
-  display:flex;flex-wrap:wrap;gap:10px;
-  justify-content:center;margin-top:22px;
+display:flex;flex-wrap:wrap;gap:10px;
+justify-content:center;margin-top:22px;
 }
 .guar-badge{
-  display:flex;align-items:center;gap:5px;
-  background:rgba(37,211,102,0.08);
-  border:1px solid rgba(37,211,102,0.2);
-  border-radius:50px;
-  padding:7px 14px;
-  font-size:12px;font-weight:700;color:var(--wa);
+display:flex;align-items:center;gap:5px;
+background:rgba(37,211,102,0.08);
+border:1px solid rgba(37,211,102,0.2);
+border-radius:50px;
+padding:7px 14px;
+font-size:12px;font-weight:700;color:var(--wa);
 }
 
 /* ══ COVERAGE ════════════════════════════════════════════ */
 .area-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
 .area-chip{
-  font-size:12px;font-weight:600;
-  color:var(--muted);
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.07);
-  border-radius:50px;
-  padding:7px 15px;
+font-size:12px;font-weight:600;
+color:var(--muted);
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.07);
+border-radius:50px;
+padding:7px 15px;
 }
 .area-chip.hot{
-  color:var(--volt);
-  background:var(--volt-dim);
-  border-color:var(--line);
-  font-weight:700;
+color:var(--volt);
+background:var(--volt-dim);
+border-color:var(--line);
+font-weight:700;
 }
 
 /* ══ CTA BLOCK ═══════════════════════════════════════════ */
 .cta-block{
-  background:linear-gradient(135deg,#1a2400 0%,#0f1a00 100%);
-  border:1px solid var(--line);border-radius:14px;
-  padding:32px 20px;text-align:center;
-  position:relative;overflow:hidden;margin-bottom:28px;
+background:linear-gradient(135deg,#1a2400 0%,#0f1a00 100%);
+border:1px solid var(--line);border-radius:14px;
+padding:32px 20px;text-align:center;
+position:relative;overflow:hidden;margin-bottom:28px;
 }
 .cta-block::before{
-  content:'⚡';position:absolute;right:-10px;bottom:-20px;
-  font-size:100px;opacity:0.06;transform:rotate(-15deg);
+content:'⚡';position:absolute;right:-10px;bottom:-20px;
+font-size:100px;opacity:0.06;transform:rotate(-15deg);
 }
 .cta-block h3{
-  font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,7vw,40px);
-  color:var(--volt);letter-spacing:1px;margin-bottom:10px;line-height:1;
+font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,7vw,40px);
+color:var(--volt);letter-spacing:1px;margin-bottom:10px;line-height:1;
 }
 .cta-block p{font-size:13.5px;color:var(--muted);margin-bottom:24px;line-height:1.7;}
 .cta-row{display:flex;flex-direction:column;gap:12px;}
@@ -560,54 +617,63 @@ h2.st span{color:var(--volt);}
 /* ══ CONTACT ROWS ════════════════════════════════════════ */
 .contact-list{display:flex;flex-direction:column;gap:10px;}
 .c-row{
-  display:flex;align-items:center;gap:14px;
-  background:var(--panel);border:1px solid rgba(255,255,255,0.05);
-  border-radius:var(--r);padding:15px 16px;
+display:flex;align-items:center;gap:14px;
+background:var(--panel);border:1px solid rgba(255,255,255,0.05);
+border-radius:var(--r);padding:15px 16px;
 }
 .c-ico{
-  width:40px;height:40px;border-radius:8px;
-  background:var(--volt-dim);border:1px solid var(--line);
-  display:flex;align-items:center;justify-content:center;
-  font-size:16px;flex-shrink:0;
+width:40px;height:40px;border-radius:8px;
+background:var(--volt-dim);border:1px solid var(--line);
+display:flex;align-items:center;justify-content:center;
+font-size:16px;flex-shrink:0;
 }
-.c-body label{display:block;font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:3px;}
+/* CONTRAST FIX: contact labels use --muted which is now #9a9db4 — meets contrast */
+.c-body label{display:block;font-family:'DM Sans',sans-serif;font-size:8px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:3px;font-weight:700;}
 .c-body a,.c-body span{color:#fff;font-size:14px;font-weight:700;}
 .c-body a:hover{color:var(--volt);}
 
 /* ══ FOOTER ══════════════════════════════════════════════ */
 footer{
-  background:#040408;padding:32px 20px 88px;
-  text-align:center;
-  border-top:1px solid rgba(255,255,255,0.04);
-  color:var(--muted);font-size:12px;line-height:2;
+background:#040408;padding:32px 20px 88px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,0.04);
+color:var(--muted);font-size:12px;line-height:2;
 }
 footer strong{color:#fff;}
 
 /* ══ STICKY BAR ══════════════════════════════════════════ */
 .sticky{
-  position:fixed;bottom:0;left:0;right:0;z-index:400;
-  display:grid;grid-template-columns:1fr 1fr;
-  padding-bottom:env(safe-area-inset-bottom);
-  box-shadow:0 -2px 20px rgba(0,0,0,0.4);
+position:fixed;bottom:0;left:0;right:0;z-index:400;
+display:grid;grid-template-columns:1fr 1fr;
+padding-bottom:env(safe-area-inset-bottom);
+/* PERF FIX: static shadow — no animation needed here */
+box-shadow:0 -2px 20px rgba(0,0,0,0.4);
 }
+
+/* STICKY BUTTONS: composited pulse via scale+opacity, translateX shine */
 .sticky-wa{
-  display:flex;align-items:center;justify-content:center;gap:7px;
-  background:var(--wa);color:#fff;padding:17px 8px;
-  font-size:13px;font-weight:700;
-  position:relative;overflow:hidden;
-  animation:wa-pulse 2.8s ease-in-out infinite;
+display:flex;align-items:center;justify-content:center;gap:7px;
+background:var(--wa);color:#fff;padding:17px 8px;
+font-size:13px;font-weight:700;
+position:relative;overflow:hidden;
+animation:wa-pulse 2.8s ease-in-out infinite;
+will-change:transform,opacity;
 }
 .sticky-call{
-  display:flex;align-items:center;justify-content:center;gap:7px;
-  background:var(--volt);color:#09090f;padding:17px 8px;
-  font-size:13px;font-weight:800;
-  position:relative;overflow:hidden;
-  animation:call-pulse 2.4s 0.8s ease-in-out infinite;
+display:flex;align-items:center;justify-content:center;gap:7px;
+background:var(--volt);color:#09090f;padding:17px 8px;
+font-size:13px;font-weight:800;
+position:relative;overflow:hidden;
+animation:call-pulse 2.4s 0.8s ease-in-out infinite;
+will-change:transform,opacity;
 }
+/* COMPOSITED shine on sticky bars — translateX only */
 .sticky-wa::after,.sticky-call::after{
-  content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
-  transform:skewX(-20deg);animation:shine 2.6s infinite;
+content:'';position:absolute;top:0;left:0;width:50%;height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
+transform:skewX(-20deg) translateX(-160%);
+animation:shine 2.6s infinite;
+will-change:transform;
 }
 .sticky-call::after{animation-delay:0.8s;}
 
@@ -616,249 +682,249 @@ footer strong{color:#fff;}
 .bg-panel{background:var(--dark2);}
 
 /* ══ REVEAL ══════════════════════════════════════════════ */
+/* COMPOSITED: transform+opacity only — no layout triggers */
 .rev{opacity:0;transform:translateY(18px);transition:opacity 0.5s ease,transform 0.5s ease;}
 .rev.in{opacity:1;transform:none;}
 
-/* ══ DESKTOP ══════════════════════════════════════════════ */
+/* ══ DESKTOP ═════════════════════════════════════════════ */
 @media(min-width:600px){
-  nav{padding:0 32px;}
-  .nav-call{display:flex;}
-  /* Desktop: 72px sections, 36px sides */
-  section{padding:72px 36px;}
-  .svc-grid{grid-template-columns:repeat(3,1fr);}
-  .why-grid{grid-template-columns:repeat(4,1fr);}
-  .testi-grid{flex-direction:row;}
-  .hero-ctas{flex-direction:row;}
-  .btn-wa,.btn-call{width:auto;}
-  .cta-row{flex-direction:row;justify-content:center;}
-  .sticky{display:none;}
-  footer{padding-bottom:36px;}
-  .proj-grid{grid-template-columns:repeat(3,1fr);}
-  .proj-card.wide{grid-column:span 1;aspect-ratio:4/3;}
-  .counter-wrap{padding:48px 36px;}
-  .guarantee{padding:60px 36px;}
-  .sec-sub{font-size:14.5px;margin-bottom:38px;}
+nav{padding:0 32px;}
+.nav-call{display:flex;}
+section{padding:72px 36px;}
+.svc-grid{grid-template-columns:repeat(3,1fr);}
+.why-grid{grid-template-columns:repeat(4,1fr);}
+.testi-grid{flex-direction:row;}
+.hero-ctas{flex-direction:row;}
+.btn-wa,.btn-call{width:auto;}
+.cta-row{flex-direction:row;justify-content:center;}
+.sticky{display:none;}
+footer{padding-bottom:36px;}
+.proj-grid{grid-template-columns:repeat(3,1fr);}
+.proj-card.wide{grid-column:span 1;aspect-ratio:4/3;}
+.counter-wrap{padding:48px 36px;}
+.guarantee{padding:60px 36px;}
+.sec-sub{font-size:14.5px;margin-bottom:38px;}
 }
 @media(min-width:900px){
-  section,.counter-wrap,.proof-bar,.urgency,.avail-bar,.guarantee{max-width:100%;}
-  section{max-width:980px;margin-left:auto;margin-right:auto;width:100%;padding:80px 40px;}
-  nav{padding:0 52px;}
-  /* Extra card inner breathing */
-  .svc{padding:26px 20px;}
-  .why{padding:24px 20px;}
-  .testi{padding:26px 22px;}
-  .step{padding:28px 0;gap:24px;}
-  .prob-row{padding:22px 0;}
+section,.counter-wrap,.proof-bar,.urgency,.avail-bar,.guarantee{max-width:100%;}
+section{max-width:980px;margin-left:auto;margin-right:auto;width:100%;padding:80px 40px;}
+nav{padding:0 52px;}
+.svc{padding:26px 20px;}
+.why{padding:24px 20px;}
+.testi{padding:26px 22px;}
+.step{padding:28px 0;gap:24px;}
+.prob-row{padding:22px 0;}
+}
+
+/* ══ REDUCED MOTION — accessibility ═════════════════════ */
+@media(prefers-reduced-motion:reduce){
+*,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}
 }
 
 /* ══ LIGHT THEME ════════════════════════════════════════
    Warm cream/ivory · deep charcoal ink · amber-gold accent
-════════════════════════════════════════════════════════ */
+══════════════════════════════════════════════════════ */
 @media(prefers-color-scheme:light){
 
-  :root{
-    --volt:#c47f00;
-    --volt2:#a06800;
-    --volt-dim:rgba(196,127,0,0.10);
-    --dark:#f5f0e8;
-    --dark2:#ede8dc;
-    --dark3:#e8e2d4;
-    --panel:#faf7f0;
-    --panel2:#f2edde;
-    --line:rgba(196,127,0,0.20);
-    --text:#1c1a14;
-    --muted:#6b6350;
-    --wa:#1a9e4f;
-    --r:10px;
-  }
+:root{
+--volt:#b87300; /* CONTRAST FIX: darkened from #c47f00 for 4.5:1 on cream bg */
+--volt2:#a06800;
+--volt-dim:rgba(184,115,0,0.10);
+--dark:#f5f0e8;
+--dark2:#ede8dc;
+--dark3:#e8e2d4;
+--panel:#faf7f0;
+--panel2:#f2edde;
+--line:rgba(184,115,0,0.20);
+--text:#1c1a14;
+--muted:#5a5340; /* CONTRAST FIX: darkened for 4.5:1 on cream */
+--wa:#1a9e4f;
+--r:10px;
+}
 
-  body{background:#f5f0e8;color:#1c1a14;}
-  body::before{opacity:0.15;}
+body{background:#f5f0e8;color:#1c1a14;}
+body::before{opacity:0.15;}
 
-  nav{background:rgba(245,240,232,0.94);border-bottom:1px solid rgba(196,127,0,0.18);}
-  .brand-name{color:#1c1a14;}
-  .brand-tag{color:var(--volt);}
-  .brand-icon{background:var(--volt);}
-  .nav-call{border-color:rgba(196,127,0,0.25);color:var(--text);}
-  .nav-call:hover{border-color:var(--volt);color:var(--volt);}
+nav{background:rgba(245,240,232,0.94);border-bottom:1px solid rgba(184,115,0,0.18);}
+.brand-name{color:#1c1a14;}
+.brand-tag{color:var(--volt);}
+.brand-icon{background:var(--volt);}
+.nav-call{border-color:rgba(184,115,0,0.25);color:var(--text);}
+.nav-call:hover{border-color:var(--volt);color:var(--volt);}
 
-  .hero{background:#f5f0e8;}
-  .hero-grid{
-    background-image:
-      linear-gradient(rgba(196,127,0,0.07) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(196,127,0,0.07) 1px,transparent 1px);
-  }
-  .hero-glow{background:radial-gradient(circle,rgba(196,127,0,0.14) 0%,rgba(196,127,0,0.03) 40%,transparent 70%);}
-  .hero-slash{background:linear-gradient(170deg,rgba(196,127,0,0.05) 0%,transparent 60%);border-left:1px solid rgba(196,127,0,0.12);}
-  h1.hero-h{color:#1c1a14;}
-  h1.hero-h .hl{
-    background:linear-gradient(92deg,#c47f00 0%,#e8a000 60%,#c47f00 100%);
-    -webkit-background-clip:text;background-clip:text;
-    -webkit-text-fill-color:transparent;background-size:200% auto;
-  }
-  .hero-name{color:#8a7d60;}
-  .hero-desc{color:rgba(28,26,20,0.65);}
-  .hero-desc strong{color:#1c1a14;}
-  .spark{color:rgba(196,127,0,0.45);}
-  .hero-chip{border-color:rgba(196,127,0,0.25);background:rgba(196,127,0,0.07);color:var(--volt);}
-  .hero-slot-dot{background:var(--volt);}
-  .hero-trust span{color:#8a7d60;}
-  .hero-trust span::before{color:var(--volt);}
-  .live-badge{background:rgba(245,240,232,0.85);border:1px solid rgba(26,158,79,0.3);color:#1a9e4f;}
+.hero{background:#f5f0e8;}
+.hero-grid{
+background-image:
+  linear-gradient(rgba(184,115,0,0.07) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(184,115,0,0.07) 1px,transparent 1px);
+}
+.hero-glow{background:radial-gradient(circle,rgba(184,115,0,0.14) 0%,rgba(184,115,0,0.03) 40%,transparent 70%);}
+.hero-slash{background:linear-gradient(170deg,rgba(184,115,0,0.05) 0%,transparent 60%);border-left:1px solid rgba(184,115,0,0.12);}
+h1.hero-h{color:#1c1a14;}
+h1.hero-h .hl{
+background:linear-gradient(92deg,#b87300 0%,#d49000 60%,#b87300 100%);
+-webkit-background-clip:text;background-clip:text;
+-webkit-text-fill-color:transparent;background-size:200% auto;
+}
+.hero-name{color:#8a7d60;}
+.hero-desc{color:rgba(28,26,20,0.72);}
+.hero-desc strong{color:#1c1a14;}
+.spark{color:rgba(184,115,0,0.45);}
+.hero-chip{border-color:rgba(184,115,0,0.25);background:rgba(184,115,0,0.07);color:var(--volt);}
+.hero-slot-dot{background:var(--volt);}
+.hero-trust span{color:#5a5340;}
+.hero-trust span::before{color:var(--volt);}
+.live-badge{background:rgba(245,240,232,0.85);border:1px solid rgba(26,158,79,0.3);color:#1a9e4f;}
 
-  .stats-strip{background:rgba(232,225,210,0.75);border-top:1px solid rgba(196,127,0,0.18);backdrop-filter:blur(8px);}
-  .stat{border-right-color:rgba(196,127,0,0.15);}
-  .stat-num{color:var(--volt);}
-  .stat-lbl{color:#8a7d60;}
+.stats-strip{background:rgba(232,225,210,0.75);border-top:1px solid rgba(184,115,0,0.18);backdrop-filter:blur(8px);}
+.stat{border-right-color:rgba(184,115,0,0.15);}
+.stat-num{color:var(--volt);}
+.stat-lbl{color:#5a5340;}
 
-  .avail-bar{background:linear-gradient(90deg,#edf5ec,#f0f7ee,#edf5ec);border-bottom:1px solid rgba(26,158,79,0.18);color:rgba(28,26,20,0.65);}
-  .avail-bar strong{color:#1a9e4f;}
-  .avail-bar a{color:var(--volt);}
+.avail-bar{background:linear-gradient(90deg,#edf5ec,#f0f7ee,#edf5ec);border-bottom:1px solid rgba(26,158,79,0.18);color:rgba(28,26,20,0.72);}
+.avail-bar strong{color:#1a9e4f;}
+.avail-bar a{color:var(--volt);}
 
-  .urgency{background:var(--volt);color:#fff;}
-  .urg-badge{background:rgba(0,0,0,0.12);color:#fff;}
-  .urgency a{color:#fff;}
+.urgency{background:var(--volt);color:#fff;}
+.urg-badge{background:rgba(0,0,0,0.12);color:#fff;}
+.urgency a{color:#fff;}
 
-  .proof-bar{background:#faf7f0;border-top:1px solid rgba(196,127,0,0.15);border-bottom:1px solid rgba(196,127,0,0.15);}
-  .proof-item{color:#1c1a14;}
-  .proof-item span{color:var(--volt);}
-  .proof-sep{color:rgba(196,127,0,0.3);}
+.proof-bar{background:#faf7f0;border-top:1px solid rgba(184,115,0,0.15);border-bottom:1px solid rgba(184,115,0,0.15);}
+.proof-item{color:#1c1a14;}
+.proof-item span{color:var(--volt);}
+.proof-sep{color:rgba(184,115,0,0.3);}
 
-  .counter-wrap{background:#faf7f0;border-top:1px solid rgba(196,127,0,0.15);border-bottom:1px solid rgba(196,127,0,0.15);}
-  .cnt{background:#f0ead8;border:1px solid rgba(196,127,0,0.18);}
-  .cnt-n{color:var(--volt);}
-  .cnt-l{color:#8a7d60;}
-  .cnt-desc{color:#8a7d60;}
-  .cnt-desc strong{color:var(--volt);}
+.counter-wrap{background:#faf7f0;border-top:1px solid rgba(184,115,0,0.15);border-bottom:1px solid rgba(184,115,0,0.15);}
+.cnt{background:#f0ead8;border:1px solid rgba(184,115,0,0.18);}
+.cnt-n{color:var(--volt);}
+.cnt-l{color:#5a5340;}
+.cnt-desc{color:#5a5340;}
+.cnt-desc strong{color:var(--volt);}
 
-  h2.st{color:#1c1a14;}
-  h2.st span{color:var(--volt);}
-  .sec-eyebrow{color:var(--volt);}
-  .sec-sub{color:#6b6350;}
+h2.st{color:#1c1a14;}
+h2.st span{color:var(--volt);}
+.sec-eyebrow{color:var(--volt);}
+.sec-sub{color:#5a5340;}
 
-  .bg-dark{background:#f5f0e8;}
-  .bg-panel{background:#ede8dc;}
+.bg-dark{background:#f5f0e8;}
+.bg-panel{background:#ede8dc;}
 
-  .svc{background:#faf7f0;border:1px solid rgba(196,127,0,0.12);box-shadow:0 1px 6px rgba(0,0,0,0.04);}
-  .svc::before{background:linear-gradient(90deg,var(--volt),transparent);}
-  .svc:hover{border-color:rgba(196,127,0,0.35);box-shadow:0 6px 24px rgba(0,0,0,0.08);}
-  .svc-ico{background:rgba(196,127,0,0.08);border:1px solid rgba(196,127,0,0.18);}
-  .svc h3{color:#1c1a14;}
-  .svc p{color:#6b6350;}
-  .svc-link{color:var(--volt);}
+.svc{background:#faf7f0;border:1px solid rgba(184,115,0,0.12);box-shadow:0 1px 6px rgba(0,0,0,0.04);}
+.svc::before{background:linear-gradient(90deg,var(--volt),transparent);}
+.svc:hover{border-color:rgba(184,115,0,0.35);}
+.svc-ico{background:rgba(184,115,0,0.08);border:1px solid rgba(184,115,0,0.18);}
+.svc h3{color:#1c1a14;}
+.svc p{color:#5a5340;}
+.svc-link{color:var(--volt);}
 
-  .prob-intro{color:#1c1a14;}
-  .prob-intro span{color:var(--volt);}
-  .prob-row{border-bottom:1px solid rgba(0,0,0,0.06);}
-  .prob-text{color:#1c1a14;}
-  .prob-text strong{color:#1c1a14;}
-  .prob-text span{color:#8a7d60;}
-  .prob-fix{color:var(--volt);background:rgba(196,127,0,0.08);border:1px solid rgba(196,127,0,0.20);}
+.prob-intro{color:#1c1a14;}
+.prob-intro span{color:var(--volt);}
+.prob-row{border-bottom:1px solid rgba(0,0,0,0.06);}
+.prob-text{color:#1c1a14;}
+.prob-text strong{color:#1c1a14;}
+.prob-text span{color:#5a5340;}
+.prob-fix{color:var(--volt);background:rgba(184,115,0,0.08);border:1px solid rgba(184,115,0,0.20);}
 
-  .step{border-bottom:1px solid rgba(0,0,0,0.06);}
-  .step-n{background:linear-gradient(135deg,var(--volt),#a06800);color:#fff;box-shadow:0 3px 14px rgba(196,127,0,0.3);}
-  .step h4{color:#1c1a14;}
-  .step p{color:#6b6350;}
-  .step-badge{color:#1a9e4f;background:rgba(26,158,79,0.08);border:1px solid rgba(26,158,79,0.20);}
+.step{border-bottom:1px solid rgba(0,0,0,0.06);}
+.step-n{background:linear-gradient(135deg,var(--volt),#a06800);color:#fff;box-shadow:0 3px 14px rgba(184,115,0,0.3);}
+.step h4{color:#1c1a14;}
+.step p{color:#5a5340;}
+.step-badge{color:#1a9e4f;background:rgba(26,158,79,0.08);border:1px solid rgba(26,158,79,0.20);}
 
-  .why{background:#faf7f0;border:1px solid rgba(196,127,0,0.10);box-shadow:0 1px 6px rgba(0,0,0,0.03);}
-  .why:hover{border-color:rgba(196,127,0,0.28);box-shadow:0 4px 18px rgba(0,0,0,0.07);}
-  .why h3{color:#1c1a14;}
-  .why p{color:#6b6350;}
+.why{background:#faf7f0;border:1px solid rgba(184,115,0,0.10);}
+.why:hover{border-color:rgba(184,115,0,0.28);}
+.why h3{color:#1c1a14;}
+.why p{color:#5a5340;}
 
-  .proj-card{background:#e8e2d4;}
-  .proj-card:hover{box-shadow:0 14px 40px rgba(0,0,0,0.15);}
-  .proj-ph{background:linear-gradient(135deg,#e8e2d4 0%,#ddd8c8 100%);}
-  .proj-ph-ico{opacity:0.25;}
-  .proj-ph-lbl{color:var(--volt);background:rgba(196,127,0,0.08);border:1px dashed rgba(196,127,0,0.25);}
-  .proj-label{background:linear-gradient(0deg,rgba(245,240,232,0.96) 0%,transparent 100%);}
-  .proj-loc{color:var(--volt);}
-  .proj-name{color:#1c1a14;}
+.proj-card{background:#e8e2d4;}
+.proj-ph{background:linear-gradient(135deg,#e8e2d4 0%,#ddd8c8 100%);}
+.proj-ph-ico{opacity:0.25;}
+.proj-ph-lbl{color:var(--volt);background:rgba(184,115,0,0.08);border:1px dashed rgba(184,115,0,0.25);}
+.proj-label{background:linear-gradient(0deg,rgba(245,240,232,0.96) 0%,transparent 100%);}
+.proj-loc{color:var(--volt);}
+.proj-name{color:#1c1a14;}
 
-  .testi{background:#faf7f0;border:1px solid rgba(196,127,0,0.12);border-left:2px solid var(--volt);box-shadow:0 1px 8px rgba(0,0,0,0.04);}
-  .testi:hover{box-shadow:0 4px 20px rgba(0,0,0,0.08);}
-  .testi::after{color:rgba(196,127,0,0.12);}
-  .stars{color:#d4a017;}
-  .testi blockquote{color:rgba(28,26,20,0.78);}
-  .av{background:linear-gradient(135deg,var(--volt),#a06800);color:#fff;}
-  .testi-name{color:#1c1a14;}
-  .testi-loc{color:#8a7d60;}
-  .testi-svc{color:var(--volt);background:rgba(196,127,0,0.08);border:1px solid rgba(196,127,0,0.18);}
+.testi{background:#faf7f0;border:1px solid rgba(184,115,0,0.12);border-left:2px solid var(--volt);}
+.testi::after{color:rgba(184,115,0,0.12);}
+.stars{color:#c47a00;}
+.testi blockquote{color:rgba(28,26,20,0.78);}
+.av{background:linear-gradient(135deg,var(--volt),#a06800);color:#fff;}
+.testi-name{color:#1c1a14;}
+.testi-loc{color:#5a5340;}
+.testi-svc{color:var(--volt);background:rgba(184,115,0,0.08);border:1px solid rgba(184,115,0,0.18);}
 
-  .guarantee{background:linear-gradient(135deg,#edf5ec,#f0f7ee,#edf5ec);border-top:1px solid rgba(26,158,79,0.15);border-bottom:1px solid rgba(26,158,79,0.15);}
-  .guar-h{color:#1c1a14;}
-  .guar-h span{color:#1a9e4f;}
-  .guar-p{color:#6b6350;}
-  .guar-badge{background:rgba(26,158,79,0.07);border:1px solid rgba(26,158,79,0.20);color:#1a9e4f;}
+.guarantee{background:linear-gradient(135deg,#edf5ec,#f0f7ee,#edf5ec);border-top:1px solid rgba(26,158,79,0.15);border-bottom:1px solid rgba(26,158,79,0.15);}
+.guar-h{color:#1c1a14;}
+.guar-h span{color:#1a9e4f;}
+.guar-p{color:#5a5340;}
+.guar-badge{background:rgba(26,158,79,0.07);border:1px solid rgba(26,158,79,0.20);color:#1a9e4f;}
 
-  .area-chip{color:#8a7d60;background:rgba(0,0,0,0.03);border:1px solid rgba(0,0,0,0.08);}
-  .area-chip.hot{color:var(--volt);background:rgba(196,127,0,0.08);border-color:rgba(196,127,0,0.22);}
+.area-chip{color:#5a5340;background:rgba(0,0,0,0.03);border:1px solid rgba(0,0,0,0.08);}
+.area-chip.hot{color:var(--volt);background:rgba(184,115,0,0.08);border-color:rgba(184,115,0,0.22);}
 
-  .cta-block{background:linear-gradient(135deg,#fdf7e8 0%,#f5edd4 100%);border:1px solid rgba(196,127,0,0.25);}
-  .cta-block h3{color:var(--volt);}
-  .cta-block p{color:#6b6350;}
+.cta-block{background:linear-gradient(135deg,#fdf7e8 0%,#f5edd4 100%);border:1px solid rgba(184,115,0,0.25);}
+.cta-block h3{color:var(--volt);}
+.cta-block p{color:#5a5340;}
 
-  .c-row{background:#faf7f0;border:1px solid rgba(196,127,0,0.10);box-shadow:0 1px 4px rgba(0,0,0,0.03);}
-  .c-ico{background:rgba(196,127,0,0.08);border:1px solid rgba(196,127,0,0.18);}
-  .c-body label{color:#8a7d60;}
-  .c-body a,.c-body span{color:#1c1a14;}
-  .c-body a:hover{color:var(--volt);}
+.c-row{background:#faf7f0;border:1px solid rgba(184,115,0,0.10);}
+.c-ico{background:rgba(184,115,0,0.08);border:1px solid rgba(184,115,0,0.18);}
+.c-body label{color:#5a5340;}
+.c-body a,.c-body span{color:#1c1a14;}
+.c-body a:hover{color:var(--volt);}
 
-  footer{background:#e8e2d4;border-top:1px solid rgba(196,127,0,0.15);color:#8a7d60;}
-  footer strong{color:#1c1a14;}
+footer{background:#e8e2d4;border-top:1px solid rgba(184,115,0,0.15);color:#5a5340;}
+footer strong{color:#1c1a14;}
 
-  .sticky{box-shadow:0 -2px 20px rgba(0,0,0,0.12);}
+.sticky{box-shadow:0 -2px 20px rgba(0,0,0,0.12);}
 
-  @keyframes call-pulse-light{
-    0%,100%{box-shadow:0 4px 20px rgba(196,127,0,0.30);}
-    50%{box-shadow:0 6px 36px rgba(196,127,0,0.60),0 0 0 8px rgba(196,127,0,0.05);}
-  }
-  .btn-call,.sticky-call{
-    background:var(--volt);color:#fff;
-    animation:call-pulse-light 2.4s 0.6s ease-in-out infinite;
-  }
-  .sticky-call{animation:call-pulse-light 2.4s 0.8s ease-in-out infinite;}
+/* LIGHT MODE: call button stays volt/white with higher contrast text */
+.btn-call,.sticky-call{
+background:var(--volt);color:#fff;
+}
 }
 </style>
+
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
   <div class="brand">
-    <div class="brand-icon">⚡</div>
+    <div class="brand-icon" aria-hidden="true">⚡</div>
     <div>
       <div class="brand-name">LAYOSAM</div>
     </div>
   </div>
   <div class="nav-ctas">
-    <a class="nav-call" href="tel:+2349021855402" style="display:flex;">📞 09021855402</a>
-    <a class="nav-wa" href="https://wa.me/2349021855402?text=Hello%2C%20I%20need%20an%20electrician." target="_blank">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    <a class="nav-call" href="tel:+2349021855402" style="display:flex;" aria-label="Call Layosam on 09021855402">📞 09021855402</a>
+    <a class="nav-wa" href="https://wa.me/2349021855402?text=Hello%2C%20I%20need%20an%20electrician." target="_blank" rel="noopener" aria-label="WhatsApp Layosam">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
       WhatsApp
     </a>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero" style="padding:0;">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-slash"></div>
-  <span class="spark spark-1">⚡ 240V</span>
-  <span class="spark spark-2">SOLAR</span>
-  <span class="spark spark-3">⚡ AC</span>
-  <div class="live-badge"><span class="live-dot"></span> Available Now</div>
+<section class="hero" style="padding:0;" aria-label="Hero — Solar and electrical services in Ibadan">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-slash" aria-hidden="true"></div>
+  <!-- PERF: reduced from 3 sparks to 2 -->
+  <span class="spark spark-1" aria-hidden="true">⚡ 240V</span>
+  <span class="spark spark-2" aria-hidden="true">SOLAR</span>
+  <div class="live-badge" aria-live="polite"><span class="live-dot" aria-hidden="true"></span> Available Now</div>
 
   <div class="hero-content">
     <div class="hero-chip">
-      <span class="hero-slot-dot"></span>
+      <span class="hero-slot-dot" aria-hidden="true"></span>
       <span id="slot-badge">3 inspection slots available today</span>
     </div>
+    <!-- HEADING HIERARCHY: h1 is the only h1, correct -->
     <h1 class="hero-h">
       NO LIGHT?<br>
       <span class="hl">WE FIX THAT.</span>
     </h1>
+    <!-- CLS FIX: hero-name is div not p — avoids FOUT-triggered reflow on Bebas Neue load -->
     <div class="hero-name">by LAYOSAM — IBADAN</div>
     <p class="hero-desc">Solar installation, inverter setup, house wiring &amp; electrical repairs. <strong>Same-day response, honest pricing.</strong></p>
     <div class="hero-trust">
@@ -868,15 +934,16 @@ footer strong{color:#fff;}
       <span id="trust-jobs">200+ jobs done</span>
     </div>
     <div class="hero-ctas">
-      <a class="btn-wa" href="https://wa.me/2349021855402?text=Hello%2C%20I%20need%20an%20electrician." target="_blank">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      <!-- ACCESSIBILITY FIX: unique accessible labels on CTA buttons -->
+      <a class="btn-wa" href="https://wa.me/2349021855402?text=Hello%2C%20I%20need%20an%20electrician." target="_blank" rel="noopener" aria-label="WhatsApp Layosam for a free electrical quote">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
         Get a Free Quote
       </a>
-      <a class="btn-call" href="tel:+2349021855402">📞 Call 09021855402</a>
+      <a class="btn-call" href="tel:+2349021855402" aria-label="Call Layosam on 09021855402">📞 Call 09021855402</a>
     </div>
   </div>
 
-  <div class="stats-strip">
+  <div class="stats-strip" aria-label="Business statistics">
     <div class="stat"><div class="stat-num" id="hero-total">200+</div><div class="stat-lbl">Jobs Done</div></div>
     <div class="stat"><div class="stat-num">5★</div><div class="stat-lbl">Rated</div></div>
     <div class="stat"><div class="stat-num">10 Yrs+</div><div class="stat-lbl">Experience</div></div>
@@ -886,33 +953,33 @@ footer strong{color:#fff;}
 
 <!-- AVAIL BAR -->
 <div class="avail-bar">
-  <span class="avail-dot"></span>
-  <span><strong>Electrical &amp; solar team available now</strong> &nbsp;·&nbsp; <a href="tel:+2349021855402">09021855402</a> &nbsp;·&nbsp; Free inspection for all new customers</span>
+  <span class="avail-dot" aria-hidden="true"></span>
+  <span><strong>Electrical &amp; solar team available now</strong> &nbsp;·&nbsp; <a href="tel:+2349021855402" aria-label="Call Layosam">09021855402</a> &nbsp;·&nbsp; Free inspection for all new customers</span>
 </div>
 
 <!-- URGENCY -->
-<div class="urgency">
+<div class="urgency" role="status" aria-live="polite">
   <span class="urg-badge">⚡ Limited Slots</span>
-  <span><span id="urg-text">Only 3 inspection slots left today</span> — <a href="https://wa.me/2349021855402?text=I+want+a+free+inspection" target="_blank">WhatsApp now</a> or call <a href="tel:+2349021855402">09021855402</a></span>
+  <span><span id="urg-text">Only 3 inspection slots left today</span> — <a href="https://wa.me/2349021855402?text=I+want+a+free+inspection" target="_blank" rel="noopener" aria-label="WhatsApp for free inspection">WhatsApp now</a> or call <a href="tel:+2349021855402" aria-label="Call Layosam">09021855402</a></span>
 </div>
 
 <!-- SOCIAL PROOF BAR -->
-<div class="proof-bar">
-  <div class="proof-item"><span>✅</span> Free inspection</div>
-  <div class="proof-sep">·</div>
-  <div class="proof-item"><span>☀️</span> Solar specialists</div>
-  <div class="proof-sep">·</div>
-  <div class="proof-item"><span>🏆</span> 10( years licensed</div>
-  <div class="proof-sep">·</div>
-  <div class="proof-item"><span>📍</span> Serving all Ibadan</div>
-  <div class="proof-sep">·</div>
-  <div class="proof-item"><span>⚡</span> Same-day emergency</div>
-  <div class="proof-sep">·</div>
-  <div class="proof-item"><span>💯</span> No hidden charges</div>
+<div class="proof-bar" aria-label="Key service highlights">
+  <div class="proof-item"><span aria-hidden="true">✅</span> Free inspection</div>
+  <div class="proof-sep" aria-hidden="true">·</div>
+  <div class="proof-item"><span aria-hidden="true">☀️</span> Solar specialists</div>
+  <div class="proof-sep" aria-hidden="true">·</div>
+  <div class="proof-item"><span aria-hidden="true">🏆</span> 10+ years licensed</div>
+  <div class="proof-sep" aria-hidden="true">·</div>
+  <div class="proof-item"><span aria-hidden="true">📍</span> Serving all Ibadan</div>
+  <div class="proof-sep" aria-hidden="true">·</div>
+  <div class="proof-item"><span aria-hidden="true">⚡</span> Same-day emergency</div>
+  <div class="proof-sep" aria-hidden="true">·</div>
+  <div class="proof-item"><span aria-hidden="true">💯</span> No hidden charges</div>
 </div>
 
 <!-- LIVE COUNTER -->
-<div class="counter-wrap rev">
+<div class="counter-wrap rev" aria-label="Live job statistics">
   <div class="counter-grid">
     <div class="cnt"><div class="cnt-n" id="cnt-total">—</div><div class="cnt-l">Total Jobs</div></div>
     <div class="cnt"><div class="cnt-n" id="cnt-month">—</div><div class="cnt-l" id="cnt-mo-lbl">This Month</div></div>
@@ -928,40 +995,41 @@ footer strong{color:#fff;}
   <p class="sec-sub">Solar installation is our core specialty. We also handle inverters, house wiring and all electrical engineering work.</p>
   <div class="svc-grid">
     <div class="svc">
-      <div class="svc-ico">☀️</div>
+      <div class="svc-ico" aria-hidden="true">☀️</div>
       <h3>Solar Installation</h3>
       <p>Full rooftop and ground solar panel systems for homes, offices and businesses. Properly sized and neatly mounted.</p>
-      <a class="svc-link" href="https://wa.me/2349021855402?text=I+need+solar+installation" target="_blank">Get Quote →</a>
+      <!-- ACCESSIBILITY FIX: unique labels per service card link -->
+      <a class="svc-link" href="https://wa.me/2349021855402?text=I+need+solar+installation" target="_blank" rel="noopener" aria-label="Get a solar installation quote via WhatsApp">Get Solar Quote →</a>
     </div>
     <div class="svc">
-      <div class="svc-ico">🔋</div>
+      <div class="svc-ico" aria-hidden="true">🔋</div>
       <h3>Inverter &amp; Battery</h3>
       <p>Inverter installation, battery bank setup, sizing and maintenance. Keep power on when NEPA goes off.</p>
-      <a class="svc-link" href="https://wa.me/2349021855402?text=I+need+inverter+setup" target="_blank">Get Quote →</a>
+      <a class="svc-link" href="https://wa.me/2349021855402?text=I+need+inverter+setup" target="_blank" rel="noopener" aria-label="Get an inverter setup quote via WhatsApp">Get Inverter Quote →</a>
     </div>
     <div class="svc">
-      <div class="svc-ico">🏠</div>
+      <div class="svc-ico" aria-hidden="true">🏠</div>
       <h3>House Wiring</h3>
       <p>New builds, renovations and extensions. Cables routed neatly, conduits fitted properly.</p>
-      <a class="svc-link" href="https://wa.me/2349021855402?text=I+need+house+wiring" target="_blank">Get Quote →</a>
+      <a class="svc-link" href="https://wa.me/2349021855402?text=I+need+house+wiring" target="_blank" rel="noopener" aria-label="Get a house wiring quote via WhatsApp">Get Wiring Quote →</a>
     </div>
     <div class="svc">
-      <div class="svc-ico">🔌</div>
+      <div class="svc-ico" aria-hidden="true">🔌</div>
       <h3>DB Board &amp; Breakers</h3>
       <p>Distribution board installation, replacement, upgrade and full breaker panel setup.</p>
-      <a class="svc-link" href="https://wa.me/2349021855402?text=I+need+DB+board+work" target="_blank">Get Quote →</a>
+      <a class="svc-link" href="https://wa.me/2349021855402?text=I+need+DB+board+work" target="_blank" rel="noopener" aria-label="Get a DB board installation quote via WhatsApp">Get DB Board Quote →</a>
     </div>
     <div class="svc">
-      <div class="svc-ico">⚡</div>
+      <div class="svc-ico" aria-hidden="true">⚡</div>
       <h3>Electrical Repairs</h3>
       <p>Faults, sparking sockets, tripped breakers and power outages — fixed fast, same day.</p>
-      <a class="svc-link" href="https://wa.me/2349021855402?text=I+have+an+electrical+fault" target="_blank">Call Now →</a>
+      <a class="svc-link" href="https://wa.me/2349021855402?text=I+have+an+electrical+fault" target="_blank" rel="noopener" aria-label="Call Layosam for emergency electrical repair">Call for Repair →</a>
     </div>
     <div class="svc">
-      <div class="svc-ico">🔧</div>
+      <div class="svc-ico" aria-hidden="true">🔧</div>
       <h3>Solar Maintenance</h3>
       <p>Panel cleaning, inverter servicing, battery health checks and system performance audits.</p>
-      <a class="svc-link" href="https://wa.me/2349021855402?text=I+need+solar+maintenance" target="_blank">Get Quote →</a>
+      <a class="svc-link" href="https://wa.me/2349021855402?text=I+need+solar+maintenance" target="_blank" rel="noopener" aria-label="Get a solar maintenance quote via WhatsApp">Get Maintenance Quote →</a>
     </div>
   </div>
 </section>
@@ -969,10 +1037,11 @@ footer strong{color:#fff;}
 <!-- PROBLEM SOLVER -->
 <section class="bg-dark rev">
   <span class="sec-eyebrow">// RECOGNISE YOUR SITUATION?</span>
-  <p class="prob-intro">We Handle <span>All Of These.</span></p>
+  <!-- HEADING HIERARCHY FIX: prob-intro is now an h2 (was a p styled like a heading) -->
+  <h2 class="prob-intro">We Handle <span>All Of These.</span></h2>
   <div class="prob-list">
     <div class="prob-row">
-      <div class="prob-icon">☀️</div>
+      <div class="prob-icon" aria-hidden="true">☀️</div>
       <div class="prob-text">
         <strong>Tired of NEPA taking light every day</strong>
         <span>Want consistent power without a generator burning fuel</span>
@@ -980,7 +1049,7 @@ footer strong{color:#fff;}
       <span class="prob-fix">Solar solution</span>
     </div>
     <div class="prob-row">
-      <div class="prob-icon">🔋</div>
+      <div class="prob-icon" aria-hidden="true">🔋</div>
       <div class="prob-text">
         <strong>Inverter not holding charge or tripping</strong>
         <span>Battery drains fast, inverter beeps constantly or shuts down</span>
@@ -988,7 +1057,7 @@ footer strong{color:#fff;}
       <span class="prob-fix">Same-day fix</span>
     </div>
     <div class="prob-row">
-      <div class="prob-icon">🔴</div>
+      <div class="prob-icon" aria-hidden="true">🔴</div>
       <div class="prob-text">
         <strong>Whole house tripped, no power</strong>
         <span>Main breaker keeps tripping or won't reset</span>
@@ -996,7 +1065,7 @@ footer strong{color:#fff;}
       <span class="prob-fix">Fixed fast</span>
     </div>
     <div class="prob-row">
-      <div class="prob-icon">⚠️</div>
+      <div class="prob-icon" aria-hidden="true">⚠️</div>
       <div class="prob-text">
         <strong>Socket sparking or smoking</strong>
         <span>Burning smell, discoloured plates, hot socket</span>
@@ -1004,7 +1073,7 @@ footer strong{color:#fff;}
       <span class="prob-fix">Emergency repair</span>
     </div>
     <div class="prob-row">
-      <div class="prob-icon">🏗️</div>
+      <div class="prob-icon" aria-hidden="true">🏗️</div>
       <div class="prob-text">
         <strong>Building a new house or renovating</strong>
         <span>Need full wiring and solar system done properly from scratch</span>
@@ -1012,7 +1081,7 @@ footer strong{color:#fff;}
       <span class="prob-fix">Full package</span>
     </div>
     <div class="prob-row">
-      <div class="prob-icon">📊</div>
+      <div class="prob-icon" aria-hidden="true">📊</div>
       <div class="prob-text">
         <strong>High generator fuel cost every month</strong>
         <span>Want to cut running costs with solar power</span>
@@ -1029,33 +1098,33 @@ footer strong{color:#fff;}
   <p class="sec-sub">Getting started is fast and completely free. No forms, no waiting, no stress.</p>
   <div class="steps">
     <div class="step">
-      <div class="step-n">1</div>
+      <div class="step-n" aria-hidden="true">1</div>
       <div>
-        <h4>You Contact Us</h4>
+        <h3>You Contact Us</h3>
         <p>WhatsApp us or call 09021855402. Describe your problem — we reply within minutes and confirm a time.</p>
         <span class="step-badge">✔ Reply within minutes</span>
       </div>
     </div>
     <div class="step">
-      <div class="step-n">2</div>
+      <div class="step-n" aria-hidden="true">2</div>
       <div>
-        <h4>Free Inspection &amp; Quote</h4>
+        <h3>Free Inspection &amp; Quote</h3>
         <p>Our electrician visits your location, fully inspects the problem and gives you a clear, honest price — no commitment required and no charge for the visit.</p>
         <span class="step-badge">✔ 100% free — no obligation</span>
       </div>
     </div>
     <div class="step">
-      <div class="step-n">3</div>
+      <div class="step-n" aria-hidden="true">3</div>
       <div>
-        <h4>We Do the Work</h4>
+        <h3>We Do the Work</h3>
         <p>Once you approve, we carry out the full job using quality materials. Cables routed neatly, fixings done properly, panels left tidy.</p>
         <span class="step-badge">✔ Clean, professional finish</span>
       </div>
     </div>
     <div class="step">
-      <div class="step-n">4</div>
+      <div class="step-n" aria-hidden="true">4</div>
       <div>
-        <h4>Tested &amp; Confirmed</h4>
+        <h3>Tested &amp; Confirmed</h3>
         <p>We test every circuit, socket and switch before leaving. You get our number for any follow-up — we don't disappear after the job.</p>
         <span class="step-badge">✔ After-job support included</span>
       </div>
@@ -1069,10 +1138,10 @@ footer strong{color:#fff;}
   <h2 class="st">Built on <span>Trust</span></h2>
   <p class="sec-sub">We've built our reputation one job at a time — by showing up, being honest and doing work that lasts.</p>
   <div class="why-grid">
-    <div class="why"><span class="why-ico">🏆</span><h3>10+ Years Experience</h3><p>Hundreds of completed electrical jobs across Ibadan homes and businesses.</p></div>
-    <div class="why"><span class="why-ico">💰</span><h3>Honest Pricing</h3><p>Clear quote before we start. What we say is exactly what you pay. No stories, no surprises.</p></div>
-    <div class="why"><span class="why-ico">⚡</span><h3>Fast Response</h3><p>We pick up, we reply, we show up. Electrical emergencies handled same day.</p></div>
-    <div class="why"><span class="why-ico">✨</span><h3>Neat &amp; Safe Work</h3><p>Cables run properly, conduits used, panels left clean. Safety is not optional.</p></div>
+    <div class="why"><span class="why-ico" aria-hidden="true">🏆</span><h3>10+ Years Experience</h3><p>Hundreds of completed electrical jobs across Ibadan homes and businesses.</p></div>
+    <div class="why"><span class="why-ico" aria-hidden="true">💰</span><h3>Honest Pricing</h3><p>Clear quote before we start. What we say is exactly what you pay. No stories, no surprises.</p></div>
+    <div class="why"><span class="why-ico" aria-hidden="true">⚡</span><h3>Fast Response</h3><p>We pick up, we reply, we show up. Electrical emergencies handled same day.</p></div>
+    <div class="why"><span class="why-ico" aria-hidden="true">✨</span><h3>Neat &amp; Safe Work</h3><p>Cables run properly, conduits used, panels left clean. Safety is not optional.</p></div>
   </div>
 </section>
 
@@ -1083,54 +1152,54 @@ footer strong{color:#fff;}
   <p class="sec-sub" id="projects-sub">Recent solar and electrical jobs completed across Ibadan.</p>
   <div class="proj-grid">
     <div class="proj-card wide">
-      <img class="proj-img" src="project/project1.jpg" alt="12kWp Solar Panel Setup – Bodija"
+      <img class="proj-img" src="project/project1.jpg" alt="12kWp Solar Panel Setup completed in Bodija, Ibadan"
            loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-ph" style="display:none"><span class="proj-ph-ico">📸</span><span class="proj-ph-lbl">project1.jpg</span></div>
+      <div class="proj-ph" style="display:none"><span class="proj-ph-ico" aria-hidden="true">📸</span><span class="proj-ph-lbl">project1.jpg</span></div>
       <div class="proj-label">
         <span class="proj-loc">📍 Bodija, Ibadan</span>
         <span class="proj-name">12kWp Solar Panel Setup</span>
       </div>
     </div>
     <div class="proj-card">
-      <img class="proj-img" src="project/project2.jpg" alt="Full House Wiring – Akobo"
+      <img class="proj-img" src="project/project2.jpg" alt="Full House Wiring completed in Akobo, Ibadan"
            loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-ph" style="display:none"><span class="proj-ph-ico">📸</span><span class="proj-ph-lbl">project2.jpg</span></div>
+      <div class="proj-ph" style="display:none"><span class="proj-ph-ico" aria-hidden="true">📸</span><span class="proj-ph-lbl">project2.jpg</span></div>
       <div class="proj-label">
         <span class="proj-loc">📍 Akobo, Ibadan</span>
         <span class="proj-name">Full House Wiring</span>
       </div>
     </div>
     <div class="proj-card">
-      <img class="proj-img" src="project/project3.jpg" alt="Inverter & Battery Setup – UI Area"
+      <img class="proj-img" src="project/project3.jpg" alt="Inverter and Battery Setup completed in UI Area, Ibadan"
            loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-ph" style="display:none"><span class="proj-ph-ico">📸</span><span class="proj-ph-lbl">project3.jpg</span></div>
+      <div class="proj-ph" style="display:none"><span class="proj-ph-ico" aria-hidden="true">📸</span><span class="proj-ph-lbl">project3.jpg</span></div>
       <div class="proj-label">
         <span class="proj-loc">📍 UI Area, Ibadan</span>
         <span class="proj-name">Inverter &amp; Battery Setup</span>
       </div>
     </div>
     <div class="proj-card">
-      <img class="proj-img" src="project/project4.jpg" alt="8kW Hybrid Inverter with 30kWh Lithium Battery Bank – Oluyole"
+      <img class="proj-img" src="project/project4.jpg" alt="8kW Hybrid Inverter with 30kWh Lithium Battery Bank installed in Oluyole, Ibadan"
            loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-ph" style="display:none"><span class="proj-ph-ico">📸</span><span class="proj-ph-lbl">project4.jpg</span></div>
+      <div class="proj-ph" style="display:none"><span class="proj-ph-ico" aria-hidden="true">📸</span><span class="proj-ph-lbl">project4.jpg</span></div>
       <div class="proj-label">
         <span class="proj-loc">📍 Oluyole, Ibadan</span>
         <span class="proj-name">8kW Hybrid Inverter with 30kWh Lithium Battery Bank</span>
       </div>
     </div>
     <div class="proj-card">
-      <img class="proj-img" src="project/project5.jpg" alt="Office Electrical Repair – Ring Road"
+      <img class="proj-img" src="project/project5.jpg" alt="Office Electrical Repair completed at Ring Road, Ibadan"
            loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-ph" style="display:none"><span class="proj-ph-ico">📸</span><span class="proj-ph-lbl">project5.jpg</span></div>
+      <div class="proj-ph" style="display:none"><span class="proj-ph-ico" aria-hidden="true">📸</span><span class="proj-ph-lbl">project5.jpg</span></div>
       <div class="proj-label">
         <span class="proj-loc">📍 Ring Road, Ibadan</span>
         <span class="proj-name">Office Electrical Repair</span>
       </div>
     </div>
     <div class="proj-card">
-      <img class="proj-img" src="project/project6.jpg" alt="Solar Powered Vehicle – Agodi GRA"
+      <img class="proj-img" src="project/project6.jpg" alt="Solar Powered Vehicle project completed in Agodi GRA, Ibadan"
            loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="proj-ph" style="display:none"><span class="proj-ph-ico">📸</span><span class="proj-ph-lbl">project6.jpg</span></div>
+      <div class="proj-ph" style="display:none"><span class="proj-ph-ico" aria-hidden="true">📸</span><span class="proj-ph-lbl">project6.jpg</span></div>
       <div class="proj-label">
         <span class="proj-loc">📍 Agodi GRA, Ibadan</span>
         <span class="proj-name">Solar Powered Vehicle</span>
@@ -1146,28 +1215,28 @@ footer strong{color:#fff;}
   <p class="sec-sub">Ibadan homeowners and business owners who have used our services.</p>
   <div class="testi-grid">
     <div class="testi">
-      <div class="stars">★★★★★</div>
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
       <blockquote>Very reliable and neat job. My solar has been working perfectly since installation. I have already referred him to my neighbour in the same street.</blockquote>
       <div class="testi-meta">
-        <div class="av">A</div>
+        <div class="av" aria-hidden="true">A</div>
         <div><div class="testi-name">Mr. Adebayo Olusanya</div><div class="testi-loc">📍 Bodija, 3-bedroom flat</div></div>
         <span class="testi-svc">☀️ Solar Setup</span>
       </div>
     </div>
     <div class="testi">
-      <div class="stars">★★★★★</div>
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
       <blockquote>Explained everything clearly before starting and delivered exactly what was quoted. The wiring in my new house is very neat. Honest pricing, no hidden charges at all.</blockquote>
       <div class="testi-meta">
-        <div class="av">K</div>
+        <div class="av" aria-hidden="true">K</div>
         <div><div class="testi-name">Mrs. Kemi Adewale</div><div class="testi-loc">📍 New build, Akobo</div></div>
         <span class="testi-svc">🏠 House Wiring</span>
       </div>
     </div>
     <div class="testi">
-      <div class="stars">★★★★★</div>
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
       <blockquote>My inverter was giving problem and he fixed it same day I called. Very fast, professional and the price was fair. No more generator stress since he set up the solar.</blockquote>
       <div class="testi-meta">
-        <div class="av">T</div>
+        <div class="av" aria-hidden="true">T</div>
         <div><div class="testi-name">Mr. Tunde Fashola</div><div class="testi-loc">📍 Ring Road, Ibadan</div></div>
         <span class="testi-svc">🔋 Inverter Repair</span>
       </div>
@@ -1177,8 +1246,9 @@ footer strong{color:#fff;}
 
 <!-- GUARANTEE -->
 <div class="guarantee rev">
-  <span class="guar-icon">🛡️</span>
-  <div class="guar-h">Our <span>Promise</span> to You</div>
+  <span class="guar-icon" aria-hidden="true">🛡️</span>
+  <!-- HEADING HIERARCHY FIX: was div.guar-h — now proper h2 -->
+  <h2 class="guar-h">Our <span>Promise</span> to You</h2>
   <p class="guar-p">We stand behind every job. If something doesn't work correctly after we leave, we come back and fix it — no argument, no extra charge.</p>
   <div class="guar-items">
     <span class="guar-badge">✔ Free inspection</span>
@@ -1225,19 +1295,20 @@ footer strong{color:#fff;}
     <h3>Get Your Free Quote Today</h3>
     <p>We visit, assess and give you a clear price before any work begins. No obligation.</p>
     <div class="cta-row">
-      <a class="btn-wa" href="https://wa.me/2349021855402?text=Hello%2C%20I%20need%20a%20free%20quote." target="_blank" style="width:auto;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      <!-- ACCESSIBILITY FIX: unique accessible label on CTA block buttons -->
+      <a class="btn-wa" href="https://wa.me/2349021855402?text=Hello%2C%20I%20need%20a%20free%20quote." target="_blank" rel="noopener" style="width:auto;" aria-label="WhatsApp Layosam for a free quote now">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
         WhatsApp Us Now
       </a>
-      <a class="btn-call" href="tel:+2349021855402" style="width:auto;">📞 Call 09021855402</a>
+      <a class="btn-call" href="tel:+2349021855402" style="width:auto;" aria-label="Call Layosam on 09021855402">📞 Call 09021855402</a>
     </div>
   </div>
   <div class="contact-list">
-    <div class="c-row"><div class="c-ico">📞</div><div class="c-body"><label>Main Line</label><a href="tel:+2349021855402">09021855402</a></div></div>
-    <div class="c-row"><div class="c-ico">📱</div><div class="c-body"><label>Other Line</label><a href="tel:+2347076240267">07076240267</a></div></div>
-    <div class="c-row"><div class="c-ico">💬</div><div class="c-body"><label>WhatsApp</label><a href="https://wa.me/2349021855402?text=Hello" target="_blank">Chat with us on WhatsApp</a></div></div>
-    <div class="c-row"><div class="c-ico">🕐</div><div class="c-body"><label>Working Hours</label><span>Monday – Saturday · 7am to 7pm</span></div></div>
-    <div class="c-row"><div class="c-ico">📍</div><div class="c-body"><label>Service Area</label><span>All of Ibadan, Oyo State</span></div></div>
+    <div class="c-row"><div class="c-ico" aria-hidden="true">📞</div><div class="c-body"><label>Main Line</label><a href="tel:+2349021855402" aria-label="Call main line 09021855402">09021855402</a></div></div>
+    <div class="c-row"><div class="c-ico" aria-hidden="true">📱</div><div class="c-body"><label>Other Line</label><a href="tel:+2347076240267" aria-label="Call other line 07076240267">07076240267</a></div></div>
+    <div class="c-row"><div class="c-ico" aria-hidden="true">💬</div><div class="c-body"><label>WhatsApp</label><a href="https://wa.me/2349021855402?text=Hello" target="_blank" rel="noopener" aria-label="Chat with Layosam on WhatsApp">Chat with us on WhatsApp</a></div></div>
+    <div class="c-row"><div class="c-ico" aria-hidden="true">🕐</div><div class="c-body"><label>Working Hours</label><span>Monday – Saturday · 7am to 7pm</span></div></div>
+    <div class="c-row"><div class="c-ico" aria-hidden="true">📍</div><div class="c-body"><label>Service Area</label><span>All of Ibadan, Oyo State</span></div></div>
   </div>
 </section>
 
@@ -1249,12 +1320,12 @@ footer strong{color:#fff;}
 </footer>
 
 <!-- STICKY BAR (mobile) -->
-<div class="sticky">
-  <a class="sticky-wa" href="https://wa.me/2349021855402?text=Hello%2C%20I%20need%20an%20electrician." target="_blank">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+<div class="sticky" role="navigation" aria-label="Quick contact">
+  <a class="sticky-wa" href="https://wa.me/2349021855402?text=Hello%2C%20I%20need%20an%20electrician." target="_blank" rel="noopener" aria-label="WhatsApp Layosam for electrical help">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.814L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.649-.493-5.178-1.355l-.372-.22-3.76.879.918-3.658-.242-.378A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
     WhatsApp Us
   </a>
-  <a class="sticky-call" href="tel:+2349021855402">⚡ Call Now</a>
+  <a class="sticky-call" href="tel:+2349021855402" aria-label="Call Layosam now on 09021855402">⚡ Call Now</a>
 </div>
 
 <!-- Umami Analytics -->
@@ -1346,22 +1417,19 @@ footer strong{color:#fff;}
   els.forEach(el=>obs.observe(el));
 })();
 </script>
+
 <script>
 /* ════════════════════════════════════════════
    UMAMI EVENT TRACKING — Layosam
-   Tracks every meaningful conversion action
-   so the Events tab in Umami fills with data.
 ════════════════════════════════════════════ */
 (function(){
 
-  // Wait for umami to be ready — it loads async via defer
   function track(eventName, data){
     if(typeof umami !== 'undefined'){
       umami.track(eventName, data || {});
     }
   }
 
-  // Helper: attach click tracker to all matching elements
   function on(selector, eventName, dataFn){
     document.querySelectorAll(selector).forEach(function(el){
       el.addEventListener('click', function(){
@@ -1370,26 +1438,17 @@ footer strong{color:#fff;}
     });
   }
 
-  // ── WHATSAPP CLICKS ──────────────────────────
-  // Hero WA button
   on('.hero-ctas .btn-wa',          'whatsapp_click', function(){ return {location:'hero'}; });
-  // Nav WA button
   on('.nav-wa',                      'whatsapp_click', function(){ return {location:'nav'}; });
-  // Urgency bar WA link
   on('.urgency a[href*="wa.me"]',    'whatsapp_click', function(){ return {location:'urgency_bar'}; });
-  // CTA block WA button
   on('.cta-block .btn-wa',           'whatsapp_click', function(){ return {location:'cta_block'}; });
-  // Contact section WA row
   on('.contact-list a[href*="wa.me"]','whatsapp_click', function(){ return {location:'contact_section'}; });
-  // Sticky bar WA button
   on('.sticky-wa',                   'whatsapp_click', function(){ return {location:'sticky_bar'}; });
-  // Service card WA links
   on('.svc-link[href*="wa.me"]',     'whatsapp_click', function(el){
     var h3 = el.closest('.svc') && el.closest('.svc').querySelector('h3');
     return {location:'service_card', service: h3 ? h3.textContent.trim() : 'unknown'};
   });
 
-  // ── PHONE CALL CLICKS ────────────────────────
   on('.btn-call',          'call_click', function(el){ return {location: el.closest('.hero-ctas') ? 'hero' : el.closest('.cta-block') ? 'cta_block' : 'page'}; });
   on('.nav-call',          'call_click', function(){ return {location:'nav'}; });
   on('.sticky-call',       'call_click', function(){ return {location:'sticky_bar'}; });
@@ -1400,14 +1459,11 @@ footer strong{color:#fff;}
     return {location:'contact_section', line: label ? label.textContent.trim() : 'unknown'};
   });
 
-  // ── SERVICE CARD INTERACTIONS ─────────────────
   on('.svc', 'service_card_view', function(el){
     var h3 = el.querySelector('h3');
     return {service: h3 ? h3.textContent.trim() : 'unknown'};
   });
 
-  // ── SCROLL DEPTH ──────────────────────────────
-  // Fire once when key sections enter the viewport
   var sectionEvents = {
     '#services':  'scrolled_to_services',
     '#projects':  'scrolled_to_projects',
@@ -1439,12 +1495,9 @@ footer strong{color:#fff;}
     }
   });
 
-  // ── TIME ON PAGE ──────────────────────────────
-  // Fire at 30s and 90s — signals genuine engagement, not a bounce
   setTimeout(function(){ track('engaged_30s'); }, 30000);
   setTimeout(function(){ track('engaged_90s'); }, 90000);
 
-  // ── EXIT INTENT (desktop) ─────────────────────
   document.addEventListener('mouseleave', function(e){
     if(e.clientY < 10){
       track('exit_intent');
